@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help | All-Spaces Task Report | Kitefold</title>
+<meta name="description" content="How to set up the All-Spaces Task Report and the weekly task digest, and answers to common questions.">
+<link rel="canonical" href="https://kitefold.app/help/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Help | All-Spaces Task Report | Kitefold">
+<meta property="og:description" content="How to set up the All-Spaces Task Report and the weekly task digest, and answers to common questions.">
+<meta property="og:url" content="https://kitefold.app/help/">
+<meta property="og:type" content="website">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <nav class="nav" aria-label="Main"><a href="../">Home</a><a href="../task-report/">Task Report</a><a href="../help/" aria-current="page">Help</a><a href="../privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="doc">
+  <div class="wrap">
+    <span class="eyebrow">Help</span>
+    <h1>All-Spaces Task Report: help and FAQ</h1>
+    <p class="lead">How to set up the report and the weekly digest, and answers to the questions people ask most.</p>
+
+    <nav class="toc" aria-label="On this page">
+      <ol>
+        <li><a href="#getting-started">Add a report to a page</a></li>
+        <li><a href="#settings">Report settings</a></li>
+        <li><a href="#using">Using the report</a></li>
+        <li><a href="#digest">Set up the weekly digest</a></li>
+        <li><a href="#faq">Common questions</a></li>
+        <li><a href="#support">Contact support</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="getting-started">1. Add a report to a page</h2>
+    <ol>
+      <li>A Confluence admin installs <b>All-Spaces Task Report for Confluence</b> from the Atlassian Marketplace (in Confluence: <b>Apps</b> → <b>Explore more apps</b>).</li>
+      <li>Edit any page, type <code>/</code> and choose <b>All-Spaces Task Report</b>.</li>
+      <li>Open the macro's settings (the pencil on the macro) and choose what to show. The defaults show every open task in every space you can see, grouped by space.</li>
+      <li>Publish the page. The first time you view it, Confluence asks you to <a href="#allow-access">allow access</a>. Press <b>Allow access</b>, and the report loads.</li>
+    </ol>
+    <div class="note"><p><b>Tip:</b> set <b>Assignee</b> to <b>Me (whoever is viewing)</b> and put the report on a team page. Everyone who opens the page sees their own tasks.</p></div>
+
+    <h2 id="settings">2. Report settings</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Setting</th><th>Options</th></tr></thead>
+        <tbody>
+          <tr><td>Spaces</td><td><b>All spaces I can see</b>, <b>Only these spaces</b> or <b>All spaces except these</b>. For the last two, type the space keys separated by commas, for example <code>ENG, OPS</code>. A space's key is in its address after <code>/spaces/</code>.</td></tr>
+          <tr><td>Assignee</td><td><b>Anyone</b>, <b>Me (whoever is viewing)</b> or <b>These people</b> (pick them in the People box).</td></tr>
+          <tr><td>Status</td><td><b>Open</b>, <b>Done</b> or <b>Open and done</b>.</td></tr>
+          <tr><td>Due from / Due to</td><td>Only tasks due on or between these dates. Leave empty for any date.</td></tr>
+          <tr><td>Only overdue tasks</td><td>Only open tasks whose due date has passed.</td></tr>
+          <tr><td>Group by</td><td><b>Space</b>, <b>Page</b>, <b>Assignee</b> or <b>No grouping</b>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="using">3. Using the report</h2>
+    <ul>
+      <li><b>The counts</b> at the top show how many matching tasks are open, overdue and due this week. They count every task that matches the settings, not just the rows on screen.</li>
+      <li><b>Order:</b> overdue and soonest tasks come first, then tasks with later dates, then tasks with no due date.</li>
+      <li><b>Load more</b> shows the next 50 tasks.</li>
+      <li><b>Tick a task</b> to mark it done (or untick it). The change is made on the task's page, as you.</li>
+      <li>Each task shows its page as a link. Open it to see the task in context.</li>
+    </ul>
+
+    <h2 id="digest">4. Set up the weekly digest</h2>
+    <p>The digest posts a new page every week that lists each person with tasks overdue or due in the next 7 days. Everyone listed is @mentioned, so Confluence notifies them by email. It shows counts only, never task text or page titles.</p>
+    <ol>
+      <li>Create a page to hold the digests, for example “Weekly task digests”. Everyone who should see the digest needs to be able to view this page.</li>
+      <li>Edit it, type <code>/</code> and add <b>Weekly task digest</b>. In its settings, choose which spaces to count and the day to post (Monday to Friday).</li>
+      <li>Publish the page, then press <b>Turn on</b>.</li>
+      <li>To see one straight away, press <b>Post one now</b>. Each digest appears as a child page called “Task digest” with the date.</li>
+    </ol>
+    <ul>
+      <li>Only people who can edit the digest page can turn it on, change its settings or turn it off.</li>
+      <li>If you change the macro's settings, press <b>Save settings</b> so the next digest uses them.</li>
+      <li>Digests post once on the chosen day (days run on UTC). Pressing <b>Post one now</b> counts as that day's post.</li>
+      <li>Add an <b>All-Spaces Task Report</b> set to <b>Me</b> on the same page: each digest links back to it, so people can go straight to their own list.</li>
+    </ul>
+
+    <h2 id="faq">5. Common questions</h2>
+
+    <details id="allow-access">
+      <summary>Why does it ask me to “Allow access”? Is something wrong?</summary>
+      <p>No, this is normal and happens once per person. Apps built on Atlassian Forge must ask each person before they read Confluence on that person's behalf. The report needs this so it can read tasks <b>as you</b>, which is what makes it show only what you're allowed to see. Press <b>Allow access</b> and the report loads. You won't be asked again unless the app later needs a new permission.</p>
+    </details>
+
+    <details>
+      <summary>A task I can see in Confluence is missing from the report</summary>
+      <p>Check these first:</p>
+      <ul>
+        <li><b>Settings:</b> the task might be outside the spaces, people, status or dates the report is set to.</li>
+        <li><b>Live docs:</b> Confluence sometimes doesn't return tasks on live docs to apps. This is a known Confluence issue that Atlassian is tracking (CONFCLOUD-81783), and it affects every app that reads tasks. Tasks on ordinary published pages aren't affected.</li>
+        <li><b>Permissions:</b> the report only shows tasks on pages you can open, so a task on a restricted page won't appear for you even if it's assigned to you.</li>
+        <li><b>Very large sites:</b> one report counts up to 10,000 matching tasks. If you reach that, it tells you, and you can narrow the spaces, people or dates.</li>
+      </ul>
+      <p>If none of these explain it, email us with the page's link and we'll look into it.</p>
+    </details>
+
+    <details>
+      <summary>Why couldn't I tick a task?</summary>
+      <p>Ticking a task changes the page it's on, and the app does that as you. If you can view the page but not edit it, Confluence refuses the change and the report says: “You don't have permission to edit this task. You need edit access to the page it's on.” The tick goes back to how it was. Ask the page's owner for edit access, or ask them to tick it.</p>
+    </details>
+
+    <details>
+      <summary>Why do two people see different numbers in the same report?</summary>
+      <p>Because the report reads Confluence as whoever is viewing it. If a colleague can see a space you can't, their report includes its tasks and yours doesn't. This is on purpose: nobody sees tasks they couldn't open themselves.</p>
+    </details>
+
+    <details>
+      <summary>How does the weekly digest work out its numbers?</summary>
+      <p>First it looks at the chosen spaces as the person who last turned the digest on or saved its settings, to find who has tasks overdue or due in the next 7 days. Then it counts each of those people's tasks <b>as that person</b>, so each number matches what they'd see in their own report set to “Me”. Tasks with nobody assigned aren't included, because there's nobody to remind.</p>
+      <p>Anyone who can view the digest page can see the names and counts on it, so put it under a page that the right people can see.</p>
+    </details>
+
+    <details>
+      <summary>What counts as “due this week” and “due soon”?</summary>
+      <p><b>Due this week</b> means open tasks due today or in the next 6 days (7 days in all), by your own calendar date. Overdue tasks are counted separately. The <b>Due soon</b> label marks tasks due today or in the next 2 days.</p>
+    </details>
+
+    <details>
+      <summary>Does the app copy or store our tasks?</summary>
+      <p>No. Tasks are read from Confluence when the report loads and aren't saved anywhere. The only thing the app stores is each weekly digest's settings. The app runs on Atlassian Forge and sends nothing outside Atlassian. See the <a href="../privacy/">privacy policy</a> for the details.</p>
+    </details>
+
+    <details>
+      <summary>The report says the licence isn't active</summary>
+      <p>The app needs an active licence on your site (it's free for sites with up to 10 users). A Confluence admin can check or renew it in Confluence under <b>Apps</b> → <b>Manage apps</b>.</p>
+    </details>
+
+    <details>
+      <summary>How do I stop the weekly digest?</summary>
+      <p>Open the page with the <b>Weekly task digest</b> macro and press <b>Turn off</b>. Digests already posted stay as normal pages, and you can delete them like any other page. If the digest's page is deleted, the digest turns itself off.</p>
+    </details>
+
+    <h2 id="support">6. Contact support</h2>
+    <p>Email <b>hello@kitefold.app</b>. We aim to reply within two working days (UK). It helps to include:</p>
+    <ul>
+      <li>your Confluence site address (for example <code>yourcompany.atlassian.net</code>)</li>
+      <li>the page with the report or digest</li>
+      <li>what you expected and what happened, with a screenshot if you can</li>
+    </ul>
+    <p class="faint">Please don't send passwords or API tokens. We'll never ask for them.</p>
+  </div>
+</div>
+<script>
+  // Open a question when its link is followed (e.g. help/#allow-access).
+  function openFromHash() {
+    var el = location.hash && document.getElementById(location.hash.slice(1));
+    if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
+</script>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="../task-report/">All-Spaces Task Report</a></p>
+      <p><a href="../help/">Help and FAQ</a></p>
+      <p><a href="../privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Email: hello@kitefold.app</p>
+      <p>[POSTAL ADDRESS]</p>
+    </div>
+    <p class="legal">&copy; 2026 Yosh [SURNAME], trading as Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>
