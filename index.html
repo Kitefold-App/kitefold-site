@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitefold: simple, careful apps for Confluence</title>
+<meta name="description" content="Kitefold makes small Atlassian Marketplace apps for Confluence Cloud that run on Atlassian's own platform and only show people what they can already see.">
+<link rel="canonical" href="https://kitefold.app/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Kitefold: simple, careful apps for Confluence">
+<meta property="og:description" content="Kitefold makes small Atlassian Marketplace apps for Confluence Cloud that run on Atlassian's own platform and only show people what they can already see.">
+<meta property="og:url" content="https://kitefold.app/">
+<meta property="og:type" content="website">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <nav class="nav" aria-label="Main"><a href="./" aria-current="page">Home</a><a href="task-report/">Task Report</a><a href="help/">Help</a><a href="privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Apps for Confluence Cloud</span>
+    <h1>Small apps that do one job well, and keep your data where it is.</h1>
+    <p class="lead">Kitefold builds focused apps for the Atlassian Marketplace. They run on Atlassian's own platform, show people only what they can already see, and don't send your content anywhere else.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="task-report/">See the Task Report</a>
+      <a class="btn btn-ghost" href="help/">Read the help</a>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap app-card">
+    <div>
+      <span class="pill">Coming soon to the Atlassian Marketplace</span>
+      <h2 style="margin-top:14px">All-Spaces Task Report for Confluence</h2>
+      <p class="muted">Confluence tasks are scattered across pages and spaces. This app gathers every task you can see, from every space, into one report on any page, with true counts of what's open, overdue and due this week. A weekly digest page lets each person know what needs their attention.</p>
+      <ul class="ticks">
+        <li>Filter by space, person, status and due date</li>
+        <li>Group by space, page or person, overdue first</li>
+        <li>Tick tasks off straight from the report</li>
+        <li>Free for teams of up to 10 users</li>
+      </ul>
+      <a class="btn btn-ghost" href="task-report/">Learn more</a>
+    </div>
+    <div>
+      <div class="mock" role="img" aria-label="Illustration of the report: a title, counts of open, overdue and due-this-week tasks, and task rows grouped by space">
+        <div class="mock-title">Tasks across all spaces</div>
+        <div class="mock-counts"><span class="lz">24 open</span><span class="lz lz-bad">3 overdue</span><span class="lz lz-warn">7 due this week</span></div>
+        <div class="mock-sub">open · grouped by space</div>
+        <div class="mock-group">Engineering <span>9</span></div>
+        <div class="mock-row"><div class="box"></div><div class="mock-task"><b>Update the release notes</b><small>Release 4.2 plan</small></div><div class="who"><span class="av" style="background:#2f5fb3">PS</span>Priya</div><div class="due">2 Oct<span class="lz lz-bad">Overdue</span></div></div>
+        <div class="mock-row"><div class="box"></div><div class="mock-task"><b>Review the API changes</b><small>Sprint 18 notes</small></div><div class="who"><span class="av" style="background:#1f7a4d">SO</span>Sam</div><div class="due">9 Oct<span class="lz lz-warn">Due soon</span></div></div>
+        <div class="mock-group">Operations <span>6</span></div>
+        <div class="mock-row"><div class="box"></div><div class="mock-task"><b>Book the quarterly fire drill</b><small>Office checklist</small></div><div class="who"><span class="av" style="background:#8a4fbf">AL</span>Alex</div><div class="due">15 Oct</div></div>
+      </div>
+      <p class="caption">Illustration with made-up data</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>How Kitefold apps are built</h2>
+    <p class="muted" style="max-width:40em">These rules apply to every Kitefold app, and you can check them in each app's Marketplace listing and privacy details.</p>
+    <div class="grid" style="margin-top:28px">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/></svg></div>
+        <h3>Runs on Atlassian Forge</h3>
+        <p class="muted">The apps are hosted by Atlassian, inside your Atlassian cloud. There are no Kitefold servers, and the apps make no calls to outside services.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div>
+        <h3>Shows only what you can see</h3>
+        <p class="muted">The apps read Confluence as the person viewing them, so Confluence's own permissions decide what appears. Nobody sees content from a space or page they can't open.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+        <h3>Keeps as little as possible</h3>
+        <p class="muted">Your pages and tasks are read when needed and never copied into storage. No analytics, no tracking and no AI services see your content.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split">
+    <div>
+      <h2>About Kitefold</h2>
+      <p class="muted">Kitefold is a small, independent business in the United Kingdom, run by Yosh [SURNAME], a software developer. It makes practical apps for teams who live in Confluence, starting with the All-Spaces Task Report.</p>
+    </div>
+    <div>
+      <h2>Get in touch</h2>
+      <p class="muted">Questions, bugs or ideas are welcome. Email <b>hello@kitefold.app</b> and you'll hear back within two working days.</p>
+      <p class="faint">Kitefold, [POSTAL ADDRESS]</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="task-report/">All-Spaces Task Report</a></p>
+      <p><a href="help/">Help and FAQ</a></p>
+      <p><a href="privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Email: hello@kitefold.app</p>
+      <p>[POSTAL ADDRESS]</p>
+    </div>
+    <p class="legal">&copy; 2026 Yosh [SURNAME], trading as Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>

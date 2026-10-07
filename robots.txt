@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kitefold.app/sitemap.xml
