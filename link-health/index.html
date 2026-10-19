@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Link Health &amp; Cleanup for Confluence | Kitefold</title>
+<meta name="description" content="Find broken links, old server links, orphan pages and unused attachments across every Confluence space, see incoming links on every page, and clean up safely.">
+<link rel="canonical" href="https://kitefold.app/link-health/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Link Health &amp; Cleanup for Confluence | Kitefold">
+<meta property="og:description" content="Find broken links, old server links, orphan pages and unused attachments across every Confluence space, see incoming links on every page, and clean up safely.">
+<meta property="og:url" content="https://kitefold.app/link-health/">
+<meta property="og:type" content="website">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <nav class="nav" aria-label="Main"><a href="../">Home</a><a href="../task-report/">Task Report</a><a href="../link-health/" aria-current="page">Link Health</a><a href="../help/">Help</a><a href="../privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="wrap app-card">
+    <div>
+      <span class="pill">Coming soon to the Atlassian Marketplace</span>
+      <h1 style="margin-top:16px">Link Health &amp; Cleanup for Confluence</h1>
+      <p class="lead">Find every broken link, orphan page and unused attachment across all your spaces, see which pages link to each page, and clean up safely. Made for Confluence admins and anyone who looks after documentation, especially after a move from Data Center.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="#getting-started">How to set it up</a>
+        <span class="faint">Free for up to 10 users</span>
+      </div>
+    </div>
+    <div>
+      <div class="mock" role="img" aria-label="Illustration of the admin page: totals for broken links, old server links, orphan pages and unused files, and a list of broken links">
+        <div class="mock-title">Link Health &amp; Cleanup</div>
+        <div class="mock-counts"><span class="lz lz-bad">42 broken links</span><span class="lz lz-warn">18 orphan pages</span><span class="lz">96 unused files · 310 MB</span></div>
+        <div class="mock-sub">broken links · all spaces</div>
+        <div class="mock-group">Engineering <span>17</span></div>
+        <div class="mock-row"><div class="box"></div><div class="mock-task"><b>Release 4.2 plan</b><small>Page “API changes v3” doesn't exist</small></div><div class="who"></div><div class="due"><span class="lz lz-bad">Broken</span></div></div>
+        <div class="mock-row"><div class="box"></div><div class="mock-task"><b>Onboarding guide</b><small>Link to wiki.example-old.com</small></div><div class="who"></div><div class="due"><span class="lz lz-warn">Old server</span></div></div>
+        <div class="mock-group">Operations <span>9</span></div>
+        <div class="mock-row"><div class="box"></div><div class="mock-task"><b>Office checklist</b><small>File “floor-plan-2023.pdf” isn't there</small></div><div class="who"></div><div class="due"><span class="lz lz-bad">Broken</span></div></div>
+      </div>
+      <p class="caption">Illustration with made-up data</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>What it finds</h2>
+    <p class="muted" style="max-width:44em">Confluence can't tell you which pages link to a page, which links are broken, or which files nobody uses. Link Health keeps an index of every link on your site, inside Atlassian, and turns it into reports and a byline on every page.</p>
+    <div class="grid grid-3" style="margin-top:24px">
+      <div class="card">
+        <h3>Broken links</h3>
+        <p class="muted">Links to pages, blog posts, files or spaces that don't exist or are in the trash, with the page the link is on and what it points to.</p>
+      </div>
+      <div class="card">
+        <h3>Old server links</h3>
+        <p class="muted">Enter your old Confluence Data Center or Server address and see every link that still points to it. These stopped working when you moved to Cloud.</p>
+      </div>
+      <div class="card">
+        <h3>Orphan pages</h3>
+        <p class="muted">Pages that no other page or blog post links to. Archive the ones nobody needs, or mark the rest as not orphans.</p>
+      </div>
+      <div class="card">
+        <h3>Unused attachments</h3>
+        <p class="muted">Files that no page shows or links to, across every space, with their sizes and the largest first. Move them to the trash in a few clicks.</p>
+      </div>
+      <div class="card">
+        <h3>Stale pages</h3>
+        <p class="muted">Pages nobody has edited for 1 to 24 months, oldest first, straight from Confluence search.</p>
+      </div>
+      <div class="card">
+        <h3>Incoming links on every page</h3>
+        <p class="muted">“Linked from 12 pages” under each page title. Click it to see the pages, grouped by space, or add the <b>Incoming links</b> macro to a page.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div>
+      <h2>Careful by design</h2>
+      <p class="muted">An app that reads every space has to be careful about who sees what, and about what it changes.</p>
+    </div>
+    <div>
+      <ul class="ticks">
+        <li><b>Shows only what you can see.</b> Every list and every “Linked from” count is checked against Confluence's permissions as the person viewing it. Pages in spaces or pages you can't open are left out and counted, never named.</li>
+        <li><b>Stores links, never page text.</b> The index holds page and file ids, titles, link targets, file names and sizes. It's kept in Atlassian's storage for the app and deleted when the app is uninstalled.</li>
+        <li><b>Clean-up you can undo.</b> Archiving pages and moving files to the trash happen as you, so Confluence's permissions apply, and both can be undone. Nothing is ever deleted permanently.</li>
+        <li><b>Nothing leaves Atlassian.</b> The app runs on Atlassian Forge and makes no calls to outside services. No analytics and no AI.</li>
+      </ul>
+      <p><a href="../privacy/#link-health">Read the privacy policy</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split">
+    <div>
+      <h2>Pricing</h2>
+      <p class="muted">Free for sites with up to 10 users. Larger sites pay per user through the Atlassian Marketplace, billed by Atlassian with your other apps. Every plan includes all the reports, the byline and the clean-up actions, and you can try it free first.</p>
+    </div>
+    <div>
+      <h2>Requirements</h2>
+      <ul class="ticks">
+        <li>Confluence Cloud (the app is not available for Data Center)</li>
+        <li>A Confluence admin to install it and use the reports</li>
+        <li>Tested on sites with up to 100,000 pages (<a href="#large-sites">larger sites</a>)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="doc" id="help">
+  <div class="wrap">
+    <span class="eyebrow">Help</span>
+    <h2 style="margin-top:8px">Help and FAQ</h2>
+
+    <nav class="toc" aria-label="Help on this page">
+      <ol>
+        <li><a href="#getting-started">Getting started</a></li>
+        <li><a href="#reports">The reports</a></li>
+        <li><a href="#incoming">Incoming links on each page</a></li>
+        <li><a href="#cleanup">Cleaning up</a></li>
+        <li><a href="#settings">Settings and the index</a></li>
+        <li><a href="#large-sites">Large sites</a></li>
+        <li><a href="#faq">Common questions</a></li>
+        <li><a href="#support">Contact support</a></li>
+      </ol>
+    </nav>
+
+    <h3 id="getting-started">1. Getting started</h3>
+    <ol>
+      <li>A Confluence admin installs <b>Link Health &amp; Cleanup</b> from the Atlassian Marketplace (in Confluence: <b>Apps</b> → <b>Explore more apps</b>).</li>
+      <li>The app starts building its index straight away. On most sites this takes a few minutes; very large sites can take a few hours.</li>
+      <li>In Confluence, open <b>Settings</b> (the cog, top right) and choose <b>Link Health &amp; Cleanup</b> in the menu. The first time, Confluence asks you to <a href="#allow-access">allow access</a>.</li>
+      <li>While the index is being built, the page shows how far it has got. The reports appear by themselves when it's finished.</li>
+    </ol>
+    <div class="note"><p><b>Tip:</b> if you moved from Data Center or Server, enter your old address on the <b>Old server</b> tab (for example <code>wiki.example.com</code>) to find links that still point to it.</p></div>
+
+    <h3 id="reports">2. The reports</h3>
+    <p>The admin page has a tab for each report. Every list can be filtered by space and exported as CSV.</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Tab</th><th>What it lists</th></tr></thead>
+        <tbody>
+          <tr><td>Overview</td><td>The totals for each report, then each space's numbers. Click a column heading to put the spaces with the most first.</td></tr>
+          <tr><td>Broken links</td><td>Links to pages, blog posts, spaces or files that don't exist or are in the trash. Links to archived pages aren't counted as broken. Links to a missing file usually don't show on the page at all; edit the page to find and remove them.</td></tr>
+          <tr><td>Old server</td><td>Links to the old address you enter (subdomains are included). Separate several addresses with commas.</td></tr>
+          <tr><td>Orphans</td><td>Pages that no other page or blog post links to. Space homepages aren't included, and the page tree doesn't count as a link, so an orphan may still be easy to find. Mark pages that are meant to be reached another way as <b>Not an orphan</b>.</td></tr>
+          <tr><td>Unused files</td><td>Files that no page or blog post shows or links to, largest first, with their sizes. A page's header image counts as used. Files on a page with the <b>Attachments</b> macro count as used too, unless you press <b>List them too</b>.</td></tr>
+          <tr><td>Stale pages</td><td>Pages nobody has edited for the chosen time (1, 3, 6, 12 or 24 months), oldest first. This list comes straight from Confluence search each time, as you.</td></tr>
+          <tr><td>Settings</td><td>Spaces to leave out, and the index: when it was last built, and <b>Build index</b> to rebuild it now.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="incoming">3. Incoming links on each page</h3>
+    <ul>
+      <li>Under every page title, the byline says <b>Linked from 12 pages</b> (or <b>No incoming links</b>). Click it to see those pages, grouped by space.</li>
+      <li>To show the same list on a page, edit it, type <code>/</code> and add the <b>Incoming links</b> macro.</li>
+      <li>The count only includes pages you're allowed to open, so two people can see different numbers.</li>
+      <li>When a page changes, its links are updated within a few minutes.</li>
+    </ul>
+
+    <h3 id="cleanup">4. Cleaning up</h3>
+    <ul>
+      <li><b>Archive pages:</b> on the <b>Orphans</b> tab, tick up to 50 pages and press <b>Archive selected</b>. They move to their space's archive, where anyone with permission can restore them.</li>
+      <li><b>Move files to the trash:</b> on the <b>Unused files</b> tab, tick up to 50 files and press <b>Move selected to trash</b>. A space admin can restore them from the space's trash until it's emptied.</li>
+      <li>Both ask you to confirm first, then show what happened to each item. They run as you, so Confluence refuses anything you don't have permission to change, and the list says why.</li>
+      <li>The app never deletes anything permanently.</li>
+    </ul>
+
+    <h3 id="settings">5. Settings and the index</h3>
+    <ul>
+      <li><b>Spaces to leave out:</b> choose spaces you don't want to clean up, such as templates, Atlassian's sample content or old archives. From the next index they aren't read at all: nothing in them is listed, links into them show as “can't check” rather than broken, and links from them don't count.</li>
+      <li><b>How fresh the reports are:</b> page edits reach the reports within about 15 minutes (on sites over 100,000 pages, within about an hour). The whole site is re-indexed overnight when pages have changed, and at least once a week, which also picks up deleted pages and new files.</li>
+      <li><b>Build index</b> rebuilds the index now, for example after leaving spaces out or adding them back.</li>
+    </ul>
+
+    <h3 id="large-sites">6. Large sites</h3>
+    <p>Link Health is tested on sites with up to 100,000 pages and blog posts. Sites with up to 300,000 work too; the first index takes several hours because Atlassian limits how fast apps can read a site, and the admin page shows how long is left. Above 300,000, the app asks you to leave some spaces out first. If you need it for a larger site, email <b>support@kitefold.app</b>.</p>
+
+    <h3 id="faq">7. Common questions</h3>
+
+    <details id="allow-access">
+      <summary>Why does it ask me to “Allow access”?</summary>
+      <p>This is normal and happens once per person. Apps built on Atlassian Forge must ask before they read Confluence on someone's behalf. Link Health needs it so it can check each list and each “Linked from” count <b>as you</b>, which is what keeps pages you can't open out of view. Press <b>Allow access</b>. Until you do, the byline shows just <b>Incoming links</b>, without a number.</p>
+    </details>
+
+    <details id="index-contents">
+      <summary>What does the index store? Does it copy our pages?</summary>
+      <p>No page text is ever stored. To work out the reports, the index keeps, for each page and blog post: its id, title, space, status and short-link code, and the targets of its links (including link addresses). For files it keeps the id, file name, size and the page it's on. It's kept in Atlassian's storage for the app, inside your Atlassian cloud, and deleted when the app is uninstalled. See the <a href="../privacy/#link-health">privacy policy</a>.</p>
+    </details>
+
+    <details>
+      <summary>Why are some links marked “can't check”?</summary>
+      <p>They point into a space the app isn't allowed to read, or one you've left out. The app can't tell whether the page exists, so it doesn't call the link broken. To include a restricted space, give the app permission to view it in the space's permissions.</p>
+    </details>
+
+    <details>
+      <summary>A page is listed as an orphan, but people can find it</summary>
+      <p>Only links count. Pages reached through the page tree, or listed by macros that build their list automatically (such as <b>Children display</b> or <b>Content by label</b>), have no link pointing to them. Mark them as <b>Not an orphan</b>, or leave out spaces full of them.</p>
+    </details>
+
+    <details>
+      <summary>I restored a file from the trash, but it's not back on Unused files</summary>
+      <p>Confluence doesn't tell apps when a file is restored, so it reappears after the next full index (overnight, or press <b>Build index</b> on the Settings tab).</p>
+    </details>
+
+    <details>
+      <summary>Does it check links to other websites?</summary>
+      <p>No. Checking outside websites would mean sending requests outside Atlassian, which the app never does. It checks links within your Confluence site and links to your old server address.</p>
+    </details>
+
+    <details>
+      <summary>The app says the licence isn't active</summary>
+      <p>The app needs an active licence on your site (it's free for sites with up to 10 users). A Confluence admin can check or renew it under <b>Apps</b> → <b>Manage apps</b>. The index is kept while the licence is inactive, and rebuilt once it's active again.</p>
+    </details>
+
+    <h3 id="support">8. Contact support</h3>
+    <p>Email <b>support@kitefold.app</b>. We aim to reply within two working days (UK). It helps to include your Confluence site address, the tab or page you were on, and what you expected and what happened, with a screenshot if you can.</p>
+    <p class="faint">Please don't send passwords or API tokens. We'll never ask for them.</p>
+  </div>
+</div>
+<script>
+  // Open a question when its link is followed (e.g. link-health/#allow-access).
+  function openFromHash() {
+    var el = location.hash && document.getElementById(location.hash.slice(1));
+    if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
+</script>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="../task-report/">All-Spaces Task Report</a></p>
+      <p><a href="../link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="../help/">Help and FAQ</a></p>
+      <p><a href="../privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Support: support@kitefold.app</p>
+      <p>General: hello@kitefold.app</p>
+      
+    </div>
+    <p class="legal">&copy; 2026 Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>

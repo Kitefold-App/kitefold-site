@@ -18,7 +18,7 @@
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
-    <nav class="nav" aria-label="Main"><a href="./" aria-current="page">Home</a><a href="task-report/">Task Report</a><a href="help/">Help</a><a href="privacy/">Privacy</a></nav>
+    <nav class="nav" aria-label="Main"><a href="./" aria-current="page">Home</a><a href="task-report/">Task Report</a><a href="link-health/">Link Health</a><a href="help/">Help</a><a href="privacy/">Privacy</a></nav>
   </div>
 </header>
 <main id="main">
@@ -29,7 +29,7 @@
     <p class="lead">Kitefold builds focused apps for the Atlassian Marketplace. They run on Atlassian's own platform, show people only what they can already see, and don't send your content anywhere else.</p>
     <div class="btns">
       <a class="btn btn-primary" href="task-report/">See the Task Report</a>
-      <a class="btn btn-ghost" href="help/">Read the help</a>
+      <a class="btn btn-ghost" href="link-health/">See Link Health</a>
     </div>
   </div>
 </section>
@@ -65,6 +65,34 @@
 </section>
 
 <section>
+  <div class="wrap app-card">
+    <div>
+      <span class="pill">Coming soon to the Atlassian Marketplace</span>
+      <h2 style="margin-top:14px">Link Health &amp; Cleanup for Confluence</h2>
+      <p class="muted">Confluence can't tell you which links are broken, which pages nothing links to, or which files nobody uses. This app keeps an index of every link on your site, inside Atlassian, and lists them all, with safe clean-up you can undo.</p>
+      <ul class="ticks">
+        <li>Broken links and links to your old Data Center server</li>
+        <li>Orphan pages and unused attachments, with sizes, across every space</li>
+        <li>“Linked from 12 pages” under every page title</li>
+        <li>Free for teams of up to 10 users</li>
+      </ul>
+      <a class="btn btn-ghost" href="link-health/">Learn more</a>
+    </div>
+    <div>
+      <div class="mock" role="img" aria-label="Illustration of the admin page: totals for broken links, orphan pages and unused files, and broken links grouped by space">
+        <div class="mock-title">Link Health &amp; Cleanup</div>
+        <div class="mock-counts"><span class="lz lz-bad">42 broken links</span><span class="lz lz-warn">18 orphan pages</span><span class="lz">96 unused files</span></div>
+        <div class="mock-sub">broken links · all spaces</div>
+        <div class="mock-group">Engineering <span>17</span></div>
+        <div class="mock-row"><div class="box"></div><div class="mock-task"><b>Release 4.2 plan</b><small>Page “API changes v3” doesn't exist</small></div><div class="who"></div><div class="due"><span class="lz lz-bad">Broken</span></div></div>
+        <div class="mock-row"><div class="box"></div><div class="mock-task"><b>Onboarding guide</b><small>Link to wiki.example-old.com</small></div><div class="who"></div><div class="due"><span class="lz lz-warn">Old server</span></div></div>
+      </div>
+      <p class="caption">Illustration with made-up data</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
   <div class="wrap">
     <h2>How Kitefold apps are built</h2>
     <p class="muted" style="max-width:40em">These rules apply to every Kitefold app, and you can check them in each app's Marketplace listing and privacy details.</p>
@@ -77,22 +105,22 @@
       <div class="card">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div>
         <h3>Shows only what you can see</h3>
-        <p class="muted">The apps read Confluence as the person viewing them, so Confluence's own permissions decide what appears. Nobody sees content from a space or page they can't open.</p>
+        <p class="muted">Everything the apps show is checked against Confluence's permissions as the person viewing it. Nobody sees content from a space or page they can't open.</p>
       </div>
       <div class="card">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
         <h3>Keeps as little as possible</h3>
-        <p class="muted">Your pages and tasks are read when needed and never copied into storage. No analytics, no tracking and no AI services see your content.</p>
+        <p class="muted">The apps store only what a feature needs, inside Atlassian, and never your page text. No analytics, no tracking and no AI services see your content.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="band">
+<section>
   <div class="wrap split">
     <div>
       <h2>About Kitefold</h2>
-      <p class="muted">Kitefold is a small, independent software business in the United Kingdom. It makes practical apps for teams who live in Confluence, starting with the All-Spaces Task Report.</p>
+      <p class="muted">Kitefold is a small, independent software business in the United Kingdom. It makes practical apps for teams who live in Confluence, starting with the All-Spaces Task Report and Link Health &amp; Cleanup.</p>
     </div>
     <div>
       <h2>Get in touch</h2>
@@ -112,6 +140,7 @@
     <div>
       <h4>Pages</h4>
       <p><a href="task-report/">All-Spaces Task Report</a></p>
+      <p><a href="link-health/">Link Health &amp; Cleanup</a></p>
       <p><a href="help/">Help and FAQ</a></p>
       <p><a href="privacy/">Privacy policy</a></p>
     </div>
