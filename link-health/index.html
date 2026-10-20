@@ -138,7 +138,7 @@
     <h3 id="getting-started">1. Getting started</h3>
     <ol>
       <li>A Confluence admin installs <b>Link Health &amp; Cleanup</b> from the Atlassian Marketplace (in Confluence: <b>Apps</b> → <b>Explore more apps</b>).</li>
-      <li>The app starts building its index straight away. On most sites this takes a few minutes; very large sites can take a few hours.</li>
+      <li>The app starts building its index straight away. On most sites this takes a few minutes; large sites can take several hours, because Atlassian limits how much apps can read from Confluence each hour.</li>
       <li>In Confluence, open <b>Settings</b> (the cog, top right) and choose <b>Link Health &amp; Cleanup</b> in the menu. The first time, Confluence asks you to <a href="#allow-access">allow access</a>.</li>
       <li>While the index is being built, the page shows how far it has got. The reports appear by themselves when it's finished.</li>
     </ol>
@@ -163,7 +163,7 @@
 
     <h3 id="incoming">3. Incoming links on each page</h3>
     <ul>
-      <li>Under every page title, the byline says <b>Linked from 12 pages</b> (or <b>No incoming links</b>). Click it to see those pages, grouped by space.</li>
+      <li>Under every page title, the byline says <b>Linked from 12 pages</b> (or <b>No incoming links</b>). Click it to see those pages, grouped by space. When Confluence is very busy the byline may briefly say just <b>Incoming links</b>; the list in it still works.</li>
       <li>To show the same list on a page, edit it, type <code>/</code> and add the <b>Incoming links</b> macro.</li>
       <li>The count only includes pages you're allowed to open, so two people can see different numbers.</li>
       <li>When a page changes, its links are updated within a few minutes.</li>
@@ -180,12 +180,12 @@
     <h3 id="settings">5. Settings and the index</h3>
     <ul>
       <li><b>Spaces to leave out:</b> choose spaces you don't want to clean up, such as templates, Atlassian's sample content or old archives. From the next index they aren't read at all: nothing in them is listed, links into them show as “can't check” rather than broken, and links from them don't count.</li>
-      <li><b>How fresh the reports are:</b> page edits reach the reports within about 15 minutes (on sites over 100,000 pages, within about an hour). The whole site is re-indexed overnight when pages have changed, and at least once a week, which also picks up deleted pages and new files.</li>
+      <li><b>How fresh the reports are:</b> page edits reach the reports within about 15 minutes (on sites over 100,000 pages, within about an hour). The whole site is re-indexed overnight when pages have changed, and at least once a week (once a week on sites over 20,000 pages), which also picks up deleted pages and new files.</li>
       <li><b>Build index</b> rebuilds the index now, for example after leaving spaces out or adding them back.</li>
     </ul>
 
     <h3 id="large-sites">6. Large sites</h3>
-    <p>Link Health is tested on sites with up to 100,000 pages and blog posts. Sites with up to 300,000 work too; the first index takes several hours because Atlassian limits how fast apps can read a site, and the admin page shows how long is left. Above 300,000, the app asks you to leave some spaces out first. If you need it for a larger site, email <b>support@kitefold.app</b>.</p>
+    <p>Link Health is tested on sites with up to 100,000 pages and blog posts. Sites with up to 300,000 work too; the first index can take a day or two because Atlassian limits how much apps can read from Confluence each hour, and the admin page shows how long is left. Above 300,000, the app asks you to leave some spaces out first. If you need it for a larger site, email <b>support@kitefold.app</b>.</p>
 
     <h3 id="faq">7. Common questions</h3>
 
@@ -211,7 +211,7 @@
 
     <details>
       <summary>I restored a file from the trash, but it's not back on Unused files</summary>
-      <p>Confluence doesn't tell apps when a file is restored, so it reappears after the next full index (overnight, or press <b>Build index</b> on the Settings tab).</p>
+      <p>Confluence doesn't tell apps when a file is restored, so it reappears after the next full index (overnight, or within a week on sites over 20,000 pages; or press <b>Build index</b> on the Settings tab).</p>
     </details>
 
     <details>
