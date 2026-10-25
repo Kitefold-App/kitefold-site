@@ -1,0 +1,19 @@
+modules:
+  # The search page (Apps menu → Query & Bulk Actions). In this starter it only says the app is installed;
+  # searching, saved searches, the macro and bulk actions arrive in later patches (see SPEC.md §14).
+  confluence:globalPage:
+    - key: query-bulk-search
+      resource: search
+      render: native
+      title: Query & Bulk Actions
+      route: query-bulk
+resources:
+  - key: search
+    path: src/frontend/search.jsx
+app:
+  runtime:
+    name: nodejs22.x
+    memoryMB: 256
+    architecture: arm64
+  # Replaced by your real app id when you run: forge register "Query & Bulk Actions"
+  id: ari:cloud:ecosystem::app/00000000-0000-0000-0000-000000000000
