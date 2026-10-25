@@ -8,6 +8,7 @@
 <link rel="canonical" href="https://kitefold.app/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
+<script src="menu.js"></script>
 <meta property="og:title" content="Kitefold: simple, careful apps for Confluence">
 <meta property="og:description" content="Kitefold makes small Atlassian Marketplace apps for Confluence Cloud that run on Atlassian's own platform and only show people what they can already see.">
 <meta property="og:url" content="https://kitefold.app/">
@@ -18,7 +19,8 @@
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
-    <nav class="nav" aria-label="Main"><a href="./" aria-current="page">Home</a><a href="task-report/">Task Report</a><a href="link-health/">Link Health</a><a href="query-bulk/">Query &amp; Bulk</a><a href="help/">Help</a><a href="privacy/">Privacy</a></nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="./" aria-current="page">Home</a><a href="task-report/">Task Report</a><a href="link-health/">Link Health</a><a href="query-bulk/">Query &amp; Bulk</a><a href="help/">Help</a><a href="privacy/">Privacy</a></nav>
   </div>
 </header>
 <main id="main">
