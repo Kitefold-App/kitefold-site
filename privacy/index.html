@@ -18,7 +18,7 @@
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
-    <nav class="nav" aria-label="Main"><a href="../">Home</a><a href="../task-report/">Task Report</a><a href="../link-health/">Link Health</a><a href="../help/">Help</a><a href="../privacy/" aria-current="page">Privacy</a></nav>
+    <nav class="nav" aria-label="Main"><a href="../">Home</a><a href="../task-report/">Task Report</a><a href="../link-health/">Link Health</a><a href="../query-bulk/">Query &amp; Bulk</a><a href="../help/">Help</a><a href="../privacy/" aria-current="page">Privacy</a></nav>
   </div>
 </header>
 <main id="main">
@@ -26,10 +26,10 @@
   <div class="wrap">
     <span class="eyebrow">Privacy</span>
     <h1>Privacy policy</h1>
-    <p class="faint">Last updated 19 October 2026</p>
+    <p class="faint">Last updated 25 October 2026</p>
 
     <div class="note">
-      <p><b>In short:</b> Kitefold's apps run on Atlassian's own platform and send nothing outside Atlassian. The All-Spaces Task Report reads your tasks as the person viewing them and stores only the settings for each weekly digest. Link Health &amp; Cleanup keeps an index of the links on your site (ids, titles, link targets, file names and sizes, never page text) in Atlassian's storage for the app, and checks everything it shows as the person viewing it. This website uses no cookies and no tracking.</p>
+      <p><b>In short:</b> Kitefold's apps run on Atlassian's own platform and send nothing outside Atlassian. The All-Spaces Task Report reads your tasks as the person viewing them and stores only the settings for each weekly digest. Link Health &amp; Cleanup keeps an index of the links on your site (ids, titles, link targets, file names and sizes, never page text) in Atlassian's storage for the app, and checks everything it shows as the person viewing it. Query &amp; Bulk Actions searches and changes Confluence as the person using it, in their browser, and stores only saved searches, one setting and usage counts; its optional plain-English search uses an AI model hosted by Atlassian that never sees page content. This website uses no cookies and no tracking.</p>
     </div>
 
     <nav class="toc" aria-label="On this page">
@@ -37,6 +37,7 @@
         <li><a href="#who">Who we are</a></li>
         <li><a href="#app">The All-Spaces Task Report app</a></li>
         <li><a href="#link-health">The Link Health &amp; Cleanup app</a></li>
+        <li><a href="#query-bulk">The Query &amp; Bulk Actions app</a></li>
         <li><a href="#licences">Licences and purchases</a></li>
         <li><a href="#support">Support emails</a></li>
         <li><a href="#website">This website</a></li>
@@ -143,16 +144,60 @@
       <li>It doesn't sell or share your data.</li>
     </ul>
 
-    <h2 id="licences">4. Licences and purchases</h2>
+    <h2 id="query-bulk">4. The Query &amp; Bulk Actions app</h2>
+
+    <h3>Where it runs</h3>
+    <p>Like all Kitefold apps, it's built on Atlassian Forge and runs inside the same Atlassian cloud as your Confluence site. Kitefold has no servers of its own, and the app makes no calls to any service outside Atlassian.</p>
+
+    <h3>What it reads</h3>
+    <p>The app reads Confluence <b>as the person using it</b>, in their browser: the search results they ask for (titles, types, spaces, dates, people, labels, versions, parent pages and file sizes, as they choose), space and label names for the pickers, and people's names. It never sees more than that person can. Search results are shown on the page and, if the person exports them, saved to a file on their own computer; they're never stored by the app.</p>
+
+    <h3>What it changes</h3>
+    <ul>
+      <li>Only what the person chooses to change, after a preview and a confirmation, and as that person, so Confluence refuses anything they aren't allowed to change: <b>adding and removing labels</b> (including renaming or merging a label across the site), <b>watching and stopping watching pages</b> (for themselves, or for someone else if they're a Confluence admin or space admin), and <b>archiving pages</b>. It never deletes anything and never edits page content.</li>
+    </ul>
+
+    <h3>What it stores</h3>
+    <p>In Atlassian's Forge storage for the app:</p>
+    <ul>
+      <li>saved searches: the name, the search text (CQL), columns, sort and number of rows, whether it's shared, dates, and the Atlassian account ID of the person who saved it and of a Confluence admin who last edited it</li>
+      <li>one setting: whether bulk actions are shown on the search page</li>
+      <li>usage counts with no personal data: an hourly record of how much the site has asked of Confluence (kept 48 hours), a weekly count of how often Confluence asked the app to slow down, and a monthly count of plain-English searches with the AI model used and its token totals</li>
+      <li>for the current month only, the Atlassian account IDs of people who have used “Ask in plain English”, so the site's allowance can grow with them; they expire automatically on the 3rd of the next month</li>
+    </ul>
+    <p>It stores no search results, page content, page titles or people's names. In the person's own browser it keeps a few minutes of a <b>Query results</b> macro's results (so the page loads quickly), their column and row choices, and a note of a bulk run in progress (so it can say if the run was cut short). When the app is uninstalled, Atlassian deletes the app's stored data under its own retention rules for Forge apps.</p>
+
+    <h3 id="query-bulk-ai">Ask in plain English (AI)</h3>
+    <p>When someone uses “Ask in plain English”, their request, today's date, the list of search fields the app allows, the names of spaces they can see and the names of up to 20 labels that share a word with the request are sent to an AI model hosted by Atlassian inside its own platform (Forge LLMs). Page content, page titles and people are never sent. The AI writes a search that the person sees and can change before it runs. Kitefold doesn't store or log what anyone types, and nothing is sent to an AI service outside Atlassian. The feature is optional; the rest of the app works without it.</p>
+
+    <h3 id="query-bulk-data-residency">Data residency</h3>
+    <p>Everything the app stores is listed above and is kept only in Atlassian's Forge hosted storage, so it follows the data residency location your organisation has chosen for its Atlassian apps.</p>
+    <ul>
+      <li><b>In scope for data residency:</b> saved searches, the setting and the usage counts listed above.</li>
+      <li><b>Out of scope:</b> nothing stored. Plain-English requests are processed by Atlassian's hosted AI and not stored by the app.</li>
+    </ul>
+
+    <h3>Logs</h3>
+    <p>The app's technical logs, kept by Atlassian for a limited time, record counts, the AI model name, token totals, error codes and Confluence's usage-limit readings. They never include what anyone types, search results or page content.</p>
+
+    <h3>What the app doesn't do</h3>
+    <ul>
+      <li>It doesn't send your data outside Atlassian.</li>
+      <li>It doesn't use analytics, tracking or advertising.</li>
+      <li>It doesn't send page content to any AI service.</li>
+      <li>It doesn't sell or share your data.</li>
+    </ul>
+
+    <h2 id="licences">5. Licences and purchases</h2>
     <p>The apps are sold through the Atlassian Marketplace, and Atlassian handles all payments. We never see card or bank details. Atlassian shares licence information with us, which can include your organisation's name, your Confluence site address, and the names and email addresses of your technical and billing contacts. We use it only to manage licences, provide support and send important notices about the app. We keep it while your licence is active and afterwards for as long as the law requires us to keep business records (usually up to 6 years).</p>
 
-    <h2 id="support">5. Support emails</h2>
+    <h2 id="support">6. Support emails</h2>
     <p>If you email us, we receive your name, email address and whatever you send, and use it only to help you. We keep support emails for up to 2 years after the conversation ends, unless they're part of a business record we must keep for longer. Please don't send passwords, API tokens or confidential content.</p>
 
-    <h2 id="website">6. This website</h2>
+    <h2 id="website">7. This website</h2>
     <p>kitefold.app sets no cookies and uses no analytics, tracking, adverts, embedded videos, external fonts or third-party scripts. It's hosted on GitHub Pages, run by GitHub, Inc. Like any web host, GitHub may record visitors' IP addresses in its server logs for security and to run the service; see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub's privacy statement</a>. We don't receive or use those logs.</p>
 
-    <h2 id="basis">7. Why we're allowed to use data</h2>
+    <h2 id="basis">8. Why we're allowed to use data</h2>
     <p>Under UK data protection law (the UK GDPR and the Data Protection Act 2018), we rely on:</p>
     <ul>
       <li><b>Legitimate interests</b>: to provide the app's features your organisation chose to use, to fix problems, and to keep this website working and secure.</li>
@@ -160,20 +205,20 @@
       <li><b>Legal obligation</b>: to keep business and tax records.</li>
     </ul>
 
-    <h2 id="sharing">8. Who else is involved</h2>
+    <h2 id="sharing">9. Who else is involved</h2>
     <ul>
-      <li><b>Atlassian</b> hosts and runs the apps, handles Marketplace purchases and processes your Confluence data under its own terms.</li>
+      <li><b>Atlassian</b> hosts and runs the apps, handles Marketplace purchases and processes your Confluence data under its own terms. For Query &amp; Bulk Actions' plain-English search, Atlassian also runs the AI model (Forge LLMs).</li>
       <li><b>Hostinger</b> provides our email service, so support emails are stored with them.</li>
       <li><b>GitHub</b> hosts this website.</li>
     </ul>
     <p>These providers may process data outside the UK. They use their own legal safeguards for international transfers. We don't share personal data with anyone else unless the law requires it.</p>
 
-    <h2 id="rights">9. Your rights</h2>
+    <h2 id="rights">10. Your rights</h2>
     <p>You have the right to ask for a copy of your personal data, and to ask us to correct it, delete it, restrict how we use it or stop using it. Email <b>hello@kitefold.app</b> and we'll reply within one month.</p>
-    <p>Your Confluence content belongs to your organisation, so for data inside your Confluence site (such as tasks, digest pages or Link Health's index), please contact your organisation's Confluence admin first.</p>
+    <p>Your Confluence content belongs to your organisation, so for data inside your Confluence site (such as tasks, digest pages, Link Health's index or Query &amp; Bulk Actions' saved searches), please contact your organisation's Confluence admin first.</p>
     <p>If you're unhappy with how we've handled your data, you can complain to the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk/make-a-complaint/" rel="noopener">ico.org.uk/make-a-complaint</a> or on 0303 123 1113. We'd appreciate the chance to put things right first.</p>
 
-    <h2 id="changes">10. Changes to this policy</h2>
+    <h2 id="changes">11. Changes to this policy</h2>
     <p>If an app or this website starts using data differently, we'll update this page and the date at the top before the change takes effect. Significant changes will also be noted in the app's Marketplace listing.</p>
   </div>
 </div>
@@ -189,6 +234,7 @@
       <h4>Pages</h4>
       <p><a href="../task-report/">All-Spaces Task Report</a></p>
       <p><a href="../link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="../query-bulk/">Query &amp; Bulk Actions</a></p>
       <p><a href="../help/">Help and FAQ</a></p>
       <p><a href="../privacy/">Privacy policy</a></p>
     </div>

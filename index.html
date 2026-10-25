@@ -18,7 +18,7 @@
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
-    <nav class="nav" aria-label="Main"><a href="./" aria-current="page">Home</a><a href="task-report/">Task Report</a><a href="link-health/">Link Health</a><a href="help/">Help</a><a href="privacy/">Privacy</a></nav>
+    <nav class="nav" aria-label="Main"><a href="./" aria-current="page">Home</a><a href="task-report/">Task Report</a><a href="link-health/">Link Health</a><a href="query-bulk/">Query &amp; Bulk</a><a href="help/">Help</a><a href="privacy/">Privacy</a></nav>
   </div>
 </header>
 <main id="main">
@@ -30,6 +30,7 @@
     <div class="btns">
       <a class="btn btn-primary" href="task-report/">See the Task Report</a>
       <a class="btn btn-ghost" href="link-health/">See Link Health</a>
+      <a class="btn btn-ghost" href="query-bulk/">See Query &amp; Bulk Actions</a>
     </div>
   </div>
 </section>
@@ -93,6 +94,35 @@
 </section>
 
 <section class="band">
+  <div class="wrap app-card">
+    <div>
+      <span class="pill">Coming soon to the Atlassian Marketplace</span>
+      <h2 style="margin-top:14px">Query &amp; Bulk Actions for Confluence</h2>
+      <p class="muted">Write a Confluence search in plain English, with a builder or in CQL, and check it before it runs. Save and share it, show its live results on any page, and change the results in bulk, always with a preview first.</p>
+      <ul class="ticks">
+        <li>Saved searches, private or shared with your site</li>
+        <li>A Query results macro with the columns you choose</li>
+        <li>Add, remove, rename or merge labels; watch and archive pages</li>
+        <li>Free for teams of up to 10 users</li>
+      </ul>
+      <a class="btn btn-ghost" href="query-bulk/">Learn more</a>
+    </div>
+    <div>
+      <div class="mock" role="img" aria-label="Illustration of the search page: a plain-English request, the CQL it became, and a preview of adding a label to three results">
+        <div class="mock-title">Query &amp; Bulk Actions</div>
+        <div class="mock-sub">“HR pages nobody has updated in a year”</div>
+        <div class="mock-sub"><code>space = "HR" AND type = page AND lastmodified &lt; now("-1y")</code></div>
+        <div class="mock-sub">48 results · 2 selected</div>
+        <div class="mock-row"><div class="box"></div><div class="mock-task"><b>Leave policy 2024</b><small>HR · last changed 14 Mar 2025</small></div><div class="who"></div><div class="due"><span class="lz lz-warn">Selected</span></div></div>
+        <div class="mock-row"><div class="box"></div><div class="mock-task"><b>Benefits FAQ</b><small>HR · last changed 9 Jan 2025</small></div><div class="who"></div><div class="due"><span class="lz lz-warn">Selected</span></div></div>
+        <div class="mock-group">Preview: add “needs-review” to 2 items <span>Cancel · Add</span></div>
+      </div>
+      <p class="caption">Illustration with made-up data</p>
+    </div>
+  </div>
+</section>
+
+<section>
   <div class="wrap">
     <h2>How Kitefold apps are built</h2>
     <p class="muted" style="max-width:40em">These rules apply to every Kitefold app, and you can check them in each app's Marketplace listing and privacy details.</p>
@@ -110,17 +140,17 @@
       <div class="card">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
         <h3>Keeps as little as possible</h3>
-        <p class="muted">The apps store only what a feature needs, inside Atlassian, and never your page text. No analytics, no tracking and no AI services see your content.</p>
+        <p class="muted">The apps store only what a feature needs, inside Atlassian, and never your page text. No analytics, no tracking, and no AI service ever sees your page content. (Query &amp; Bulk Actions' optional plain-English search uses an AI model hosted by Atlassian, which sees only your request and the names of spaces and labels.)</p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<section class="band">
   <div class="wrap split">
     <div>
       <h2>About Kitefold</h2>
-      <p class="muted">Kitefold is a small, independent software business in the United Kingdom. It makes practical apps for teams who live in Confluence, starting with the All-Spaces Task Report and Link Health &amp; Cleanup.</p>
+      <p class="muted">Kitefold is a small, independent software business in the United Kingdom. It makes practical apps for teams who live in Confluence, starting with the All-Spaces Task Report, Link Health &amp; Cleanup and Query &amp; Bulk Actions.</p>
     </div>
     <div>
       <h2>Get in touch</h2>
@@ -141,6 +171,7 @@
       <h4>Pages</h4>
       <p><a href="task-report/">All-Spaces Task Report</a></p>
       <p><a href="link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="query-bulk/">Query &amp; Bulk Actions</a></p>
       <p><a href="help/">Help and FAQ</a></p>
       <p><a href="privacy/">Privacy policy</a></p>
     </div>

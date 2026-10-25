@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Query &amp; Bulk Actions for Confluence | Kitefold</title>
+<meta name="description" content="Check a Confluence search (written in plain English, CQL or a builder) before it runs, save and share it, show live results on any page, and change the results in bulk: labels, watchers and archive, with a preview.">
+<link rel="canonical" href="https://kitefold.app/query-bulk/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Query &amp; Bulk Actions for Confluence | Kitefold">
+<meta property="og:description" content="Check a Confluence search (written in plain English, CQL or a builder) before it runs, save and share it, show live results on any page, and change the results in bulk: labels, watchers and archive, with a preview.">
+<meta property="og:url" content="https://kitefold.app/query-bulk/">
+<meta property="og:type" content="website">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <nav class="nav" aria-label="Main"><a href="../">Home</a><a href="../task-report/">Task Report</a><a href="../link-health/">Link Health</a><a href="../query-bulk/" aria-current="page">Query &amp; Bulk</a><a href="../help/">Help</a><a href="../privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="wrap app-card">
+    <div>
+      <span class="pill">Coming soon to the Atlassian Marketplace</span>
+      <h1 style="margin-top:16px">Query &amp; Bulk Actions for Confluence</h1>
+      <p class="lead">Write a Confluence search in plain English, with a builder or in CQL, and check it before it runs. Save it and share it with your team, show its live results on any page, and change the results in bulk: add, remove, rename or merge labels, watch pages, or archive them, always with a preview first.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="#getting-started">How to set it up</a>
+        <span class="faint">Free for up to 10 users</span>
+      </div>
+    </div>
+    <div>
+      <div class="mock" role="img" aria-label="Illustration of the search page: a search written in plain English, the CQL it became, and results with three ticked and a preview of adding a label">
+        <div class="mock-title">Query &amp; Bulk Actions</div>
+        <div class="mock-sub">“HR pages nobody has updated in a year”</div>
+        <div class="mock-sub"><code>space = "HR" AND type = page AND lastmodified &lt; now("-1y")</code></div>
+        <div class="mock-sub">48 results · 3 selected</div>
+        <div class="mock-row"><div class="box"></div><div class="mock-task"><b>Leave policy 2024</b><small>HR · last changed 14 Mar 2025</small></div><div class="who"></div><div class="due"><span class="lz lz-warn">Selected</span></div></div>
+        <div class="mock-row"><div class="box"></div><div class="mock-task"><b>Onboarding checklist (old)</b><small>HR · last changed 2 Feb 2025</small></div><div class="who"></div><div class="due"><span class="lz lz-warn">Selected</span></div></div>
+        <div class="mock-row"><div class="box"></div><div class="mock-task"><b>Benefits FAQ</b><small>HR · last changed 9 Jan 2025</small></div><div class="who"></div><div class="due"><span class="lz lz-warn">Selected</span></div></div>
+        <div class="mock-group">Preview: add the label “needs-review” to 3 items <span>Cancel · Add</span></div>
+      </div>
+      <p class="caption">Illustration with made-up data</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>What it does</h2>
+    <p class="muted" style="max-width:44em">Confluence's own search is made for finding one page. When you need every page that matches a rule, and then want to do something to all of them, Query &amp; Bulk Actions gives you the search language Confluence already has (CQL) in a form you can check, keep and act on.</p>
+    <div class="grid grid-3" style="margin-top:24px">
+      <div class="card">
+        <h3>Check the search first</h3>
+        <p class="muted">Type what you want in plain English, or use the builder, and see the exact CQL and a one-line description before anything runs. Change it, then press Run.</p>
+      </div>
+      <div class="card">
+        <h3>Save and share</h3>
+        <p class="muted">Keep searches for yourself or share them with your site. Everyone runs a shared search as themselves, so they only ever see what they're allowed to.</p>
+      </div>
+      <div class="card">
+        <h3>Live results on any page</h3>
+        <p class="muted">The <b>Query results</b> macro shows a search's results on a page, with the columns, sort and number of rows you choose. Each reader sees their own results.</p>
+      </div>
+      <div class="card">
+        <h3>Labels in bulk</h3>
+        <p class="muted">Add or remove labels on up to 500 pages, blog posts and files at a time, or rename or merge a label across the whole site.</p>
+      </div>
+      <div class="card">
+        <h3>Watchers and archive</h3>
+        <p class="muted">Watch or stop watching many pages at once, for yourself or (as an admin) for someone else. Archive up to 300 pages in one run.</p>
+      </div>
+      <div class="card">
+        <h3>Preview, results and undo</h3>
+        <p class="muted">Every change shows a preview first, then a result for each item: done, skipped, refused or failed. Label and watcher changes can be undone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div>
+      <h2>Careful by design</h2>
+      <p class="muted">A tool that changes many pages at once has to be careful about who can do what.</p>
+    </div>
+    <div>
+      <ul class="ticks">
+        <li><b>Runs as you.</b> Searches and changes run in your browser as you, so you see only what you can open and change only what Confluence lets you change. Pages you can't edit are refused, never changed.</li>
+        <li><b>A preview before every change.</b> Nothing changes until you've seen what will happen and confirmed it. Archiving needs a second tick.</li>
+        <li><b>Nothing is ever deleted.</b> The app adds and removes labels and watchers and archives pages. Archived pages can be restored in Confluence.</li>
+        <li><b>Nothing leaves Atlassian.</b> The app runs on Atlassian Forge and makes no calls to outside services. “Ask in plain English” uses an AI model hosted by Atlassian and never sees page content. No analytics or tracking.</li>
+      </ul>
+      <p><a href="../privacy/#query-bulk">Read the privacy policy</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split">
+    <div>
+      <h2>Pricing</h2>
+      <p class="muted">Free for sites with up to 10 users. Larger sites pay per user through the Atlassian Marketplace, billed by Atlassian with your other apps. Every plan includes every feature, and you can try it free first.</p>
+    </div>
+    <div>
+      <h2>Requirements</h2>
+      <ul class="ticks">
+        <li>Confluence Cloud (the app is not available for Data Center)</li>
+        <li>A Confluence admin to install it; anyone can use it</li>
+        <li>Archiving needs Confluence Standard, Premium or Enterprise (Confluence Free doesn't include archiving)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="doc" id="help">
+  <div class="wrap">
+    <span class="eyebrow">Help</span>
+    <h2 style="margin-top:8px">Help and FAQ</h2>
+
+    <nav class="toc" aria-label="Help on this page">
+      <ol>
+        <li><a href="#getting-started">Getting started</a></li>
+        <li><a href="#search">Writing a search</a></li>
+        <li><a href="#plain-english">Ask in plain English and AI</a></li>
+        <li><a href="#saved">Saved searches</a></li>
+        <li><a href="#macro">The Query results macro</a></li>
+        <li><a href="#bulk">Changing results in bulk</a></li>
+        <li><a href="#archive">Archiving pages</a></li>
+        <li><a href="#settings">The admin setting</a></li>
+        <li><a href="#limits">Limits and large sites</a></li>
+        <li><a href="#faq">Common questions</a></li>
+        <li><a href="#support">Contact support</a></li>
+      </ol>
+    </nav>
+
+    <h3 id="getting-started">1. Getting started</h3>
+    <ol>
+      <li>A Confluence admin installs <b>Query &amp; Bulk Actions</b> from the Atlassian Marketplace (in Confluence: <b>Apps</b> → <b>Explore more apps</b>).</li>
+      <li>Anyone on the site can then open it from the <b>Apps</b> menu → <b>Query &amp; Bulk Actions</b>. The first time, Confluence asks you to <a href="#allow-access">allow access</a>.</li>
+      <li>Write a search (see below), press <b>Run</b>, and the results appear underneath. Tick results to change them.</li>
+    </ol>
+    <div class="note"><p><b>Tip:</b> start with the builder. It writes the CQL for you, and you can see exactly what it wrote in the CQL box.</p></div>
+
+    <h3 id="search">2. Writing a search</h3>
+    <p>There are three ways to write a search, and you can switch between them:</p>
+    <ul>
+      <li><b>Ask in plain English:</b> type what you're looking for and press <b>Write the search</b>. The app fills in the builder (or the CQL box) and describes the search in one line. Nothing runs until you press <b>Run</b>.</li>
+      <li><b>Build a search:</b> pick spaces, types, labels, people, dates, words in the title or text, or a page to search under.</li>
+      <li><b>CQL:</b> type Confluence Query Language yourself, for anything the builder doesn't offer. <code>currentUser()</code> works here. When you edit the CQL by hand, the builder switches off until you press <b>Reset to builder</b>.</li>
+    </ul>
+    <p>Results show only what you're allowed to see. Choose the columns (title, type, space, dates, people, labels, version, parent, file size), the number of rows, and sort by clicking a column heading. <b>Export CSV</b> saves the results to a file, up to 10,000 rows.</p>
+    <p>If you change the search after running it, the page says so, and ticking and bulk changes wait until you press <b>Run</b> again, so a change never goes to results you no longer mean.</p>
+
+    <h3 id="plain-english">3. Ask in plain English and AI</h3>
+    <ul>
+      <li>Type what you're looking for, for example <i>pages about onboarding that HR hasn't updated in a year</i>. The app writes a CQL search and shows it, with a short description, before anything runs. Check it, change it if needed, then press <b>Run</b>.</li>
+      <li>It's optional: the builder and the CQL box work the same with or without it.</li>
+      <li><b>What's sent:</b> your request, today's date, the search fields the app allows, the names of spaces you can see and the names of up to 20 labels that share a word with your request. Never page content, page titles or people. It goes to an AI model hosted by Atlassian, inside Atlassian's platform (Forge LLMs), and Kitefold doesn't store or log what you type.</li>
+      <li><b>People by name:</b> if your request names someone, the app asks you to pick the person before the search runs.</li>
+      <li><b>Monthly allowance:</b> each site has a monthly number of plain-English searches, shared by everyone and shown next to the button. On paid sites it's 50 for each person who uses the feature that month (at least 500, up to 2,500); on free sites 20. Every request counts, including one it can't turn into a search. When it's used up, the builder and the CQL box still work, and it starts again on the 1st of the month.</li>
+      <li><b>“Couldn't turn that into a search”:</b> try rewording it, or use the builder. Some things can't be searched with CQL, such as likes or page views.</li>
+    </ul>
+
+    <h3 id="saved">4. Saved searches</h3>
+    <ul>
+      <li>Press <b>Save this search…</b>, give it a name, and choose whether to share it with everyone on the site. The search's columns, sort and number of rows are saved with it.</li>
+      <li><b>Show saved searches</b> lists your own searches and the site's shared ones. Open one to load it into the page; if you change it, the page says so and offers to save the changes or save it as a new search.</li>
+      <li>Anyone can run and copy a shared search; it always runs as the person using it. Only the person who saved it can change or delete it, and Confluence admins can too (it then shows “edited by” with their name).</li>
+    </ul>
+
+    <h3 id="macro">5. The Query results macro</h3>
+    <ol>
+      <li>Edit a page, type <code>/</code> and choose <b>Query results</b>.</li>
+      <li>In its settings, pick a saved search or write a search in CQL, then choose the columns, sort, number of rows (10 to 100), an optional title, and whether to show the result count and the search itself.</li>
+      <li>Publish the page. Each person who views it sees the results they're allowed to see.</li>
+    </ol>
+    <ul>
+      <li>In the macro, <code>pageId()</code> and <code>spaceKey()</code> stand for the page the macro is on and its space (as in the CQL Search app), so one search can be reused on many pages.</li>
+      <li>Results load once each time the page is opened, never on a timer. For a few minutes after that, the same person sees the same results straight away, marked “Results from” and the time.</li>
+      <li><b>Open in Query &amp; Bulk Actions</b> opens the search page with the same search, to export it or change the results.</li>
+      <li>If a saved search used in a macro is deleted or made private, the macro says so. Edit the macro and pick another search, or write the search into it.</li>
+    </ul>
+
+    <h3 id="bulk">6. Changing results in bulk</h3>
+    <ol>
+      <li>Tick results (or press <b>Select all</b>, up to 500 at a time), choose an <b>Action</b>, and press <b>Preview</b>.</li>
+      <li>The preview says how many items will change, which will be skipped and why, and lists the first 20 titles. Press the button to confirm.</li>
+      <li>The run changes 4 items at a time, as you, and shows its progress. Keep the tab open until it finishes; <b>Stop</b> stops it between items.</li>
+      <li>Each item then shows <b>Done</b>, <b>Skipped</b> (for example it already had the label), <b>Refused</b> (Confluence didn't allow it, usually because you can't edit that page) or <b>Failed</b> (with Confluence's message). <b>Download results (CSV)</b> saves the list.</li>
+    </ol>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Action</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td>Add labels / Remove labels</td><td>On the ticked pages, blog posts and files. Only labels the item needs to gain or lose are changed.</td></tr>
+          <tr><td>Rename or merge a label (whole site)</td><td>Finds everything with the old label (or several, to merge them) that you can see, in every space, up to 500 at a time. Each item gets the new label first, then loses the old one. The preview names the spaces it will change. <b>Find the next ones</b> carries on with the rest.</td></tr>
+          <tr><td>Watch / Stop watching</td><td>For you, or for someone else. Confluence only lets Confluence admins and space admins change someone else's watching; for anyone else the run stops at the first refusal. Someone added as a watcher isn't notified that you did it.</td></tr>
+          <tr><td>Archive pages</td><td>Moves the ticked pages to their space's archive. See <a href="#archive">Archiving pages</a>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><b>Undo:</b> after a label or watcher run, <b>Undo these changes</b> reverses exactly what that run changed, whatever search is on screen. It's kept in the open tab only, so it's gone after a reload.</li>
+      <li><b>If Confluence is busy</b>, the run slows to one item at a time and may pause. <b>Run the rest</b> carries on with the items not started.</li>
+      <li><b>If you leave the page during a run</b>, it stops. The next time you open the app it says how far it got; run the same change again to finish (items already changed are skipped).</li>
+    </ul>
+
+    <h3 id="archive">7. Archiving pages</h3>
+    <ul>
+      <li>Archive works on pages only (not blog posts or files), up to 300 a run, and needs a second tick before it starts. The app can't undo an archive.</li>
+      <li><b>Who can archive is Confluence's rule:</b> anyone with the space's Archive permission can archive any page they can view, even one that's restricted from editing, and everyone can archive pages they created. Space admins choose who has the Archive permission in the space's settings. The app allows exactly what Confluence allows.</li>
+      <li>Premium and Enterprise sites archive the whole run as one Confluence job. Standard sites archive one page at a time, so it takes a little longer; <b>Stop</b> works between pages. Confluence Free doesn't include archiving.</li>
+      <li><b>To restore a page,</b> open it and choose <b>Restore</b>. It goes back under its last parent page. Rows in the results link to each archived page.</li>
+    </ul>
+
+    <h3 id="settings">8. The admin setting</h3>
+    <p>In Confluence <b>Settings</b> → <b>Apps</b> → <b>Query &amp; Bulk Actions</b>, a Confluence admin can choose whether the bulk bar is <b>Shown</b> (the default) or <b>Hidden</b> on the search page. With Hidden, searching, saved searches, export and the macro still work.</p>
+    <p>This is a preference for your team, not a security setting: every action runs as the person using it, so nobody can change a page they couldn't change by hand, whatever this setting says. The same page shows how often Confluence asked the app to slow down this week.</p>
+
+    <h3 id="limits">9. Limits and large sites</h3>
+    <p>Every action has a fixed size, so the app works the same on a site with 3,000 pages or a million: a screen of up to 100 results, Select all up to 500, a bulk run up to 500 items (300 for archive), an export up to 10,000 rows. It never reads your whole site.</p>
+    <ul>
+      <li><b>Your site's hourly allowance:</b> to keep Confluence fast for everyone, each site has an hourly allowance for the app. Normal use never reaches it. If a very busy site does, searching or big actions wait until the time shown.</li>
+      <li><b>Atlassian's shared limit:</b> Atlassian limits how much all sites together can ask of an app. If it's nearly used, big actions (export, Select all, bulk changes) wait until the time shown while searching still works; if it's used up, searching waits too, usually for a few minutes. The message says when to try again.</li>
+      <li><b>Speed:</b> a search usually takes a second or two; an export runs at about 170 rows a second. The first time the page or a macro opens, Confluence takes a few seconds to load the app.</li>
+    </ul>
+
+    <h3 id="faq">10. Common questions</h3>
+
+    <details id="allow-access">
+      <summary>Why does it ask me to “Allow access”?</summary>
+      <p>This is normal and happens once per person. Apps built on Atlassian Forge must ask before they work in Confluence on someone's behalf. Query &amp; Bulk Actions runs every search and every change <b>as you</b>, which is what keeps everything you can't open out of view. Press <b>Allow access</b>.</p>
+    </details>
+
+    <details>
+      <summary>Why do two people see different results for the same search?</summary>
+      <p>Each person sees only the pages they're allowed to open. Shared searches and the macro run as whoever is looking, so their results can differ.</p>
+    </details>
+
+    <details>
+      <summary>Some items were Refused. Why?</summary>
+      <p>Confluence refused the change, usually because you can view the page but not edit it, or you tried to change someone else's watching without being an admin. Nothing was changed on those items.</p>
+    </details>
+
+    <details>
+      <summary>Can it delete pages or labels for good?</summary>
+      <p>No. It adds and removes labels on items, changes watching and archives pages. It never deletes pages, files or anything else, and archived pages can be restored.</p>
+    </details>
+
+    <details>
+      <summary>We use CQL Search or Bulk Action Tools. Will our searches work?</summary>
+      <p>CQL is Confluence's own search language, so the same searches work here. In the macro, <code>pageId()</code> and <code>spaceKey()</code> work as they do in CQL Search. Paste a search into the CQL box, check the results, then save it or put it in a <b>Query results</b> macro.</p>
+    </details>
+
+    <details>
+      <summary>The app says the licence isn't active</summary>
+      <p>The app needs an active licence on your site (it's free for sites with up to 10 users). A Confluence admin can check or renew it under <b>Apps</b> → <b>Manage apps</b>. Your saved searches are kept meanwhile.</p>
+    </details>
+
+    <details id="uninstall">
+      <summary>What happens if we uninstall the app?</summary>
+      <p>Atlassian deletes what the app stored on your site (saved searches, the admin setting and its usage counts) under its retention rules for Forge apps. Nothing in Confluence itself changes: labels, watchers and archived pages stay as they are. <b>Query results</b> macros on pages stop showing results until the app is installed again.</p>
+    </details>
+
+    <h3 id="support">11. Contact support</h3>
+    <p>Email <b>support@kitefold.app</b>. We aim to reply within two working days (UK). It helps to include your Confluence site address, the search you ran (the CQL), what you expected and what happened, with a screenshot if you can.</p>
+    <p class="faint">Please don't send passwords or API tokens. We'll never ask for them.</p>
+  </div>
+</div>
+<script>
+  // Open a question when its link is followed (e.g. query-bulk/#allow-access).
+  function openFromHash() {
+    var el = location.hash && document.getElementById(location.hash.slice(1));
+    if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
+</script>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="../task-report/">All-Spaces Task Report</a></p>
+      <p><a href="../link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="../query-bulk/">Query &amp; Bulk Actions</a></p>
+      <p><a href="../help/">Help and FAQ</a></p>
+      <p><a href="../privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Support: support@kitefold.app</p>
+      <p>General: hello@kitefold.app</p>
+      
+    </div>
+    <p class="legal">&copy; 2026 Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>
