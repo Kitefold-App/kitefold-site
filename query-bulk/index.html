@@ -163,6 +163,7 @@
       <li>Type what you're looking for, for example <i>pages about onboarding that HR hasn't updated in a year</i>. The app writes a CQL search and shows it, with a short description, before anything runs. Check it, change it if needed, then press <b>Run</b>.</li>
       <li>It's optional: the builder and the CQL box work the same with or without it.</li>
       <li><b>What's sent:</b> your request, today's date, the search fields the app allows, the names of spaces you can see and the names of up to 20 labels that share a word with your request. Never page content, page titles or people. It goes to an AI model hosted by Atlassian, inside Atlassian's platform (Forge LLMs), and Kitefold doesn't store or log what you type.</li>
+      <li><b>What Atlassian does with it:</b> Atlassian has confirmed that requests and answers aren't stored by Atlassian or the model provider, are used only to answer that request, and are never used to train AI models. Requests are processed in one region for now, wherever your data is stored; Atlassian plans to let organisations choose where AI requests are processed (such as within the EU), and the app will follow that setting once it's available. See the <a href="../privacy/#query-bulk-ai">privacy policy</a>.</li>
       <li><b>People by name:</b> if your request names someone, the app asks you to pick the person before the search runs.</li>
       <li><b>Monthly allowance:</b> each site has a monthly number of plain-English searches, shared by everyone and shown next to the button. On paid sites it's 50 for each person who uses the feature that month (at least 500, up to 2,500); on free sites 20. A spending cap on the AI (15 cents for each person using it, at least $1.50) stops runaway use; normal use never gets near it. Every request counts, including one it can't turn into a search. When it's used up, the builder and the CQL box still work, and it starts again on the 1st of the month.</li>
       <li><b>“Couldn't turn that into a search”:</b> try rewording it, or use the builder. Some things can't be searched with CQL, such as likes or page views.</li>
@@ -266,11 +267,11 @@
 
     <details id="uninstall">
       <summary>What happens if we uninstall the app?</summary>
-      <p>Atlassian deletes what the app stored on your site (saved searches, the admin setting and its usage counts) under its retention rules for Forge apps. Nothing in Confluence itself changes: labels, watchers and archived pages stay as they are. <b>Query results</b> macros on pages stop showing results until the app is installed again.</p>
+      <p>Atlassian deletes what the app stored on your site (saved searches, the admin setting and its usage counts) under its retention rules for Forge apps; if you install the app again within 21 days, Atlassian can restore it. Nothing in Confluence itself changes: labels, watchers and archived pages stay as they are. <b>Query results</b> macros on pages stop showing results until the app is installed again.</p>
     </details>
 
     <h3 id="support">11. Contact support</h3>
-    <p>Email <b>support@kitefold.app</b>. We aim to reply within two working days (UK). It helps to include your Confluence site address, the search you ran (the CQL), what you expected and what happened, with a screenshot if you can.</p>
+    <p>Email <a href="mailto:support@kitefold.app">support@kitefold.app</a>. We reply within one working day (Monday to Friday, 9:00 to 17:00 UK time), and the same working day for urgent problems: see <a href="../support/">support hours and response times</a>. It helps to include your Confluence site address, the search you ran (the CQL), what you expected and what happened, with a screenshot if you can.</p>
     <p class="faint">Please don't send passwords or API tokens. We'll never ask for them.</p>
   </div>
 </div>
@@ -297,12 +298,13 @@
       <p><a href="../link-health/">Link Health &amp; Cleanup</a></p>
       <p><a href="../query-bulk/">Query &amp; Bulk Actions</a></p>
       <p><a href="../help/">Help and FAQ</a></p>
+      <p><a href="../support/">Support and service levels</a></p>
       <p><a href="../privacy/">Privacy policy</a></p>
     </div>
     <div>
       <h4>Contact</h4>
-      <p>Support: support@kitefold.app</p>
-      <p>General: hello@kitefold.app</p>
+      <p>Support: <a href="mailto:support@kitefold.app">support@kitefold.app</a></p>
+      <p>General: <a href="mailto:hello@kitefold.app">hello@kitefold.app</a></p>
       
     </div>
     <p class="legal">&copy; 2026 Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
