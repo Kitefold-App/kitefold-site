@@ -28,7 +28,7 @@
   <div class="wrap">
     <span class="eyebrow">Privacy</span>
     <h1>Privacy policy</h1>
-    <p class="faint">Last updated 1 November 2026</p>
+    <p class="faint">Last updated 3 November 2026</p>
 
     <div class="note">
       <p><b>In short:</b> Kitefold's apps run on Atlassian's own platform and send nothing outside Atlassian. The All-Spaces Task Report reads your tasks as the person viewing them and stores only the settings for each weekly digest. Link Health &amp; Cleanup keeps an index of the links on your site (ids, titles, link targets, file names and sizes, never page text) in Atlassian's storage for the app, and checks everything it shows as the person viewing it. Query &amp; Bulk Actions searches and changes Confluence as the person using it, in their browser, and stores only saved searches, one setting and usage counts; its optional plain-English search uses an AI model hosted by Atlassian that never sees page content. This website uses no cookies and no tracking.</p>
@@ -80,6 +80,7 @@
       <li>whether it's on</li>
       <li>the Atlassian account ID of the person who last turned it on or saved its settings (so the digest can read tasks as them)</li>
       <li>the title, link and time of the last digest posted, and the last error, if any</li>
+      <li>this week's try count: the day the digest last tried to post and how many times it tried that day (at most twice, so a failed post is retried once and never more)</li>
     </ul>
     <p>Pressing <b>Turn off</b> deletes a digest's settings. When the app is uninstalled, Atlassian deletes the app's stored data under its own retention rules for Forge apps (it can be restored if the app is reinstalled within 21 days).</p>
 
@@ -91,7 +92,7 @@
     </ul>
 
     <h3>Logs</h3>
-    <p>Like all Forge apps, the app writes technical logs that Atlassian keeps for a limited time and that Kitefold can read to fix problems. Our logs record things like how many people a digest counted and error codes. They are designed not to include task text or page content.</p>
+    <p>Like all Forge apps, the app writes technical logs that Atlassian keeps for a limited time and that Kitefold can read to fix problems. Our logs record things like how many people a digest counted, error codes, and Confluence's rate-limit readings (how much of the app's hourly allowance is left). They are designed not to include task text or page content.</p>
 
     <h3>What the app doesn't do</h3>
     <ul>
