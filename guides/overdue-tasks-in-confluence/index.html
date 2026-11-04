@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to find overdue tasks in Confluence | Kitefold</title>
+<meta name="description" content="Confluence colours overdue task dates red, but has no overdue filter. Here's how to find overdue tasks with the built-in tools, and how to list every overdue task across spaces.">
+<link rel="canonical" href="https://kitefold.app/guides/overdue-tasks-in-confluence/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../styles.css">
+<script src="../../menu.js"></script>
+<meta property="og:title" content="How to find overdue tasks in Confluence | Kitefold">
+<meta property="og:description" content="Confluence colours overdue task dates red, but has no overdue filter. Here's how to find overdue tasks with the built-in tools, and how to list every overdue task across spaces.">
+<meta property="og:url" content="https://kitefold.app/guides/overdue-tasks-in-confluence/">
+<meta property="og:type" content="article">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="../../">Home</a><a href="../../task-report/">Task Report</a><a href="../../link-health/">Link Health</a><a href="../../query-bulk/">Query &amp; Bulk</a><a href="../../help/">Help</a><a href="../../privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="doc">
+  <div class="wrap">
+    <span class="eyebrow"><a href="../">Guides</a></span>
+    <h1>How to find overdue tasks in Confluence</h1>
+    <p class="lead">Confluence shows an overdue task's date in red on its page, but none of its built-in views can filter to overdue tasks only. The closest is a Task report sorted by due date. To list every overdue task in every space, with a count, use a report with an <b>Only overdue tasks</b> setting.</p>
+
+    <h2 id="built-in">With Confluence on its own</h2>
+    <h3>Option 1: a Task report sorted by due date</h3>
+    <ol>
+      <li>Edit a page, type <code>/task report</code> and choose <b>Task report</b>.</li>
+      <li>Add the spaces you want in <b>Space(s) and Page(s)</b>, and keep <b>Task status</b> on incomplete.</li>
+      <li>Set <b>Sort by</b> to <b>Due date</b> and show the due date column. The earliest dates, including overdue ones, come first.</li>
+    </ol>
+    <h3>Option 2: your own Tasks list</h3>
+    <p>Select your profile picture (top right) and choose <b>Tasks</b>. Its due-date filter can show your tasks due in a time frame, which you can set to end today. This only covers tasks assigned to you.</p>
+    <h3>Where it falls short</h3>
+    <ul>
+      <li><b>No overdue filter.</b> Overdue tasks are mixed in with everything due later, and tasks with no due date need checking separately.</li>
+      <li><b>No count.</b> Nothing tells you how many tasks are overdue, by space or by person.</li>
+      <li><b>Spaces one by one</b> in the Task report (<a href="https://jira.atlassian.com/browse/CONFCLOUD-71390">CONFCLOUD-71390</a>), and only your own tasks in the Tasks list.</li>
+    </ul>
+
+    <h2 id="with-the-app">In one step with All-Spaces Task Report</h2>
+    <ol>
+      <li>Add <b>All-Spaces Task Report</b> to a page (type <code>/</code> while editing).</li>
+      <li>In its settings, either tick <b>Only overdue tasks</b>, or set <b>Group by</b> to <b>Due date (overdue first)</b> to see Overdue, Due this week, Later and No due date as separate groups.</li>
+      <li>Publish. The header shows how many tasks are overdue across everything that matches, and each overdue row has an <b>Overdue</b> label.</li>
+    </ol>
+    <p>Add <b>Group by: Assignee</b> to see who has the most overdue work, or set <b>Assignee</b> to <b>Me</b> so each viewer sees only their own. You can tick a task done straight from the report.</p>
+    <figure style="margin:1.6em 0">
+      <img src="../img/report-overdue-first.webp" width="1200" height="587" loading="lazy" alt="The All-Spaces Task Report grouped by due date: an Overdue group of 5 tasks with red Overdue labels, then a Due this week group of 18" style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)">
+      <figcaption class="caption">Grouped by due date, overdue first. Made-up demo data.</figcaption>
+    </figure>
+
+    <div class="note">
+      <p><b>Disclosure:</b> Kitefold makes All-Spaces Task Report, so we're not neutral. The built-in options above are free and may be all you need.</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/2319644115/all-spaces-task-report-overdue-tasks-reminders?hosting=cloud">Get it on the Marketplace</a>
+      <a class="btn btn-ghost" href="../../help/#settings">Read the setup help</a>
+      <span class="faint">Free for up to 10 users</span>
+    </div>
+
+    <h2 id="related">Related guides</h2>
+    <ul>
+      <li><a href="../all-confluence-tasks-across-spaces/">How to see all tasks across Confluence spaces</a></li>
+      <li><a href="../confluence-tasks-assigned-to-me/">How to see all the Confluence tasks assigned to you</a></li>
+      <li><a href="../weekly-reminder-overdue-confluence-tasks/">How to send a weekly reminder for overdue Confluence tasks</a></li>
+    </ul>
+    <p class="faint">Checked against Confluence Cloud in November 2026. Confluence changes often; if something here no longer matches what you see, email <a href="mailto:support@kitefold.app">support@kitefold.app</a> and we'll update it.</p>
+  </div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="../../task-report/">All-Spaces Task Report</a></p>
+      <p><a href="../../link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="../../query-bulk/">Query &amp; Bulk Actions</a></p>
+      <p><a href="../../help/">Help and FAQ</a></p>
+      <p><a href="../../support/">Support and service levels</a></p>
+      <p><a href="../../privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Support: <a href="mailto:support@kitefold.app">support@kitefold.app</a></p>
+      <p>General: <a href="mailto:hello@kitefold.app">hello@kitefold.app</a></p>
+      
+    </div>
+    <p class="legal">&copy; 2026 Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>

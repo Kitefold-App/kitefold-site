@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to send a weekly reminder for overdue Confluence tasks | Kitefold</title>
+<meta name="description" content="Confluence doesn't remind people when tasks are due or overdue. Here's what it does do, and how to post a weekly digest that @mentions everyone with overdue tasks so Confluence emails them.">
+<link rel="canonical" href="https://kitefold.app/guides/weekly-reminder-overdue-confluence-tasks/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../styles.css">
+<script src="../../menu.js"></script>
+<meta property="og:title" content="How to send a weekly reminder for overdue Confluence tasks | Kitefold">
+<meta property="og:description" content="Confluence doesn't remind people when tasks are due or overdue. Here's what it does do, and how to post a weekly digest that @mentions everyone with overdue tasks so Confluence emails them.">
+<meta property="og:url" content="https://kitefold.app/guides/weekly-reminder-overdue-confluence-tasks/">
+<meta property="og:type" content="article">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="../../">Home</a><a href="../../task-report/">Task Report</a><a href="../../link-health/">Link Health</a><a href="../../query-bulk/">Query &amp; Bulk</a><a href="../../help/">Help</a><a href="../../privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="doc">
+  <div class="wrap">
+    <span class="eyebrow"><a href="../">Guides</a></span>
+    <h1>How to send a weekly reminder for overdue Confluence tasks</h1>
+    <p class="lead">Confluence doesn't send due-date or overdue reminders for tasks. The person you @mention in a task is notified once, when it's created. To remind people every week, post a digest page that @mentions everyone with overdue tasks, so Confluence's own notifications email them.</p>
+
+    <h2 id="built-in">What Confluence does on its own</h2>
+    <ul>
+      <li><b>When a task is created</b>, the person @mentioned in it is notified, like any other mention.</li>
+      <li><b>When it's overdue</b>, the date turns red on the page. Nobody is told.</li>
+      <li><b>There's no reminder setting.</b> Atlassian's requests for due-date notifications (<a href="https://jira.atlassian.com/browse/CONFCLOUD-35150">CONFCLOUD-35150</a>) and for a daily or weekly task digest email (<a href="https://jira.atlassian.com/browse/CONFCLOUD-34389">CONFCLOUD-34389</a>, open since 2014) are both still “Gathering interest”.</li>
+    </ul>
+    <h3>A manual workaround</h3>
+    <p>Set a weekly calendar reminder for each person to open their <b>Tasks</b> list (profile picture → Tasks), or for a team lead to check a Task report sorted by due date and chase people. It works, but it depends on someone remembering.</p>
+
+    <h2 id="with-the-app">Automatically with All-Spaces Task Report</h2>
+    <ol>
+      <li>Create a page to hold the digests, for example “Weekly task digests”.</li>
+      <li>Edit it, type <code>/</code> and add <b>Weekly task digest</b>. Choose which spaces to count and the day to post (Monday to Friday).</li>
+      <li>Publish, then press <b>Turn on</b>. Press <b>Post one now</b> to see the first one straight away.</li>
+    </ol>
+    <p>Each week the app posts a new page listing everyone with tasks overdue or due in the next 7 days, and @mentions them, so Confluence emails each person. The digest shows counts only, never task text or page titles, and each person's numbers are what they'd see in their own report.</p>
+    <p>Put an <b>All-Spaces Task Report</b> set to <b>Me</b> on the same page: the digest links back to it, so people go straight from the email to their own list.</p>
+    <figure style="margin:1.6em 0">
+      <img src="../img/weekly-digest.webp" width="1200" height="587" loading="lazy" alt="A Task digest page posted by the app: a table of three people with their overdue counts and tasks due in the next 7 days, each person @mentioned" style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)">
+      <figcaption class="caption">A weekly digest page. Made-up demo data.</figcaption>
+    </figure>
+
+    <div class="note">
+      <p><b>Disclosure:</b> Kitefold makes All-Spaces Task Report, so we're not neutral. The built-in options above are free and may be all you need.</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/2319644115/all-spaces-task-report-overdue-tasks-reminders?hosting=cloud">Get it on the Marketplace</a>
+      <a class="btn btn-ghost" href="../../help/#digest">Read the setup help</a>
+      <span class="faint">Free for up to 10 users</span>
+    </div>
+
+    <h2 id="related">Related guides</h2>
+    <ul>
+      <li><a href="../all-confluence-tasks-across-spaces/">How to see all tasks across Confluence spaces</a></li>
+      <li><a href="../overdue-tasks-in-confluence/">How to find overdue tasks in Confluence</a></li>
+      <li><a href="../confluence-tasks-assigned-to-me/">How to see all the Confluence tasks assigned to you</a></li>
+    </ul>
+    <p class="faint">Checked against Confluence Cloud in November 2026. Confluence changes often; if something here no longer matches what you see, email <a href="mailto:support@kitefold.app">support@kitefold.app</a> and we'll update it.</p>
+  </div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="../../task-report/">All-Spaces Task Report</a></p>
+      <p><a href="../../link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="../../query-bulk/">Query &amp; Bulk Actions</a></p>
+      <p><a href="../../help/">Help and FAQ</a></p>
+      <p><a href="../../support/">Support and service levels</a></p>
+      <p><a href="../../privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Support: <a href="mailto:support@kitefold.app">support@kitefold.app</a></p>
+      <p>General: <a href="mailto:hello@kitefold.app">hello@kitefold.app</a></p>
+      
+    </div>
+    <p class="legal">&copy; 2026 Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>
