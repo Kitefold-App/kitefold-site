@@ -28,10 +28,10 @@
   <div class="wrap">
     <span class="eyebrow">Privacy</span>
     <h1>Privacy policy</h1>
-    <p class="faint">Last updated 3 November 2026</p>
+    <p class="faint">Last updated 7 November 2026</p>
 
     <div class="note">
-      <p><b>In short:</b> Kitefold's apps run on Atlassian's own platform and send nothing outside Atlassian. The All-Spaces Task Report reads your tasks as the person viewing them and stores only the settings for each weekly digest. Link Health &amp; Cleanup keeps an index of the links on your site (ids, titles, link targets, file names and sizes, never page text) in Atlassian's storage for the app, and checks everything it shows as the person viewing it. Query &amp; Bulk Actions searches and changes Confluence as the person using it, in their browser, and stores only saved searches, one setting and usage counts; its optional plain-English search uses an AI model hosted by Atlassian that never sees page content. This website uses no cookies and no tracking.</p>
+      <p><b>In short:</b> Kitefold's apps run on Atlassian's own platform and send nothing outside Atlassian. The All-Spaces Task Report reads your tasks as the person viewing them and stores only the settings for each weekly digest, plus one site-wide note for its review request. Link Health &amp; Cleanup keeps an index of the links on your site (ids, titles, link targets, file names and sizes, never page text) in Atlassian's storage for the app, and checks everything it shows as the person viewing it. Query &amp; Bulk Actions searches and changes Confluence as the person using it, in their browser, and stores only saved searches, one setting and usage counts; its optional plain-English search uses an AI model hosted by Atlassian that never sees page content. This website uses no cookies and no tracking.</p>
     </div>
 
     <nav class="toc" aria-label="On this page">
@@ -82,12 +82,13 @@
       <li>the title, link and time of the last digest posted, and the last error, if any</li>
       <li>this week's try count: the day the digest last tried to post and how many times it tried that day (at most twice, so a failed post is retried once and never more)</li>
     </ul>
+    <p>It also keeps one note for the whole site: when the first scheduled digest posted, and whether someone has dismissed the short request for a Marketplace review that the digest shows to page editors. It holds those two times only: no names and no account IDs.</p>
     <p>Pressing <b>Turn off</b> deletes a digest's settings. When the app is uninstalled, Atlassian deletes the app's stored data under its own retention rules for Forge apps (it can be restored if the app is reinstalled within 21 days).</p>
 
     <h3 id="data-residency">Data residency</h3>
-    <p>All the data the app stores is the digest settings listed above. They're kept only in Atlassian's Forge hosted storage, so they follow the data residency location your organisation has chosen for its Atlassian apps, and move with it if that location changes.</p>
+    <p>All the data the app stores is the digest settings and the site-wide review note listed above. They're kept only in Atlassian's Forge hosted storage, so they follow the data residency location your organisation has chosen for its Atlassian apps, and move with it if that location changes.</p>
     <ul>
-      <li><b>In scope for data residency:</b> the weekly digest settings above, including the Atlassian account ID of the person who set the digest up.</li>
+      <li><b>In scope for data residency:</b> the weekly digest settings above, including the Atlassian account ID of the person who set the digest up, and the site-wide review note.</li>
       <li><b>Out of scope:</b> nothing. The app stores no other data. Tasks, page titles and people's names are read from Confluence when a report or digest runs and are never stored.</li>
     </ul>
 

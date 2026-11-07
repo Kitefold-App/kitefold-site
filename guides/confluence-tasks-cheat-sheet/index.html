@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confluence tasks cheat sheet | Kitefold</title>
+<meta name="description" content="Every way to create, assign, date and finish a task in Confluence Cloud, where tasks show up, and every Task report macro setting, on one page.">
+<link rel="canonical" href="https://kitefold.app/guides/confluence-tasks-cheat-sheet/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../styles.css">
+<script src="../../menu.js"></script>
+<meta property="og:title" content="Confluence tasks cheat sheet | Kitefold">
+<meta property="og:description" content="Every way to create, assign, date and finish a task in Confluence Cloud, where tasks show up, and every Task report macro setting, on one page.">
+<meta property="og:url" content="https://kitefold.app/guides/confluence-tasks-cheat-sheet/">
+<meta property="og:type" content="article">
+<style media="print">header, footer, nav, .btns, .no-print { display: none !important; } a { color: inherit; text-decoration: none; } .doc .wrap { max-width: none; } h2 { break-after: avoid; } table { break-inside: avoid; }</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="../../">Home</a><a href="../../task-report/">Task Report</a><a href="../../link-health/">Link Health</a><a href="../../query-bulk/">Query &amp; Bulk</a><a href="../../help/">Help</a><a href="../../privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="doc">
+  <div class="wrap">
+    <span class="eyebrow"><a href="../">Guides</a></span>
+    <h1>Confluence tasks cheat sheet</h1>
+    <p class="lead">Confluence tasks (also called action items) are checkboxes you can assign to someone and give a due date. Here's every way to create and manage them in Confluence Cloud, where they show up, and every setting of the built-in Task report macro, on one page you can print.</p>
+
+    <h2 id="create">Create a task</h2>
+    <table>
+      <thead><tr><th>Type or choose</th><th>What you get</th></tr></thead>
+      <tbody>
+        <tr><td><code>[]</code> then a space</td><td>A new task on its own line. Keep typing to describe it.</td></tr>
+        <tr><td><code>/</code> then <b>Action item</b></td><td>The same, from the insert menu. Type the first few letters to filter it.</td></tr>
+        <tr><td><b>Action item</b> on the toolbar</td><td>The same, with the mouse.</td></tr>
+        <tr><td><code>&lt;&gt;</code> then a space</td><td>A <b>decision</b>, not a task: it has no checkbox and doesn't appear in task lists or reports.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="assign">Assign it and give it a due date</h2>
+    <table>
+      <thead><tr><th>Inside the task, type</th><th>What happens</th></tr></thead>
+      <tbody>
+        <tr><td><code>@</code> and a name</td><td>Assigns the task. They get a notification, and an email if they're subscribed to them. Only the first mention of someone on a page notifies them; mentioning them again on the same page doesn't. During a Confluence trial, people get the notification but no email.</td></tr>
+        <tr><td><code>@</code> and a team</td><td>Notifies the team's members, for teams of 50 people or fewer.</td></tr>
+        <tr><td><code>/</code> then <b>Date</b></td><td>Adds a date, which becomes the task's due date. Once it has passed, the date shows in red.</td></tr>
+        <tr><td><code>@</code> and a Rovo agent</td><td>Opens Rovo Chat with the task's text as the prompt (where Rovo is switched on).</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="finish">Finish it</h2>
+    <ul>
+      <li><b>Tick the checkbox</b> to mark the task complete. Ticking a task changes the page, so it needs permission to edit that page.</li>
+      <li><b>No reminders.</b> Confluence doesn't notify anyone when a due date arrives or passes (<a href="https://jira.atlassian.com/browse/CONFCLOUD-35150">CONFCLOUD-35150</a>). See <a href="../weekly-reminder-overdue-confluence-tasks/">how to send a weekly reminder</a> for what you can do instead.</li>
+    </ul>
+
+    <h2 id="where">Where tasks show up</h2>
+    <table>
+      <thead><tr><th>Where</th><th>What it shows</th><th>More</th></tr></thead>
+      <tbody>
+        <tr><td>On the page itself</td><td>The task, its assignee and its due date</td><td></td></tr>
+        <tr><td>Your <b>Tasks</b> list (profile picture, top right, then <b>Tasks</b>)</td><td>Tasks assigned to you, across the site</td><td><a href="../confluence-tasks-assigned-to-me/">Guide</a></td></tr>
+        <tr><td>A <b>Task report</b> macro on a page</td><td>Tasks from the spaces and pages you list, filtered by the settings below</td><td><a href="../all-confluence-tasks-across-spaces/">Guide</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="task-report">Task report macro settings</h2>
+    <p>Edit a page, type <code>/task report</code> and choose <b>Task report</b>. Its settings, as Atlassian lists them:</p>
+    <table>
+      <thead><tr><th>Setting</th><th>What it does</th><th>Default</th></tr></thead>
+      <tbody>
+        <tr><td><b>Space(s) and Page(s)</b> (required)</td><td>Only tasks in the spaces, pages and live docs you enter. You can mix spaces and pages.</td><td>The space the page is in</td></tr>
+        <tr><td><b>Label(s)</b></td><td>Only tasks on pages with these labels (comma-separated)</td><td>None</td></tr>
+        <tr><td><b>Assigned to</b></td><td>Only tasks assigned to these people</td><td>Anyone</td></tr>
+        <tr><td><b>Created by</b></td><td>Only tasks created by these people</td><td>Anyone</td></tr>
+        <tr><td><b>Created after</b></td><td>Only tasks created on or after this date, written <code>dd-mm-yyyy</code></td><td>None</td></tr>
+        <tr><td><b>Task status</b> (required)</td><td>Complete or incomplete tasks</td><td>Incomplete</td></tr>
+        <tr><td><b>Number of tasks to display</b></td><td>Rows per page of results: 10, 20 or 40</td><td>20</td></tr>
+        <tr><td><b>Display columns</b></td><td>Any of description, due date, assignee, location, complete date and labels</td><td>Description, due date, assignee, location</td></tr>
+        <tr><td><b>Sort by</b></td><td>Due date, assignee or title, with a <b>Reverse sort</b> box</td><td>Due date</td></tr>
+      </tbody>
+    </table>
+    <p><b>Good to know:</b></p>
+    <ul>
+      <li>There's no due-date filter and no "overdue only" option: sort by due date instead (<a href="../overdue-tasks-in-confluence/">finding overdue tasks</a>).</li>
+      <li>Every space has to be entered one by one; there's no "all spaces" option (<a href="https://jira.atlassian.com/browse/CONFCLOUD-71390">CONFCLOUD-71390</a>).</li>
+      <li>The macro can't be added to a live doc yet. Add it to a page, or convert the live doc to a page.</li>
+      <li>It has no wiki markup form, and the <b>Task report</b> template creates a page with the macro already on it.</li>
+    </ul>
+
+    <h2 id="api">For admins and developers</h2>
+    <ul>
+      <li><b>REST API:</b> <code>GET /wiki/api/v2/tasks</code> lists the tasks the caller can see. Useful filters: <code>status=incomplete</code>, <code>assigned-to=&lt;account id&gt;</code>, <code>due-at-to=&lt;time in milliseconds&gt;</code>, <code>space-id</code> and <code>body-format=storage</code> for the task text. Results come in pages: follow <code>_links.next</code> until it's gone.</li>
+      <li><b>In the page's storage format</b>, a task list is <code>&lt;ac:task-list&gt;</code> holding one <code>&lt;ac:task&gt;</code> per task, each with an <code>&lt;ac:task-status&gt;</code> (<code>incomplete</code> or <code>complete</code>) and an <code>&lt;ac:task-body&gt;</code>.</li>
+    </ul>
+
+    <h2 id="all-spaces">Need it across all spaces?</h2>
+    <p>The Task report only covers the spaces you list, and has no overdue filter or counts. <b>All-Spaces Task Report</b> shows every task from every space you can see in one report, overdue first, with counts by space or person, and can post a weekly digest that @mentions everyone with overdue tasks.</p>
+    <div class="note">
+      <p><b>Disclosure:</b> Kitefold makes All-Spaces Task Report, so we're not neutral. Everything above this box works with Confluence on its own.</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/2319644115/all-spaces-task-report-overdue-tasks-reminders?hosting=cloud&amp;utm_source=kitefold.app&amp;utm_medium=referral&amp;utm_campaign=cheatsheet">Get it on the Marketplace</a>
+      <a class="btn btn-ghost" href="../../task-report/">What it does</a>
+      <span class="faint">Free for up to 10 users</span>
+    </div>
+
+    <h2 id="related">Related guides</h2>
+    <ul>
+      <li><a href="../all-confluence-tasks-across-spaces/">How to see all tasks across Confluence spaces</a></li>
+      <li><a href="../overdue-tasks-in-confluence/">How to find overdue tasks in Confluence</a></li>
+      <li><a href="../confluence-tasks-assigned-to-me/">How to see all the Confluence tasks assigned to you</a></li>
+      <li><a href="../weekly-reminder-overdue-confluence-tasks/">How to send a weekly reminder for overdue Confluence tasks</a></li>
+    </ul>
+    <p class="faint">Checked against Atlassian's Confluence Cloud documentation in November 2026. Confluence changes often; if something here no longer matches what you see, email <a href="mailto:support@kitefold.app">support@kitefold.app</a> and we'll update it.</p>
+  </div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="../../task-report/">All-Spaces Task Report</a></p>
+      <p><a href="../../link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="../../query-bulk/">Query &amp; Bulk Actions</a></p>
+      <p><a href="../../help/">Help and FAQ</a></p>
+      <p><a href="../../support/">Support and service levels</a></p>
+      <p><a href="../../privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Support: <a href="mailto:support@kitefold.app">support@kitefold.app</a></p>
+      <p>General: <a href="mailto:hello@kitefold.app">hello@kitefold.app</a></p>
+      
+    </div>
+    <p class="legal">&copy; 2026 Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>
