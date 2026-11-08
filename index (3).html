@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to see which pages link to a Confluence page | Kitefold</title>
+<meta name="description" content="Confluence shows a page&#x27;s incoming links in its Details panel, one page at a time. Here&#x27;s where to find them, what they leave out, and how to show a &#x27;Linked from&#x27; count under every page title.">
+<link rel="canonical" href="https://kitefold.app/guides/pages-that-link-to-a-confluence-page/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../styles.css">
+<script src="../../menu.js"></script>
+<meta property="og:title" content="How to see which pages link to a Confluence page | Kitefold">
+<meta property="og:description" content="Confluence shows a page&#x27;s incoming links in its Details panel, one page at a time. Here&#x27;s where to find them, what they leave out, and how to show a &#x27;Linked from&#x27; count under every page title.">
+<meta property="og:url" content="https://kitefold.app/guides/pages-that-link-to-a-confluence-page/">
+<meta property="og:type" content="article">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="../../">Home</a><a href="../../task-report/">Task Report</a><a href="../../link-health/">Link Health</a><a href="../../query-bulk/">Query &amp; Bulk</a><a href="../../help/">Help</a><a href="../../privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="doc">
+  <div class="wrap">
+    <span class="eyebrow"><a href="../">Guides</a></span>
+    <h1>How to see which pages link to a Confluence page</h1>
+    <p class="lead">Confluence shows how many pages link to a page in the page's <b>Details</b> panel, and lists them on its Page Information screen, one page at a time. Readers don't see it unless they open the panel, and there's no report across pages, which people have asked Atlassian for since 2014. To see “Linked from 12 pages” under every page title, use an app that keeps an index of your links.</p>
+
+    <h2 id="built-in">With Confluence on its own</h2>
+    <ol>
+      <li>Open the page and select the <b>Details</b> icon (ⓘ) on the right edge of the page.</li>
+      <li>Under <b>Connections</b>, <b>Incoming links</b> shows how many pages link here. If nothing links to the page, the Incoming links row doesn’t appear at all.</li>
+      <li>Select the number to open the <b>Incoming Links</b> list, grouped by space.</li>
+    </ol>
+    <h3>Where it falls short</h3>
+    <ul>
+      <li><b>One page at a time,</b> in a panel most readers never open, so nothing on the page tells them other pages depend on it.</li>
+      <li><b>No report.</b> You can't list incoming links for a space, or find the pages nothing links to (see <a href="../orphan-pages-in-confluence/">orphan pages</a>). The request for this, <a href="https://jira.atlassian.com/browse/CONFCLOUD-35218">CONFCLOUD-35218</a>, has over 600 votes and is still “Gathering interest”.</li>
+    </ul>
+
+    <h2 id="with-the-app">On every page with Link Health &amp; Cleanup</h2>
+    <ol>
+      <li>A Confluence admin installs <b>Link Health &amp; Cleanup</b>. It builds an index of every link on the site.</li>
+      <li>Every page now shows <b>Linked from 12 pages</b> (or <b>No incoming links</b>) under its title. Select it to see those pages, grouped by space.</li>
+      <li>To show the same list on the page itself, edit it, type <code>/</code> and add the <b>Incoming links</b> macro.</li>
+    </ol>
+    <p>The count only includes pages the viewer is allowed to open, so two people can see different numbers. It updates within a few minutes of a link being added or removed.</p>
+    <figure style="margin:1.6em 0">
+      <img src="../img/lh-linked-from.webp" width="1200" height="587" loading="lazy" alt="A Confluence page titled Rollback steps with &quot;Linked from 4 pages&quot; under the title, and a popup listing the four linking pages in the Engineering space" style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)">
+      <figcaption class="caption">“Linked from 4 pages” under the title, with the pages grouped by space. Made-up demo data.</figcaption>
+    </figure>
+    <div class="note">
+      <p><b>Disclosure:</b> Kitefold makes Link Health &amp; Cleanup, so we're not neutral. The built-in options above are free and may be all you need.</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/3516631082/link-health-broken-links-orphan-pages-unused-attachments?hosting=cloud&amp;utm_source=kitefold.app&amp;utm_medium=referral&amp;utm_campaign=guide-incoming-links">Get it on the Marketplace</a>
+      <a class="btn btn-ghost" href="../../link-health/#incoming">Read the setup help</a>
+      <span class="faint">Free for up to 10 users</span>
+    </div>
+
+    <h2 id="related">Related guides</h2>
+    <ul>
+      <li><a href="../orphan-pages-in-confluence/">How to find orphan pages in Confluence</a></li>
+      <li><a href="../broken-links-in-confluence/">How to find broken links in Confluence Cloud</a></li>
+      <li><a href="../unused-attachments-in-confluence/">How to find unused attachments in Confluence (and free up storage)</a></li>
+      <li><a href="../confluence-cleanup-cql/">Confluence clean-up searches with CQL, and what CQL can’t find</a></li>
+    </ul>
+    <p class="faint">Checked against Confluence Cloud in November 2026. Confluence changes often; if something here no longer matches what you see, email <a href="mailto:support@kitefold.app">support@kitefold.app</a> and we'll update it.</p>
+  </div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="../../task-report/">All-Spaces Task Report</a></p>
+      <p><a href="../../link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="../../query-bulk/">Query &amp; Bulk Actions</a></p>
+      <p><a href="../../help/">Help and FAQ</a></p>
+      <p><a href="../../support/">Support and service levels</a></p>
+      <p><a href="../../privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Support: <a href="mailto:support@kitefold.app">support@kitefold.app</a></p>
+      <p>General: <a href="mailto:hello@kitefold.app">hello@kitefold.app</a></p>
+      
+    </div>
+    <p class="legal">&copy; 2026 Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>
