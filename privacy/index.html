@@ -127,13 +127,14 @@
       <li>settings chosen by admins: old server addresses, spaces left out, pages marked “not an orphan”, the stale pages age and the Attachments macro choice</li>
       <li>the ids of pages and files archived or moved to the trash through the app, until the next full index</li>
       <li>indexing progress and daily usage counters (numbers only)</li>
+      <li>two times for the one-time review request on the admin page: when an admin first saw a finished report, and when someone dismissed the request</li>
     </ul>
     <p>It stores no page text, no people's names and no Atlassian account IDs. The index is rebuilt regularly, and records for deleted pages and files are removed. When the app is uninstalled, Atlassian deletes the app's stored data under its own retention rules for Forge apps (it can be restored if the app is reinstalled within 21 days).</p>
 
     <h3 id="link-health-data-residency">Data residency</h3>
     <p>Everything the app stores is listed above and is kept only in Atlassian's Forge hosted storage, so it follows the data residency location your organisation has chosen for its Atlassian apps, and moves with it if that location changes.</p>
     <ul>
-      <li><b>In scope for data residency:</b> the index, the latest report and the settings listed above.</li>
+      <li><b>In scope for data residency:</b> the index, the latest report, the settings and the review request times listed above.</li>
       <li><b>Out of scope:</b> nothing. The app stores no other data.</li>
     </ul>
 
