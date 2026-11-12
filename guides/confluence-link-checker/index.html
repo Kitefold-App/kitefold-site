@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Confluence link checker: paste a page, see its broken links | Kitefold</title>
+<meta name="description" content="Paste a Confluence Cloud page into this free checker to list links to pages that don't exist, links to your old Data Center or Server address, other Confluence sites and internal-only addresses. It runs in your browser; nothing you paste is sent anywhere.">
+<link rel="canonical" href="https://kitefold.app/guides/confluence-link-checker/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../styles.css">
+<script src="../../menu.js"></script>
+<meta property="og:title" content="Free Confluence link checker: paste a page, see its broken links | Kitefold">
+<meta property="og:description" content="Paste a Confluence Cloud page into this free checker to list links to pages that don't exist, links to your old Data Center or Server address, other Confluence sites and internal-only addresses. It runs in your browser; nothing you paste is sent anywhere.">
+<meta property="og:url" content="https://kitefold.app/guides/confluence-link-checker/">
+<meta property="og:type" content="website">
+<style>
+.lc-box { width: 100%; min-height: 170px; resize: vertical; font: 0.95rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.lc-box:focus { outline: 2px solid var(--sky); outline-offset: 1px; }
+.lc-row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin: 12px 0; }
+.lc-row label { font-weight: 600; font-size: 0.95rem; }
+.lc-input { flex: 1 1 260px; font: inherit; font-size: 0.95rem; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+button.btn { font: inherit; font-weight: 600; cursor: pointer; }
+.lc-status { min-height: 1.6em; color: var(--ink-soft); font-size: 0.95rem; margin: 6px 0 0; }
+.lc-tiles { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin: 18px 0 8px; }
+.lc-tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; text-align: left; font: inherit; color: var(--ink); cursor: pointer; }
+.lc-tile b { display: block; font-size: 1.5rem; line-height: 1.1; }
+.lc-tile span { font-size: 0.85rem; color: var(--ink-soft); }
+.lc-tile[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.lc-tile.bad b { color: var(--bad); } .lc-tile.warn b { color: var(--warn); } .lc-tile.ok b { color: var(--ok); }
+#lc-table td:first-child { white-space: normal; font-weight: 400; }
+#lc-table td { overflow-wrap: anywhere; word-break: break-word; }
+#lc-table td.lc-what { min-width: 9em; }
+.lc-url { font: 0.85rem ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink-soft); }
+.lc-why { color: var(--ink-soft); font-size: 0.88rem; }
+@media (max-width: 600px) {
+  #lc-table thead { display: none; }
+  #lc-table, #lc-table tbody, #lc-table tr, #lc-table td { display: block; width: 100%; }
+  #lc-table tr { border-bottom: 1px solid var(--line); padding: 10px 0; }
+  #lc-table td { border: 0; padding: 3px 0; }
+  #lc-table td.lc-text:not(:empty)::before { content: "Link text: "; color: var(--ink-faint); }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="../../">Home</a><a href="../../task-report/">Task Report</a><a href="../../link-health/">Link Health</a><a href="../../query-bulk/">Query &amp; Bulk</a><a href="../../help/">Help</a><a href="../../privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="doc">
+  <div class="wrap">
+    <span class="eyebrow"><a href="../">Guides</a> · Free tool</span>
+    <h1>Free Confluence link checker</h1>
+    <p class="lead">Paste a Confluence Cloud page here to see its links that go nowhere: links to pages that don't exist, links still pointing at your old Data Center or Server address, links to other Confluence sites, and addresses that only work inside your office network.</p>
+    <div class="note">
+      <p><b>Private by design:</b> the checker runs entirely in your browser. Nothing you paste is uploaded or sent anywhere, and this page makes no network requests of its own. Close the tab and it's gone.</p>
+    </div>
+
+    <h2 id="how">How to use it</h2>
+    <ol>
+      <li>Open the Confluence page in view mode (not the editor).</li>
+      <li>Select the page's text: drag across it, or click in it and press <kbd>Ctrl</kbd>+<kbd>A</kbd> (<kbd>Cmd</kbd>+<kbd>A</kbd> on a Mac). Copy it with <kbd>Ctrl</kbd>+<kbd>C</kbd>.</li>
+      <li>Paste it into the box below and press <b>Check links</b>. You can paste several pages one after another, or a plain list of web addresses, one per line.</li>
+    </ol>
+
+    <form id="lc-form" onsubmit="return false">
+      <label for="lc-input" class="faint" style="display:block;margin:18px 0 6px">Paste a page, or a list of links</label>
+      <textarea id="lc-input" class="lc-box" spellcheck="false" placeholder="Paste here…"></textarea>
+      <p id="lc-pasted" class="lc-status" aria-live="polite"></p>
+      <div class="lc-row">
+        <label for="lc-old">Old server address (optional)</label>
+        <input id="lc-old" class="lc-input" type="text" inputmode="url" autocomplete="off" placeholder="e.g. wiki.yourcompany.com, confluence.yourcompany.com:8090">
+      </div>
+      <div class="btns" style="margin-top:12px">
+        <button type="button" id="lc-check" class="btn btn-primary">Check links</button>
+        <button type="button" id="lc-sample" class="btn btn-ghost">Try an example</button>
+        <button type="button" id="lc-clear" class="btn btn-ghost">Clear</button>
+      </div>
+    </form>
+
+    <section id="lc-results" hidden style="padding:0">
+      <h2 id="results">Results</h2>
+      <p id="lc-summary" class="muted" aria-live="polite"></p>
+      <div id="lc-tiles" class="lc-tiles"></div>
+      <div class="table-scroll">
+        <table id="lc-table">
+          <thead><tr><th>What we found</th><th>Link text</th><th>Address</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="btns" style="margin-top:8px">
+        <button type="button" id="lc-csv" class="btn btn-ghost">Download as CSV</button>
+        <span class="faint">The CSV is made in your browser too.</span>
+      </div>
+    </section>
+
+    <h2 id="checks">What it checks</h2>
+    <ul>
+      <li><b>Links to a page that doesn't exist.</b> In Confluence these look like any other link, but clicking one starts creating a new page instead. The checker spots them from the address Confluence gives them.</li>
+      <li><b>Links to your old server.</b> Links to the address you enter above, and any link to another site whose address looks like a Confluence page (<code>/display/</code>, <code>viewpage.action</code>, <code>/download/attachments/</code>, short <code>/x/</code> links). These stop working once the old server is switched off.</li>
+      <li><b>Links to a different Confluence Cloud site,</b> such as a sandbox or an old site from before a move. Your own site is worked out from the links you paste.</li>
+      <li><b>Internal-only addresses:</b> <code>localhost</code>, private network addresses (<code>10.…</code>, <code>192.168.…</code>), names without a dot, <code>file://</code> links and shared-drive paths. They only work for people inside your network, or on one computer.</li>
+      <li><b>Worth a look:</b> old-style Confluence addresses on your own site, which usually still redirect, and plain <code>http://</code> links.</li>
+    </ul>
+
+    <h2 id="limits">What it can't check</h2>
+    <ul>
+      <li><b>Whether outside websites still work.</b> Browsers don't let one website test another's links, so the checker lists outside links without testing them. Open any that matter.</li>
+      <li><b>Missing files.</b> A link to an attachment that's been deleted usually doesn't show when you view the page, so it isn't in what you copy.</li>
+      <li><b>More than the pages you paste.</b> It checks one page, or a few, at a time. It can't see which pages link to which, or find orphan pages and unused attachments.</li>
+    </ul>
+
+    <h2 id="with-the-app">Every page at once, with Link Health &amp; Cleanup</h2>
+    <p>Link Health &amp; Cleanup does these checks across every page and space on your site without copying and pasting. It keeps an index of every link, and lists broken links (missing pages and missing files), links to your old server, orphan pages and unused attachments. Every list only shows pages the viewer can open, and you can export any list to CSV.</p>
+    <div class="note">
+      <p><b>Disclosure:</b> Kitefold makes Link Health &amp; Cleanup, so we're not neutral. This checker is free to use as often as you like, with no sign-up.</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/3516631082/link-health-broken-links-orphan-pages-unused-attachments?hosting=cloud&amp;utm_source=kitefold.app&amp;utm_medium=referral&amp;utm_campaign=link-checker">Get it on the Marketplace</a>
+      <a class="btn btn-ghost" href="../broken-links-in-confluence/">Read the broken links guide</a>
+      <span class="faint">Free for up to 10 users</span>
+    </div>
+
+    <h2 id="related">Related guides</h2>
+    <ul>
+      <li><a href="../broken-links-in-confluence/">How to find broken links in Confluence Cloud</a></li>
+      <li><a href="../old-links-after-confluence-cloud-migration/">Fixing old links after moving Confluence from Data Center to Cloud</a></li>
+      <li><a href="../pages-that-link-to-a-confluence-page/">How to see which pages link to a Confluence page</a></li>
+    </ul>
+    <p class="faint">Checked against Confluence Cloud pages on our test site, November 2026. Confluence changes often; if the checker misses something or flags a link wrongly, email <a href="mailto:support@kitefold.app">support@kitefold.app</a>.</p>
+  </div>
+</div>
+<script>
+(function () {
+  "use strict";
+  var input = document.getElementById("lc-input");
+  var pastedNote = document.getElementById("lc-pasted");
+  var oldInput = document.getElementById("lc-old");
+  var results = document.getElementById("lc-results");
+  var tbody = document.querySelector("#lc-table tbody");
+  var tilesBox = document.getElementById("lc-tiles");
+  var summary = document.getElementById("lc-summary");
+  var pastes = [];      // HTML from each paste, kept only in this page's memory
+  var lastRows = [];
+  var filter = null;
+
+  var KINDS = {
+    missing: { label: "Page doesn't exist", tone: "bad", why: "Clicking it starts a new page instead of opening one." },
+    oldserver: { label: "Old server", tone: "bad", why: "Points at another Confluence address. It stops working when that server is switched off." },
+    othersite: { label: "Other Confluence site", tone: "warn", why: "Points at a different Confluence Cloud site, such as a sandbox or an old site." },
+    internal: { label: "Internal only", tone: "warn", why: "Only works inside your network or on one computer." },
+    oldstyle: { label: "Old-style address", tone: "info", why: "An older Confluence address format on your own site. It usually still redirects, but is worth updating." },
+    insecure: { label: "Not https", tone: "info", why: "A plain http:// link. Many browsers warn about these." },
+    attachment: { label: "File link", tone: "info", why: "A link to an attachment. Whether the file still exists can't be seen from a copied page." },
+    external: { label: "Outside website", tone: "ok", why: "Not tested: browsers don't let one site test another's links." },
+    ok: { label: "Looks fine", tone: "ok", why: "A normal link to a page on your site." }
+  };
+  var ORDER = ["missing", "oldserver", "othersite", "internal", "oldstyle", "insecure", "attachment", "external", "ok"];
+
+  input.addEventListener("paste", function (e) {
+    var cd = e.clipboardData;
+    if (!cd) return;
+    var html = cd.getData("text/html");
+    if (html) {
+      pastes.push(html);
+      var n = countLinksInHtml(html);
+      pastedNote.textContent = "Pasted " + pastes.length + (pastes.length === 1 ? " page" : " pages") + " with links kept (" + n + (n === 1 ? " link" : " links") + " in the last one). Press Check links.";
+    }
+  });
+  input.addEventListener("input", function () {
+    if (!input.value.trim()) { pastes = []; pastedNote.textContent = ""; }
+  });
+
+  function countLinksInHtml(html) {
+    try { return new DOMParser().parseFromString(html, "text/html").querySelectorAll("a[href]").length; } catch (err) { return 0; }
+  }
+
+  function collectLinks() {
+    var links = [];
+    var seenHtml = false;
+    pastes.forEach(function (html) {
+      var doc = new DOMParser().parseFromString(html, "text/html");
+      doc.querySelectorAll("a[href]").forEach(function (a) {
+        seenHtml = true;
+        links.push({ href: (a.getAttribute("href") || "").trim(), text: (a.textContent || "").replace(/\s+/g, " ").trim(), cls: a.getAttribute("class") || "" });
+      });
+    });
+    // Plain text: addresses typed or pasted without formatting.
+    var text = input.value;
+    var re = /(?:https?:\/\/|file:\/\/|\\\\)[^\s<>"'`]+/gi, m;
+    var fromText = [];
+    while ((m = re.exec(text))) fromText.push(m[0].replace(/[).,;:!?\]]+$/, ""));
+    if (!seenHtml) {
+      text.split(/\r?\n/).forEach(function (line) {
+        var t = line.trim();
+        if (/^[a-z0-9-]+(\.[a-z0-9-]+)+(:\d+)?\/\S*$/i.test(t) && fromText.indexOf(t) < 0) fromText.push(t);
+      });
+      fromText.forEach(function (u) { links.push({ href: /^[a-z]+:|^\\\\/i.test(u) ? u : "https://" + u, text: "", cls: "" }); });
+    }
+    return links;
+  }
+
+  function parseUrl(href) {
+    if (/^\\\\/.test(href)) return { unc: true };
+    try { return new URL(href, "https://relative.invalid/"); } catch (err) { return null; }
+  }
+
+  function oldHosts() {
+    return oldInput.value.split(/[\s,;]+/).map(function (s) {
+      s = s.trim().toLowerCase();
+      if (!s) return null;
+      s = s.replace(/^[a-z]+:\/\//, "").replace(/\/.*$/, "");
+      return s || null;
+    }).filter(Boolean);
+  }
+
+  // Paths only Confluence uses. Deliberately not /wiki/ alone, which many other sites use.
+  var CONF_PATH = /(\/display\/[^/]+\/|\/pages\/viewpage\.action|\/download\/attachments\/\d|^\/x\/[A-Za-z0-9_-]+\/?$|\/spaces\/[^/]+\/pages\/\d)/i;
+  var IGNORE = /(\/wiki\/spaces\/[^/]+\/(history|pages\/edit-v2|overview|blog)\b|\/wiki\/people\/|home\.atlassian\.com|\/wiki\/?$|\/wiki\/(home|recent|search|templates|company-hub)\b|\/wiki\/spaces\/[^/]+\/calendars|id\.atlassian\.com|start\.atlassian\.com|admin\.atlassian\.com)/i;
+
+  function isPrivateHost(h) {
+    if (h === "localhost" || /\.(local|localhost|internal|intranet|corp|lan|home\.arpa)$/.test(h)) return true;
+    if (/^127\./.test(h) || /^10\./.test(h) || /^192\.168\./.test(h) || /^169\.254\./.test(h)) return true;
+    var m = /^172\.(\d+)\./.exec(h); if (m && +m[1] >= 16 && +m[1] <= 31) return true;
+    if (h.indexOf(".") < 0 && h.indexOf(":") < 0) return true;
+    return false;
+  }
+
+  function classify(links) {
+    // Work out the reader's own Confluence Cloud site from the most common atlassian.net host.
+    var counts = {};
+    links.forEach(function (l) {
+      var u = parseUrl(l.href);
+      if (u && u.hostname && /\.atlassian\.net$/i.test(u.hostname)) counts[u.hostname.toLowerCase()] = (counts[u.hostname.toLowerCase()] || 0) + 1;
+    });
+    var home = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; })[0] || null;
+    var olds = oldHosts();
+    var rows = [], skipped = 0, seen = {};
+    links.forEach(function (l) {
+      var href = l.href;
+      if (!href || /^(#|javascript:|mailto:|tel:)/i.test(href)) { skipped++; return; }
+      var key = href + "\u0000" + l.text;
+      if (seen[key]) { seen[key].count++; return; }
+      var u = parseUrl(href);
+      var kind, detail = "";
+      if (!u) { kind = "internal"; detail = "This address can't be read."; }
+      else if (u.unc || u.protocol === "file:") kind = "internal";
+      else {
+        var relative = u.hostname === "relative.invalid";
+        var host = relative ? (home || "") : u.hostname.toLowerCase();
+        var hostPort = relative ? host : u.host.toLowerCase();
+        var path = u.pathname + u.search;
+        if (!relative && IGNORE.test(href)) { skipped++; return; }
+        if (relative && IGNORE.test(path)) { skipped++; return; }
+        if (/createpage\.action/i.test(path) || /\bcreatelink\b/.test(l.cls)) {
+          kind = "missing";
+          var t = u.searchParams.get("title"), sk = u.searchParams.get("spaceKey");
+          if (t) detail = "Missing page: \u201c" + t + "\u201d" + (sk ? " in space " + sk : "") + ".";
+        }
+        else if (olds.some(function (o) { return o === hostPort || o === host || host.endsWith("." + o); })) kind = "oldserver";
+        else if (!relative && isPrivateHost(host)) kind = "internal";
+        else if (!relative && /\.atlassian\.net$/.test(host) && home && host !== home) kind = "othersite";
+        else if (!relative && !/\.atlassian\.net$/.test(host) && CONF_PATH.test(u.pathname)) kind = "oldserver";
+        else if (/download\/attachments\//i.test(path)) kind = "attachment";
+        else if (/\/(display\/|pages\/viewpage\.action)/i.test(path)) kind = "oldstyle";
+        else if (!relative && !/\.atlassian\.net$/.test(host)) kind = (u.protocol === "http:") ? "insecure" : "external";
+        else kind = "ok";
+      }
+      var row = { kind: kind, text: l.text, href: href, detail: detail, count: 1 };
+      seen[key] = row; rows.push(row);
+    });
+    rows.sort(function (a, b) { return ORDER.indexOf(a.kind) - ORDER.indexOf(b.kind); });
+    return { rows: rows, skipped: skipped, home: home };
+  }
+
+  function render(res) {
+    lastRows = res.rows; filter = null;
+    var byKind = {};
+    res.rows.forEach(function (r) { byKind[r.kind] = (byKind[r.kind] || 0) + 1; });
+    var problems = (byKind.missing || 0) + (byKind.oldserver || 0) + (byKind.othersite || 0) + (byKind.internal || 0);
+    results.hidden = false;
+    if (!res.rows.length) {
+      summary.textContent = "No links found. Copy the page from view mode and paste it again; links only come across when you copy the formatted page, not plain text.";
+      tilesBox.textContent = ""; tbody.textContent = ""; return;
+    }
+    summary.textContent = res.rows.length + (res.rows.length === 1 ? " different link" : " different links") + " checked" +
+      (res.home ? " (your site looks like " + res.home + ")" : "") + ". " +
+      (problems ? problems + (problems === 1 ? " needs fixing." : " need fixing.") : "Nothing broken found in what you pasted.") +
+      (res.skipped ? " " + res.skipped + " menu, profile and email links were left out." : "");
+    tilesBox.textContent = "";
+    ORDER.forEach(function (k) {
+      if (!byKind[k]) return;
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "lc-tile " + KINDS[k].tone; b.setAttribute("aria-pressed", "false");
+      var n = document.createElement("b"); n.textContent = byKind[k];
+      var s = document.createElement("span"); s.textContent = KINDS[k].label;
+      b.appendChild(n); b.appendChild(s);
+      b.addEventListener("click", function () {
+        filter = (filter === k) ? null : k;
+        tilesBox.querySelectorAll(".lc-tile").forEach(function (t) { t.setAttribute("aria-pressed", "false"); });
+        if (filter) b.setAttribute("aria-pressed", "true");
+        drawRows();
+      });
+      tilesBox.appendChild(b);
+    });
+    drawRows();
+    document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function drawRows() {
+    tbody.textContent = "";
+    lastRows.forEach(function (r) {
+      if (filter && r.kind !== filter) return;
+      var tr = document.createElement("tr");
+      var td1 = document.createElement("td"); td1.className = "lc-what";
+      var lz = document.createElement("span"); lz.className = "lz" + (KINDS[r.kind].tone === "bad" ? " lz-bad" : KINDS[r.kind].tone === "warn" ? " lz-warn" : KINDS[r.kind].tone === "ok" ? " lz-ok" : "");
+      lz.textContent = KINDS[r.kind].label; td1.appendChild(lz);
+      var why = document.createElement("div"); why.className = "lc-why"; why.textContent = (r.detail ? r.detail + " " : "") + KINDS[r.kind].why; td1.appendChild(why);
+      var td2 = document.createElement("td"); td2.className = "lc-text"; td2.textContent = (r.text || "\u2014") + (r.count > 1 ? " (\u00d7" + r.count + ")" : "");
+      var td3 = document.createElement("td"); var code = document.createElement("span"); code.className = "lc-url"; code.textContent = r.href; td3.appendChild(code);
+      tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); tbody.appendChild(tr);
+    });
+  }
+
+  function csvCell(v) {
+    v = String(v == null ? "" : v);
+    if (/^[=+\-@\t\r]/.test(v)) v = "'" + v;
+    return '"' + v.replace(/"/g, '""') + '"';
+  }
+
+  document.getElementById("lc-check").addEventListener("click", function () {
+    render(classify(collectLinks()));
+  });
+  document.getElementById("lc-clear").addEventListener("click", function () {
+    input.value = ""; pastes = []; pastedNote.textContent = ""; results.hidden = true; lastRows = []; input.focus();
+  });
+  document.getElementById("lc-sample").addEventListener("click", function () {
+    var site = "https://your-team.atlassian.net";
+    pastes = ['<p>Release checklist. See <a href="' + site + '/wiki/spaces/ENG/pages/12345/Rollback+steps">Rollback steps</a> and <a href="' + site + '/wiki/pages/createpage.action?spaceKey=ENG&amp;title=Release%204.1%20checklist&amp;linkCreation=true&amp;fromPageId=12345">Release 4.1 checklist</a>.</p>' +
+      '<p>Old notes: <a href="https://wiki.example-old.com/display/ENG/API+changes+v3">API changes v3</a>, <a href="https://wiki.example-old.com/x/AbC12">Escalation contacts</a>.</p>' +
+      '<p>Sandbox copy: <a href="https://your-team-sandbox.atlassian.net/wiki/spaces/ENG/pages/999/Runbook">Runbook</a>. Shared drive: <a href="file://fileserver/team/runbook.docx">runbook.docx</a>. Build server: <a href="http://build01:8080/job/release">build01</a>.</p>' +
+      '<p>More: <a href="' + site + '/wiki/display/ENG/Onboarding">Onboarding</a>, <a href="' + site + '/wiki/download/attachments/12345/floor-plan-2023.pdf">floor-plan-2023.pdf</a>, <a href="https://www.example.com/status">Status page</a>, <a href="' + site + '/wiki/spaces/ENG/pages/12399/Escalation+contacts">Escalation contacts</a>.</p>'];
+    input.value = "Example page: Release checklist (made-up links)";
+    oldInput.value = "wiki.example-old.com";
+    pastedNote.textContent = "Example loaded (made-up links) and checked below. Press Clear to start on your own page.";
+    render(classify(collectLinks()));
+  });
+  document.getElementById("lc-csv").addEventListener("click", function () {
+    var lines = [["What we found", "Detail", "Link text", "Address", "Times on the pasted pages"].map(csvCell).join(",")];
+    lastRows.forEach(function (r) { lines.push([KINDS[r.kind].label, r.detail, r.text, r.href, r.count].map(csvCell).join(",")); });
+    var blob = new Blob(["\ufeff" + lines.join("\r\n")], { type: "text/csv;charset=utf-8" });
+    var a = document.createElement("a");
+    var d = new Date(), p = function (n) { return (n < 10 ? "0" : "") + n; };
+    a.href = URL.createObjectURL(blob); a.download = "confluence-links-" + d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()) + ".csv";
+    document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  });
+})();
+</script>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="../../task-report/">All-Spaces Task Report</a></p>
+      <p><a href="../../link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="../../query-bulk/">Query &amp; Bulk Actions</a></p>
+      <p><a href="../../help/">Help and FAQ</a></p>
+      <p><a href="../../support/">Support and service levels</a></p>
+      <p><a href="../../privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Support: <a href="mailto:support@kitefold.app">support@kitefold.app</a></p>
+      <p>General: <a href="mailto:hello@kitefold.app">hello@kitefold.app</a></p>
+      
+    </div>
+    <p class="legal">&copy; 2026 Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>
