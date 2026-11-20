@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moving from CQL Search or Bulk Action Tools before Connect ends | Kitefold</title>
+<meta name="description" content="CQL Search and Bulk Action Tools are Connect apps, and Atlassian&#x27;s Connect support ends on 31 January 2027. What each feature becomes in Query &amp; Bulk Actions, and how to move your CQL Query macros.">
+<link rel="canonical" href="https://kitefold.app/query-bulk/moving-from-cql-search/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../styles.css">
+<script src="../../menu.js"></script>
+<meta property="og:title" content="Moving from CQL Search or Bulk Action Tools before Connect ends | Kitefold">
+<meta property="og:description" content="CQL Search and Bulk Action Tools are Connect apps, and Atlassian&#x27;s Connect support ends on 31 January 2027. What each feature becomes in Query &amp; Bulk Actions, and how to move your CQL Query macros.">
+<meta property="og:url" content="https://kitefold.app/query-bulk/moving-from-cql-search/">
+<meta property="og:type" content="article">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="../../">Home</a><a href="../../task-report/">Task Report</a><a href="../../link-health/">Link Health</a><a href="../../query-bulk/" aria-current="page">Query &amp; Bulk</a><a href="../../guides/">Guides</a><a href="../../help/">Help</a><a href="../../privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="doc">
+  <div class="wrap">
+    <span class="eyebrow"><a href="../">Query &amp; Bulk Actions</a></span>
+    <h1>Moving from CQL Search or Bulk Action Tools before Connect ends</h1>
+    <p class="lead">CQL Search and Bulk Action Tools, both by StreamlineSoft, are Connect apps. Atlassian's support for Connect apps ends on 31 January 2027. After that, Atlassian will only fix critical security problems in Connect, and it expects breakages to become more frequent, some without advance notice. Query &amp; Bulk Actions is built on Atlassian Forge and covers the searching of the first and most of the bulk changes of the second. Here's what moves where, and how to move your CQL Query macros.</p>
+    <p class="faint">As of 20 November 2026, the Marketplace lists CQL Search at version 1.1.3 (July 2024) and Bulk Action Tools at 1.0.7 (February 2022), both Connect versions. StreamlineSoft may still release Forge versions; check their listings before you decide.</p>
+
+    <h2 id="what-moves">What each feature becomes</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>You used</th><th>In Query &amp; Bulk Actions</th></tr></thead>
+        <tbody>
+          <tr><td><b>CQL Search</b> page (<b>•••</b> → <b>CQL Search</b>)</td><td>The app's page (<b>Apps</b> → <b>Query &amp; Bulk Actions</b>): the same CQL, or a builder, or plain English. Columns, sort, 25 to 100 rows, <b>Export CSV</b>, and saved searches you can keep private or share.</td></tr>
+          <tr><td><b>CQL Query</b> macro</td><td>The <b>Query results</b> macro: the same CQL, with <code>pageId()</code> and <code>spaceKey()</code> working as before. See <a href="#macros">moving your macros</a>.</td></tr>
+          <tr><td>Bulk Action Tools: watch or stop watching a page tree</td><td>Search for the tree (the builder's <b>Under page</b>, or <code>ancestor = 123456</code>), tick the results, then <b>Watch</b> or <b>Stop watching</b>, for you or, if you're a Confluence admin or space admin, for someone else.</td></tr>
+          <tr><td>Label manager: add and remove labels</td><td><b>Add labels</b> / <b>Remove labels</b> on the pages, blog posts and files you tick, up to 500 at a time.</td></tr>
+          <tr><td>Label manager: rename and merge</td><td><b>Rename or merge a label (whole site)</b>.</td></tr>
+          <tr><td>Label manager: split a label</td><td>No split action. Search for the pages that should get the new label, <b>Add labels</b>, then <b>Remove labels</b> to take the old one off them.</td></tr>
+          <tr><td>Move pages</td><td>Not in Query &amp; Bulk Actions.</td></tr>
+          <tr><td>Delete pages or attachments, remove comments</td><td>Not in Query &amp; Bulk Actions: it never deletes anything. Pages can be <b>archived</b> instead, and restored in Confluence.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Also in Query &amp; Bulk Actions: a preview before every change and a result for every item, undo for label and watcher changes, writing a search in plain English, and <a href="../#markdown">exporting pages to Markdown</a>.</p>
+
+    <h2 id="macros">Moving your CQL Query macros</h2>
+    <p>There's no automatic converter. Each macro is replaced by hand, which takes a minute or two a page. Both apps can be installed at the same time, so you can move pages gradually.</p>
+    <ol>
+      <li><b>Install Query &amp; Bulk Actions</b> (a Confluence admin does this once; it's free for up to 10 users).</li>
+      <li><b>Find the pages that use the old macro.</b> In the app, run <code>macro = "cql-query"</code>. CQL Search's macro is stored under that name, and Confluence finds pages by a macro's stored name even when no app provides it any more (we checked this with a made-up macro). Save it as a search so you can come back to it, and use <b>Export CSV</b> for a list.</li>
+      <li><b>On each page:</b> edit it, open the CQL Query macro's settings and copy its CQL. Then type <code>/</code>, choose <b>Query results</b>, paste the CQL and match the settings (table below).</li>
+      <li><b>Check the results match,</b> delete the old macro and publish.</li>
+      <li>When the search in step 2 finds nothing, CQL Search's macros are gone and it can be uninstalled.</li>
+    </ol>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>CQL Query macro setting</th><th>Query results macro</th></tr></thead>
+        <tbody>
+          <tr><td>CQL query</td><td>The CQL box (or pick a saved search). <code>pageId()</code> and <code>spaceKey()</code> work the same.</td></tr>
+          <tr><td>Results per page (10, 25, 50, 100)</td><td>Number of rows (10 to 100)</td></tr>
+          <tr><td>Show query</td><td>Show the search</td></tr>
+          <tr><td>Type, Space, Creator, Created, Last modifier, Last modified, Labels columns</td><td>Type, Space, Created by, Created, Modified by, Last modified, Labels columns (plus Version, Parent and File size)</td></tr>
+          <tr><td>Owner column</td><td>No Owner column yet</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>One difference to know: the Query results macro runs as whoever is viewing the page, so each reader sees only the pages they're allowed to see.</p>
+
+    <h2 id="bulk">Moving from Bulk Action Tools</h2>
+    <ul>
+      <li><b>Anyone on the site can use it, as themselves.</b> Every change runs with the person's own permissions, so Confluence refuses what they couldn't do by hand, and each item shows Done, Skipped, Refused or Failed.</li>
+      <li><b>Pick pages by any search,</b> not only by page tree: a label, a space, a date, a person, or a saved search.</li>
+      <li><b>A preview first, undo after.</b> Label and watcher changes can be undone from the results.</li>
+      <li><b>Admins can hide the bulk bar</b> for everyone in the app's settings, if they'd rather people only search.</li>
+    </ul>
+
+    <div class="note">
+      <p><b>Disclosure:</b> Kitefold makes Query &amp; Bulk Actions, so we're not neutral. CQL Search and Bulk Action Tools still work today, and we don't know StreamlineSoft's plans. Moving means replacing macros by hand, so try Query &amp; Bulk Actions on a few pages first.</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/3669018913?hosting=cloud&amp;utm_source=kitefold.app&amp;utm_medium=referral&amp;utm_campaign=moving-from-cql-search">Get it on the Marketplace</a>
+      <a class="btn btn-ghost" href="../#help">Read the help</a>
+      <span class="faint">Free for up to 10 users</span>
+    </div>
+    <p class="faint">Sources: Atlassian's <a href="https://www.atlassian.com/blog/development/getting-ready-for-connect-end-of-support" rel="noopener">Getting ready for Connect end of support</a> (3 August 2026), the <a href="https://marketplace.atlassian.com/apps/1213090/cql-search" rel="noopener">CQL Search</a> and <a href="https://marketplace.atlassian.com/apps/1212559/bulk-action-tools" rel="noopener">Bulk Action Tools</a> listings, and <a href="https://streamline.atlassian.net/wiki/spaces/CQLSEARCH/overview" rel="noopener">CQL Search's documentation</a>, read on 20 November 2026. CQL Search and Bulk Action Tools are StreamlineSoft's apps; Kitefold isn't connected with StreamlineSoft. If something here is out of date, email <a href="mailto:support@kitefold.app">support@kitefold.app</a>.</p>
+  </div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="../../task-report/">All-Spaces Task Report</a></p>
+      <p><a href="../../link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="../../query-bulk/">Query &amp; Bulk Actions</a></p>
+      <p><a href="../../guides/">Confluence guides</a></p>
+      <p><a href="../../guides/confluence-link-checker/">Free link checker</a></p>
+      <p><a href="../../help/">Help and FAQ</a></p>
+      <p><a href="../../support/">Support and service levels</a></p>
+      <p><a href="../../privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Support: <a href="mailto:support@kitefold.app">support@kitefold.app</a></p>
+      <p>General: <a href="mailto:hello@kitefold.app">hello@kitefold.app</a></p>
+      
+    </div>
+    <p class="legal">&copy; 2026 Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>
