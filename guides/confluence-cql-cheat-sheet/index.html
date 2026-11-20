@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confluence CQL cheat sheet | Kitefold</title>
+<meta name="description" content="Every CQL operator, field, date function and sort order for Confluence Cloud, with copy-paste searches, each one tried on a real site, and what CQL can&#x27;t search for.">
+<link rel="canonical" href="https://kitefold.app/guides/confluence-cql-cheat-sheet/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../styles.css">
+<script src="../../menu.js"></script>
+<meta property="og:title" content="Confluence CQL cheat sheet | Kitefold">
+<meta property="og:description" content="Every CQL operator, field, date function and sort order for Confluence Cloud, with copy-paste searches, each one tried on a real site, and what CQL can&#x27;t search for.">
+<meta property="og:url" content="https://kitefold.app/guides/confluence-cql-cheat-sheet/">
+<meta property="og:type" content="article">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="../../">Home</a><a href="../../task-report/">Task Report</a><a href="../../link-health/">Link Health</a><a href="../../query-bulk/">Query &amp; Bulk</a><a href="../../guides/" aria-current="page">Guides</a><a href="../../help/">Help</a><a href="../../privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="doc">
+  <div class="wrap">
+    <span class="eyebrow"><a href="../">Guides</a></span>
+    <h1>Confluence CQL cheat sheet</h1>
+    <p class="lead">CQL (Confluence Query Language) is the search language behind Confluence Cloud: a field, an operator and a value, joined with AND and OR. Here's every operator, the fields you'll use most, dates, labels, people, the page tree and sorting, with searches you can copy. Every example was run on our test site. At the end: what CQL can't search for.</p>
+
+    <h2 id="where">Where to run a search</h2>
+    <ul>
+      <li><b>In the address bar:</b> your site's address, then <code>/wiki/search?cql=</code> and the search, for example <code>https://your-site.atlassian.net/wiki/search?cql=type = page AND space = DOCS</code>. The results open in Confluence's search screen, which doesn't show a count.</li>
+      <li><b>As data:</b> <code>/wiki/rest/api/search?cql=</code> returns the results as JSON, with the total in <code>totalSize</code>.</li>
+      <li><b>In an app with a CQL box,</b> such as <a href="#app">Query &amp; Bulk Actions</a>, which shows the count and explains errors.</li>
+    </ul>
+    <p>A search only returns what you're allowed to see. Replace <code>DOCS</code> with your own space key, and the numbers with your own page ids.</p>
+
+    <h2 id="operators">Operators</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Operator</th><th>Means</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><code>=</code></td><td>is exactly</td><td><code>space = "DOCS"</code></td></tr>
+          <tr><td><code>!=</code></td><td>is not</td><td><code>type = page AND label != "draft"</code></td></tr>
+          <tr><td><code>~</code></td><td>contains the words (text and title)</td><td><code>title ~ "onboarding"</code></td></tr>
+          <tr><td><code>!~</code></td><td>doesn't contain the words</td><td><code>type = page AND text !~ "deprecated"</code></td></tr>
+          <tr><td><code>&gt;</code> <code>&gt;=</code> <code>&lt;</code> <code>&lt;=</code></td><td>after, before (dates)</td><td><code>created &gt;= now("-7d")</code></td></tr>
+          <tr><td><code>in (…)</code></td><td>any of</td><td><code>space in ("DOCS", "HR")</code></td></tr>
+          <tr><td><code>not in (…)</code></td><td>none of</td><td><code>label not in ("draft", "old")</code></td></tr>
+          <tr><td><code>AND</code> <code>OR</code> <code>NOT</code></td><td>join and negate</td><td><code>space = "DOCS" AND NOT label = "draft"</code></td></tr>
+          <tr><td><code>( )</code></td><td>group</td><td><code>space = "DOCS" AND (label = "hr" OR label = "it")</code></td></tr>
+          <tr><td><code>ORDER BY … ASC</code> / <code>DESC</code></td><td>sort (see <a href="#sorting">sorting</a>)</td><td><code>type = page ORDER BY lastmodified DESC</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><b>Quote values</b> that contain spaces or hyphens: <code>label = "how-to"</code>, <code>title = "Leave policy 2026"</code>. Without quotes Confluence can't read the search.</li>
+      <li><b>AND is applied before OR,</b> so <code>space = "DOCS" AND label = "hr" OR label = "it"</code> finds HR pages in DOCS plus <em>every</em> page labelled it. Add brackets.</li>
+      <li><code>label != "draft"</code> and <code>label not in ("draft")</code> give the same results: pages without that label.</li>
+    </ul>
+
+    <h2 id="fields">Fields</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Field</th><th>Finds</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><code>type</code></td><td>page, blogpost, attachment, comment, space</td><td><code>type in (page, blogpost)</code></td></tr>
+          <tr><td><code>space</code></td><td>items in a space, by key</td><td><code>space = "DOCS"</code></td></tr>
+          <tr><td><code>space.title</code></td><td>items in spaces whose name has these words</td><td><code>space.title ~ "Marketing"</code></td></tr>
+          <tr><td><code>title</code></td><td>the title: <code>~</code> for words, <code>=</code> for the exact title</td><td><code>title = "Leave policy 2026"</code></td></tr>
+          <tr><td><code>text</code></td><td>words anywhere in the title, body or labels</td><td><code>text ~ "onboarding"</code></td></tr>
+          <tr><td><code>label</code></td><td>labels</td><td><code>label in ("how-to", "howto")</code></td></tr>
+          <tr><td><code>creator</code></td><td>who created it</td><td><code>creator = currentUser()</code></td></tr>
+          <tr><td><code>contributor</code></td><td>anyone who edited it</td><td><code>contributor = currentUser()</code></td></tr>
+          <tr><td><code>mention</code></td><td>pages that @mention someone</td><td><code>mention = currentUser()</code></td></tr>
+          <tr><td><code>watcher</code></td><td>pages someone watches</td><td><code>watcher = currentUser()</code></td></tr>
+          <tr><td><code>favourite</code></td><td>pages someone has starred</td><td><code>favourite = currentUser()</code></td></tr>
+          <tr><td><code>created</code>, <code>lastmodified</code></td><td>dates (see <a href="#dates">dates</a>)</td><td><code>lastmodified &gt;= startOfMonth()</code></td></tr>
+          <tr><td><code>ancestor</code></td><td>everything below a page, at any depth</td><td><code>ancestor = 123456</code></td></tr>
+          <tr><td><code>parent</code></td><td>only a page's direct children</td><td><code>parent = 123456</code></td></tr>
+          <tr><td><code>id</code></td><td>one item by id</td><td><code>id = 123456</code></td></tr>
+          <tr><td><code>fileExtension</code></td><td>attached files by extension</td><td><code>type = attachment AND fileExtension = "pdf"</code></td></tr>
+          <tr><td><code>macro</code></td><td>pages that use a macro, by its name</td><td><code>macro = "toc"</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>A page's id is the number in its address, after <code>/pages/</code>. For people other than you, CQL needs their Atlassian account id, not their name: <code>creator = "557058:…"</code>.</p>
+
+    <h2 id="text">Words, phrases and titles</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Search</th><th>Finds</th></tr></thead>
+        <tbody>
+          <tr><td><code>text ~ "onboarding"</code></td><td>pages with the word anywhere, including the title</td></tr>
+          <tr><td><code>text ~ "\"bank holidays\""</code></td><td>the exact phrase (the inner quotes need a backslash)</td></tr>
+          <tr><td><code>title ~ "onboard*"</code></td><td>titles with a word starting “onboard”</td></tr>
+          <tr><td><code>title = "Leave policy 2026"</code></td><td>exactly that title</td></tr>
+          <tr><td><code>text !~ "deprecated"</code></td><td>pages without the word (combine with a space or type)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="dates">Dates</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Write</th><th>Means</th></tr></thead>
+        <tbody>
+          <tr><td><code>now("-7d")</code></td><td>7 days ago, at this time</td></tr>
+          <tr><td><code>now("-12M")</code></td><td>12 months ago (capital M for months)</td></tr>
+          <tr><td><code>startOfDay()</code>, <code>startOfWeek()</code>, <code>startOfMonth()</code>, <code>startOfYear()</code></td><td>the start of today, this week, this month, this year</td></tr>
+          <tr><td><code>startOfWeek("-1w")</code></td><td>the start of last week (works with the others too, such as <code>startOfDay("-12M")</code>)</td></tr>
+          <tr><td><code>"2026-10-01"</code></td><td>a fixed date</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Combine them with <code>created</code> or <code>lastmodified</code>: <code>lastmodified &lt; now("-12M")</code> is “not changed in a year”, <code>created &gt;= startOfMonth()</code> is “created this month”.</p>
+
+    <h2 id="sorting">Sorting</h2>
+    <p><code>ORDER BY</code> works on <code>title</code>, <code>created</code>, <code>lastmodified</code>, <code>type</code>, <code>creator</code>, <code>contributor</code> and <code>id</code>, with <code>ASC</code> or <code>DESC</code>. It can't sort by space (“space does not support ordering”) or by label.</p>
+
+    <h2 id="searches">Searches to copy</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>To find</th><th>Search</th></tr></thead>
+        <tbody>
+          <tr><td>Pages I created that changed this month</td><td><code>type = page AND creator = currentUser() AND lastmodified &gt;= startOfMonth()</code></td></tr>
+          <tr><td>Pages nobody has edited in a year, oldest first</td><td><code>type = page AND lastmodified &lt; now("-12M") ORDER BY lastmodified ASC</code></td></tr>
+          <tr><td>Everything under one page</td><td><code>ancestor = 123456</code></td></tr>
+          <tr><td>Blog posts from the last 7 days</td><td><code>type = blogpost AND created &gt;= now("-7d") ORDER BY created DESC</code></td></tr>
+          <tr><td>Pages that mention me</td><td><code>mention = currentUser() ORDER BY lastmodified DESC</code></td></tr>
+          <tr><td>Pages I watch in a space</td><td><code>type = page AND watcher = currentUser() AND space = "DOCS"</code></td></tr>
+          <tr><td>A label in two spaces</td><td><code>space in ("DOCS", "HR") AND label = "policy"</code></td></tr>
+          <tr><td>PDFs and Word files in a space</td><td><code>type = attachment AND fileExtension in ("pdf", "docx") AND space = "DOCS"</code></td></tr>
+          <tr><td>Pages with a table of contents</td><td><code>type = page AND macro = "toc"</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>More clean-up searches, such as files by type and pages that copy in other pages, are in <a href="../confluence-cleanup-cql/">Confluence clean-up searches with CQL</a>.</p>
+
+    <h2 id="cant">What CQL can't do</h2>
+    <ul>
+      <li><b>No “has no labels” search.</b> <code>label is EMPTY</code> is rejected (“Could not parse cql”). The nearest is excluding the labels you know about.</li>
+      <li><b>No sorting by space or label.</b></li>
+      <li><b>No links.</b> CQL can't find broken links, which pages link to a page, orphan pages or unused files: see <a href="../confluence-cleanup-cql/#limits">what CQL can't find</a>.</li>
+      <li><b>No views, likes, popularity, page size or word count.</b> None of these is a CQL field.</li>
+      <li><b>Archived pages are left out</b> of results.</li>
+      <li><b>Only what you can see.</b> Two people running the same search can get different results.</li>
+    </ul>
+
+    <h2 id="app">Write, check and act on CQL with Query &amp; Bulk Actions</h2>
+    <ol>
+      <li>A Confluence admin installs <b>Query &amp; Bulk Actions</b>; anyone can then open it from the <b>Apps</b> menu.</li>
+      <li>Type CQL into its CQL box, or build the search with drop-downs, or <b>Ask in plain English</b> and check the CQL it writes before anything runs. Results show their count, and a mistake in the CQL is explained in plain words.</li>
+      <li>Save the search for yourself or your team, show its live results on any page with the <b>Query results</b> macro, export them as CSV or <a href="../confluence-to-markdown/">Markdown</a>, or change them in bulk: labels, watchers or archive, with a preview first.</li>
+    </ol>
+    <div class="note">
+      <p><b>Disclosure:</b> Kitefold makes Query &amp; Bulk Actions, so we're not neutral. Every search on this page works in Confluence's own search screen too, for free.</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/3669018913?hosting=cloud&amp;utm_source=kitefold.app&amp;utm_medium=referral&amp;utm_campaign=guide-cql-cheat-sheet">Get it on the Marketplace</a>
+      <a class="btn btn-ghost" href="../../query-bulk/#search">Read the help</a>
+      <span class="faint">Free for up to 10 users</span>
+    </div>
+
+    <h2 id="related">Related guides</h2>
+    <ul>
+      <li><a href="../confluence-cleanup-cql/">Confluence clean-up searches with CQL, and what CQL can’t find</a></li>
+      <li><a href="../confluence-to-markdown/">How to export Confluence pages to Markdown (with images)</a></li>
+      <li><a href="../../query-bulk/moving-from-cql-search/">Moving from CQL Search or Bulk Action Tools before Connect ends</a></li>
+    </ul>
+    <p class="faint">Every search on this page was run on our test site on 20 November 2026; field and function names follow Atlassian's developer documentation for CQL. Confluence changes often; if something here no longer matches what you see, email <a href="mailto:support@kitefold.app">support@kitefold.app</a> and we'll update it.</p>
+  </div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="../../task-report/">All-Spaces Task Report</a></p>
+      <p><a href="../../link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="../../query-bulk/">Query &amp; Bulk Actions</a></p>
+      <p><a href="../../guides/">Confluence guides</a></p>
+      <p><a href="../../guides/confluence-link-checker/">Free link checker</a></p>
+      <p><a href="../../help/">Help and FAQ</a></p>
+      <p><a href="../../support/">Support and service levels</a></p>
+      <p><a href="../../privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Support: <a href="mailto:support@kitefold.app">support@kitefold.app</a></p>
+      <p>General: <a href="mailto:hello@kitefold.app">hello@kitefold.app</a></p>
+      
+    </div>
+    <p class="legal">&copy; 2026 Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>
