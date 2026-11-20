@@ -29,7 +29,7 @@
     <div>
       <span class="pill">Now on the Atlassian Marketplace</span>
       <h1 style="margin-top:16px">Query &amp; Bulk Actions for Confluence</h1>
-      <p class="lead">Write a Confluence search in plain English, with a builder or in CQL, and check it before it runs. Save it and share it with your team, show its live results on any page, and change the results in bulk: add, remove, rename or merge labels, watch pages, or archive them, always with a preview first.</p>
+      <p class="lead">Write a Confluence search in plain English, with a builder or in CQL, and check it before it runs. Save it and share it with your team, show its live results on any page, and change the results in bulk: add, remove, rename or merge labels, watch pages, or archive them, always with a preview first. Or export the pages it finds to Markdown, with their images.</p>
       <div class="btns">
         <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/3669018913?hosting=cloud&amp;utm_source=kitefold.app&amp;utm_medium=referral&amp;utm_campaign=query-bulk&amp;utm_content=top">Get it on the Marketplace</a>
         <a class="btn btn-ghost" href="#getting-started">How to set it up</a>
@@ -81,6 +81,10 @@
         <h3>Preview, results and undo</h3>
         <p class="muted">Every change shows a preview first, then a result for each item: done, skipped, refused or failed. Label and watcher changes can be undone.</p>
       </div>
+      <div class="card" style="grid-column:1/-1">
+        <h3>Export to Markdown</h3>
+        <p class="muted">Download the pages a search finds as Markdown files in a zip: by label, space, date, CQL or a saved search, up to 500 at a time. One folder per space, images saved as files, links between the exported pages kept, and a report of anything that didn't convert. <a href="#markdown">How it works</a></p>
+      </div>
     </div>
   </div>
 </section>
@@ -96,6 +100,7 @@
         <li><b>Runs as you.</b> Searches and changes run in your browser as you, so you see only what you can open and change only what Confluence lets you change. Pages you can't edit are refused, never changed.</li>
         <li><b>A preview before every change.</b> Nothing changes until you've seen what will happen and confirmed it. Archiving needs a second tick.</li>
         <li><b>Nothing is ever deleted.</b> The app adds and removes labels and watchers and archives pages. Archived pages can be restored in Confluence.</li>
+        <li><b>Exports stay with you.</b> Export to Markdown reads the pages in your browser, as you, and saves the zip straight to your computer. The app keeps no copy.</li>
         <li><b>Nothing leaves Atlassian.</b> The app runs on Atlassian Forge and makes no calls to outside services. “Ask in plain English” uses an AI model hosted by Atlassian and never sees page content. No analytics or tracking.</li>
       </ul>
       <p><a href="../privacy/#query-bulk">Read the privacy policy</a></p>
@@ -134,6 +139,7 @@
         <li><a href="#saved">Saved searches</a></li>
         <li><a href="#macro">The Query results macro</a></li>
         <li><a href="#bulk">Changing results in bulk</a></li>
+        <li><a href="#markdown">Exporting to Markdown</a></li>
         <li><a href="#archive">Archiving pages</a></li>
         <li><a href="#settings">The admin setting</a></li>
         <li><a href="#limits">Limits and large sites</a></li>
@@ -207,6 +213,7 @@
           <tr><td>Rename or merge a label (whole site)</td><td>Finds everything with the old label (or several, to merge them) that you can see, in every space, up to 500 at a time. Each item gets the new label first, then loses the old one. The preview names the spaces it will change. <b>Find the next ones</b> carries on with the rest.</td></tr>
           <tr><td>Watch / Stop watching</td><td>For you, or for someone else. Confluence only lets Confluence admins and space admins change someone else's watching; for anyone else the run stops at the first refusal. Someone added as a watcher isn't notified that you did it.</td></tr>
           <tr><td>Archive pages</td><td>Moves the ticked pages to their space's archive. See <a href="#archive">Archiving pages</a>.</td></tr>
+          <tr><td>Export to Markdown (download a zip)</td><td>Saves the ticked pages and blog posts as Markdown files, with their images, in a zip on your computer. Nothing in Confluence changes. See <a href="#markdown">Exporting to Markdown</a>.</td></tr>
         </tbody>
       </table>
     </div>
@@ -216,7 +223,46 @@
       <li><b>If you leave the page during a run</b>, it stops. The next time you open the app it says how far it got; run the same change again to finish (items already changed are skipped).</li>
     </ul>
 
-    <h3 id="archive">7. Archiving pages</h3>
+    <h3 id="markdown">7. Exporting to Markdown</h3>
+    <p>Export to Markdown saves the pages a search finds as Markdown files in a zip on your computer. Use any search: a label, a space, pages nobody has changed in a year, or a saved search.</p>
+    <ol>
+      <li>Run the search, then tick results or press <b>Select all</b>.</li>
+      <li>Choose <b>Export to Markdown (download a zip)</b> as the action and press <b>Preview</b>. It says how many pages and blog posts will be exported. Anything else you ticked, such as files, is left out and listed.</li>
+      <li>Press <b>Export</b>. The app reads the pages, then their images, and shows its progress. Keep the tab open until the zip is saved.</li>
+      <li>The zip is saved to your browser's downloads as <code>query-bulk-markdown-</code> followed by the date and time. Each item then shows <b>Done</b>, <b>Done with notes</b> (something didn't convert, or an image stayed a link), <b>Skipped</b>, <b>Refused</b> or <b>Not run</b>, and <b>Download results (CSV)</b> saves the list.</li>
+    </ol>
+    <p><b>What's in the zip:</b></p>
+    <ul>
+      <li>one folder per space (named by its key), with one <code>.md</code> file per page or blog post, named from its title. Characters that aren't allowed in file names are replaced, and pages with the same title get their page id added;</li>
+      <li>at the top of each file, a short header with the title, id, type, space, Confluence address, labels and when it was last changed;</li>
+      <li>an <code>images</code> folder in each space folder holding the images the pages show, named with the id of the page each one is on. The pages link to them, so they show in any Markdown editor, offline;</li>
+      <li><code>export-report.md</code>, which lists every item with its result and anything that wasn't converted.</li>
+    </ul>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>In Confluence</th><th>In the Markdown file</th></tr></thead>
+        <tbody>
+          <tr><td>Headings, paragraphs, bold, italic, strikethrough, inline code, lists, task lists</td><td>The same in Markdown (task lists as <code>- [ ]</code> and <code>- [x]</code>)</td></tr>
+          <tr><td>Links to other pages in the export</td><td>Links to their <code>.md</code> files, also across space folders</td></tr>
+          <tr><td>Links to other pages and files</td><td>Their full Confluence address</td></tr>
+          <tr><td>Images on the page or on another page</td><td>Saved in the zip and linked (images on other websites stay links)</td></tr>
+          <tr><td>Tables</td><td>Markdown tables; tables with merged cells, or lists or code inside a cell, as HTML tables so nothing is lost</td></tr>
+          <tr><td>Code blocks</td><td>Fenced code blocks with their language</td></tr>
+          <tr><td>Info, tip, note and warning panels</td><td>Callouts (<code>&gt; [!NOTE]</code>, <code>&gt; [!TIP]</code>, <code>&gt; [!IMPORTANT]</code>, <code>&gt; [!WARNING]</code>), which GitHub and Obsidian show as callouts</td></tr>
+          <tr><td>Expand, status, mentions, emoji, dates, Jira issue keys, decisions, page layouts</td><td>A collapsible section, the status in brackets, @Name, the emoji, the date, the issue key, “Decision:” lines, and the columns' content one after another</td></tr>
+          <tr><td>Table of contents, children, include page, excerpt include, Jira tables, other apps' macros</td><td>Not converted: kept as a comment in the file, so you can see where it was, and listed in the report</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><b>More than 500 pages:</b> after a <b>Select all</b> export, <b>Export the next 500</b> carries on from where the last zip stopped, without repeating pages. Each 500 is its own zip, named <code>-part-2</code>, <code>-part-3</code> and so on. A link to a page in another zip uses its Confluence address.</li>
+      <li><b>Images:</b> up to 200 MB of images go in each zip. After that, and for any image that can't be read, the image stays a link to Confluence, and the page's notes and the report say why.</li>
+      <li><b>Stop</b> keeps what's been read so far: <b>Save the N exported so far</b> or <b>Discard</b>. If you stop while images are being saved, every page is kept and the images not saved yet stay links.</li>
+      <li><b>Only what you can see:</b> the export reads pages as you, so pages you can't open aren't exported. Exporting never changes anything in Confluence.</li>
+      <li><b>Privacy:</b> the pages and images go from Confluence to your browser and into the zip on your computer, and nowhere else. The app stores none of it. See <a href="../privacy/#query-bulk">the privacy policy</a>.</li>
+    </ul>
+
+    <h3 id="archive">8. Archiving pages</h3>
     <ul>
       <li>Archive works on pages only (not blog posts or files), up to 300 a run, and needs a second tick before it starts. The app can't undo an archive.</li>
       <li><b>Who can archive is Confluence's rule:</b> anyone with the space's Archive permission can archive any page they can view, even one that's restricted from editing, and everyone can archive pages they created. Space admins choose who has the Archive permission in the space's settings. The app allows exactly what Confluence allows.</li>
@@ -224,19 +270,19 @@
       <li><b>To restore a page,</b> open it and choose <b>Restore</b>. It goes back under its last parent page. Rows in the results link to each archived page.</li>
     </ul>
 
-    <h3 id="settings">8. The admin setting</h3>
+    <h3 id="settings">9. The admin setting</h3>
     <p>In Confluence <b>Settings</b> → <b>Apps</b> → <b>Query &amp; Bulk Actions</b>, a Confluence admin can choose whether the bulk bar is <b>Shown</b> (the default) or <b>Hidden</b> on the search page. With Hidden, searching, saved searches, export and the macro still work.</p>
     <p>This is a preference for your team, not a security setting: every action runs as the person using it, so nobody can change a page they couldn't change by hand, whatever this setting says. The same page shows how often Confluence asked the app to slow down this week.</p>
 
-    <h3 id="limits">9. Limits and large sites</h3>
-    <p>Every action has a fixed size, so the app works the same on a site with 3,000 pages or a million: a screen of up to 100 results, Select all up to 500, a bulk run up to 500 items (300 for archive), an export up to 10,000 rows. It never reads your whole site.</p>
+    <h3 id="limits">10. Limits and large sites</h3>
+    <p>Every action has a fixed size, so the app works the same on a site with 3,000 pages or a million: a screen of up to 100 results, Select all up to 500, a bulk run up to 500 items (300 for archive), a CSV export up to 10,000 rows, an export to Markdown up to 500 pages and 200 MB of images a zip. It never reads your whole site.</p>
     <ul>
       <li><b>Your site's hourly allowance:</b> to keep Confluence fast for everyone, each site has an hourly allowance for the app. Normal use never reaches it. If a very busy site does, searching or big actions wait until the time shown.</li>
       <li><b>Atlassian's shared limit:</b> Atlassian limits how much all sites together can ask of an app. If it's nearly used, big actions (export, Select all, bulk changes) wait until the time shown while searching still works; if it's used up, searching waits too, usually for a few minutes. The message says when to try again.</li>
       <li><b>Speed:</b> a search usually takes a second or two; an export runs at about 170 rows a second. The first time the page or a macro opens, Confluence takes a few seconds to load the app.</li>
     </ul>
 
-    <h3 id="faq">10. Common questions</h3>
+    <h3 id="faq">11. Common questions</h3>
 
     <details id="allow-access">
       <summary>Why does it ask me to “Allow access”?</summary>
@@ -251,6 +297,11 @@
     <details>
       <summary>Some items were Refused. Why?</summary>
       <p>Confluence refused the change, usually because you can view the page but not edit it, or you tried to change someone else's watching without being an admin. Nothing was changed on those items.</p>
+    </details>
+
+    <details id="export-privacy">
+      <summary>Does Export to Markdown send our pages anywhere?</summary>
+      <p>No. Your browser reads the pages from Confluence as you, builds the zip and saves it to your computer. The pages and images never pass through Kitefold or any other service, and the app stores nothing from them. Images on other websites are left as links and never fetched.</p>
     </details>
 
     <details>
@@ -273,7 +324,7 @@
       <p>Atlassian deletes what the app stored on your site (saved searches, the admin setting, its usage counts and the note of whether the review request was dismissed) under its retention rules for Forge apps; if you install the app again within 21 days, Atlassian can restore it. Nothing in Confluence itself changes: labels, watchers and archived pages stay as they are. <b>Query results</b> macros on pages stop showing results until the app is installed again.</p>
     </details>
 
-    <h3 id="support">11. Contact support</h3>
+    <h3 id="support">12. Contact support</h3>
     <p>Email <a href="mailto:support@kitefold.app">support@kitefold.app</a>. We reply within one working day (Monday to Friday, 9:00 to 17:00 UK time), and the same working day for urgent problems: see <a href="../support/">support hours and response times</a>. It helps to include your Confluence site address, the search you ran (the CQL), what you expected and what happened, with a screenshot if you can.</p>
     <p class="faint">Please don't send passwords or API tokens. We'll never ask for them.</p>
   </div>

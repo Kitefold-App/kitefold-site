@@ -28,7 +28,7 @@
   <div class="wrap">
     <span class="eyebrow">Privacy</span>
     <h1>Privacy policy</h1>
-    <p class="faint">Last updated 19 November 2026</p>
+    <p class="faint">Last updated 20 November 2026</p>
 
     <div class="note">
       <p><b>In short:</b> Kitefold's apps run on Atlassian's own platform and send nothing outside Atlassian. The All-Spaces Task Report reads your tasks as the person viewing them and stores only the settings for each weekly digest, plus one site-wide note for its review request. Link Health &amp; Cleanup keeps an index of the links on your site (ids, titles, link targets, file names and sizes, never page text) in Atlassian's storage for the app, and checks everything it shows as the person viewing it. Query &amp; Bulk Actions searches and changes Confluence as the person using it, in their browser, and stores only saved searches, one setting and usage counts; its optional plain-English search uses an AI model hosted by Atlassian that never sees page content. This website uses no cookies and no tracking.</p>
@@ -156,6 +156,7 @@
 
     <h3>What it reads</h3>
     <p>The app reads Confluence <b>as the person using it</b>, in their browser: the search results they ask for (titles, types, spaces, dates, people, labels, versions, parent pages and file sizes, as they choose), space and label names for the pickers, and people's names. It never sees more than that person can. Search results are shown on the page and, if the person exports them, saved to a file on their own computer; they're never stored by the app.</p>
+    <p><b>Export to Markdown:</b> only when the person presses Export, their browser also reads the content of the pages and blog posts they chose, the lists of files on those pages, the images the pages show and the names of people mentioned, as that person. The browser turns them into Markdown files in a zip and saves it straight to their computer. The content and images go nowhere else: not to Kitefold, not to any other service, and not into the app's storage or logs. Images on other websites are left as links and never fetched.</p>
 
     <h3>What it changes</h3>
     <ul>
@@ -171,7 +172,7 @@
       <li>usage counts with no personal data: an hourly record of how much the site has asked of Confluence (kept 48 hours), a weekly count of how often Confluence asked the app to slow down, and a monthly count of plain-English searches with the AI model used and its token totals</li>
       <li>for the current month only, the Atlassian account IDs of people who have used “Ask in plain English”, so the site's allowance can grow with them; they expire automatically on the 3rd of the next month</li>
     </ul>
-    <p>It stores no search results, page content, page titles or people's names. In the person's own browser it keeps a few minutes of a <b>Query results</b> macro's results (so the page loads quickly), their column and row choices, a note of a bulk run in progress (so it can say if the run was cut short), and whether it has already shown the one-time review request. When the app is uninstalled, Atlassian deletes the app's stored data under its own retention rules for Forge apps (it can be restored if the app is reinstalled within 21 days).</p>
+    <p>It stores no search results, page content, images, page titles or people's names. An export to Markdown is held only in the open browser tab until the zip is saved (and for <b>Download the zip again</b>), and is let go when the tab is closed or the next export starts. In the person's own browser it keeps a few minutes of a <b>Query results</b> macro's results (so the page loads quickly), their column and row choices, a note of a bulk run in progress (so it can say if the run was cut short), and whether it has already shown the one-time review request. When the app is uninstalled, Atlassian deletes the app's stored data under its own retention rules for Forge apps (it can be restored if the app is reinstalled within 21 days).</p>
 
     <h3 id="query-bulk-ai">Ask in plain English (AI)</h3>
     <p>When someone uses “Ask in plain English”, their request, today's date, the list of search fields the app allows, the names of spaces they can see and the names of up to 20 labels that share a word with the request are sent to an AI model hosted by Atlassian inside its own platform (Forge LLMs). Page content, page titles and people are never sent. The AI writes a search that the person sees and can change before it runs. Kitefold doesn't store or log what anyone types, and nothing is sent to an AI service outside Atlassian. The feature is optional; the rest of the app works without it.</p>
