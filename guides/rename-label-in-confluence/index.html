@@ -38,11 +38,12 @@
       <li>Type a label in <b>+ Add label</b>, or press <b>×</b> on a label to remove it. Changes apply straight away; close the dialog when you're done.</li>
     </ol>
     <p>Add the new label first, then remove the old one, so no page is left with neither. To merge two labels, do the same for each old label.</p>
+    <p><b>With Automation:</b> Confluence Automation has a template, “Replace a label on all pages when scheduled (recurring)”. It's a scheduled flow whose <b>Branch flow / related entities</b> step finds pages with a CQL search (<code>label = "old-label"</code>), then runs <b>Remove label</b> and <b>Add label</b> on each one. Put <b>Add label</b> first, so a page isn't left with neither if a run stops part-way, and try it on one space before the whole site.</p>
     <h3>Where it falls short</h3>
     <ul>
-      <li><b>One page at a time.</b> The label's search page has no rename, merge or delete, and nothing that acts on all its pages.</li>
-      <li><b>Automation can't pick pages by label.</b> Confluence Automation has <b>Add label</b> and <b>Remove label</b> actions, and a template called “Replace a label on all pages when scheduled (recurring)”. But its page lookups can only filter by author and dates (up to 150 pages at a time), and its scheduled trigger can't run a search, so check what such a flow really covers before relying on it.</li>
-      <li><b>No undo.</b> If you rename the wrong label, you change every page back by hand.</li>
+      <li><b>By hand, one page at a time.</b> The label's search page has no rename, merge or delete, and nothing that acts on all its pages.</li>
+      <li><b>Automation needs a flow built for each rename,</b> runs on a schedule, and shows no preview of which pages it will change.</li>
+      <li><b>No undo either way.</b> If you rename the wrong label, you change every page back yourself.</li>
     </ul>
 
     <h2 id="with-the-app">Across every space with Query &amp; Bulk Actions</h2>
