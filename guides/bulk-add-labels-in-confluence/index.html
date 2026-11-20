@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to add labels to many Confluence pages at once | Kitefold</title>
+<meta name="description" content="Confluence Cloud adds labels one page at a time. Here&#x27;s how to do it by hand, what Automation can do, and how to add or remove a label on up to 500 pages a search finds, with a preview and undo.">
+<link rel="canonical" href="https://kitefold.app/guides/bulk-add-labels-in-confluence/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../styles.css">
+<script src="../../menu.js"></script>
+<meta property="og:title" content="How to add labels to many Confluence pages at once | Kitefold">
+<meta property="og:description" content="Confluence Cloud adds labels one page at a time. Here&#x27;s how to do it by hand, what Automation can do, and how to add or remove a label on up to 500 pages a search finds, with a preview and undo.">
+<meta property="og:url" content="https://kitefold.app/guides/bulk-add-labels-in-confluence/">
+<meta property="og:type" content="article">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="../../">Home</a><a href="../../task-report/">Task Report</a><a href="../../link-health/">Link Health</a><a href="../../query-bulk/">Query &amp; Bulk</a><a href="../../guides/" aria-current="page">Guides</a><a href="../../help/">Help</a><a href="../../privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="doc">
+  <div class="wrap">
+    <span class="eyebrow"><a href="../">Guides</a></span>
+    <h1>How to add labels to many Confluence pages at once</h1>
+    <p class="lead">Confluence Cloud adds and removes labels one page at a time. There's no way to select several pages and label them together: the request, <a href="https://jira.atlassian.com/browse/CONFCLOUD-17373">CONFCLOUD-17373</a>, has been open since 2009. To label many pages at once, find them with a search and use an app that labels them all.</p>
+
+    <h2 id="built-in">With Confluence on its own</h2>
+    <ol>
+      <li>Open a page. Its labels show as chips at the bottom of the page, next to <b>Add a comment</b>. You don't need to edit the page.</li>
+      <li>Click the labels. The <b>Details</b> panel opens; under <b>Labels</b>, press <b>+</b> (<b>Add label</b>) to open <b>Edit labels</b>.</li>
+      <li>Type a label in <b>+ Add label</b>, or press <b>×</b> on a label to remove it. Changes apply straight away; close the dialog when you're done.</li>
+    </ol>
+    <h3>Where it falls short</h3>
+    <ul>
+      <li><b>One page at a time,</b> however many pages need the label.</li>
+      <li><b>Automation can only pick pages by author and dates.</b> Confluence Automation has an <b>Add label</b> action, but its page lookups and branches filter only by author, created and last-updated dates (up to 150 pages at a time), not by space, label or a search.</li>
+      <li><b>No preview or undo</b> for a batch of changes.</li>
+    </ul>
+
+    <h2 id="with-the-app">From any search with Query &amp; Bulk Actions</h2>
+    <ol>
+      <li>A Confluence admin installs <b>Query &amp; Bulk Actions</b>; anyone can then open it from the <b>Apps</b> menu.</li>
+      <li>Find the pages: by space, label, date, people, words, or pages under a parent page, with the builder, CQL or <b>Ask in plain English</b>.</li>
+      <li>Tick the results or press <b>Select all</b> (up to 500), choose <b>Add labels</b> (or <b>Remove labels</b>), type the labels and press <b>Preview</b>.</li>
+      <li>Confirm. Each page, blog post or file gets the label as you; pages that already have it are skipped, and pages you can't edit are refused. <b>Undo these changes</b> takes them off again.</li>
+    </ol>
+    <figure style="margin:1.6em 0">
+      <img src="../img/qb-add-labels.webp" width="1164" height="636" loading="lazy" alt="The bulk bar with Add labels chosen, the label hr-reviewed, and a preview of three ticked pages from a search" style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)">
+      <figcaption class="caption">Adding a label to three ticked results: the preview lists them first. Made-up demo data.</figcaption>
+    </figure>
+    <div class="note">
+      <p><b>Disclosure:</b> Kitefold makes Query &amp; Bulk Actions, so we're not neutral. Labelling by hand is free and fine for a few pages.</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/3669018913?hosting=cloud&amp;utm_source=kitefold.app&amp;utm_medium=referral&amp;utm_campaign=guide-bulk-labels">Get it on the Marketplace</a>
+      <a class="btn btn-ghost" href="../../query-bulk/#bulk">Read the help</a>
+      <span class="faint">Free for up to 10 users</span>
+    </div>
+
+    <h2 id="related">Related guides</h2>
+    <ul>
+      <li><a href="../rename-label-in-confluence/">How to rename or merge a label in Confluence Cloud</a></li>
+      <li><a href="../stop-watching-confluence-pages/">How to stop watching many Confluence pages at once</a></li>
+      <li><a href="../confluence-cql-cheat-sheet/">Confluence CQL cheat sheet</a></li>
+    </ul>
+    <p class="faint">Checked against Confluence Cloud in November 2026, on our test site. Confluence changes often; if something here no longer matches what you see, email <a href="mailto:support@kitefold.app">support@kitefold.app</a> and we'll update it.</p>
+  </div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="../../task-report/">All-Spaces Task Report</a></p>
+      <p><a href="../../link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="../../query-bulk/">Query &amp; Bulk Actions</a></p>
+      <p><a href="../../guides/">Confluence guides</a></p>
+      <p><a href="../../guides/confluence-link-checker/">Free link checker</a></p>
+      <p><a href="../../help/">Help and FAQ</a></p>
+      <p><a href="../../support/">Support and service levels</a></p>
+      <p><a href="../../privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Support: <a href="mailto:support@kitefold.app">support@kitefold.app</a></p>
+      <p>General: <a href="mailto:hello@kitefold.app">hello@kitefold.app</a></p>
+      
+    </div>
+    <p class="legal">&copy; 2026 Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>

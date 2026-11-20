@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to rename or merge a label in Confluence Cloud | Kitefold</title>
+<meta name="description" content="Confluence Cloud can&#x27;t rename, merge or delete a label: the request has been open since 2007. Here&#x27;s how to change a label by hand, what Automation can and can&#x27;t do, and how to rename or merge a label across every space in one run.">
+<link rel="canonical" href="https://kitefold.app/guides/rename-label-in-confluence/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../styles.css">
+<script src="../../menu.js"></script>
+<meta property="og:title" content="How to rename or merge a label in Confluence Cloud | Kitefold">
+<meta property="og:description" content="Confluence Cloud can&#x27;t rename, merge or delete a label: the request has been open since 2007. Here&#x27;s how to change a label by hand, what Automation can and can&#x27;t do, and how to rename or merge a label across every space in one run.">
+<meta property="og:url" content="https://kitefold.app/guides/rename-label-in-confluence/">
+<meta property="og:type" content="article">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="../../">Home</a><a href="../../task-report/">Task Report</a><a href="../../link-health/">Link Health</a><a href="../../query-bulk/">Query &amp; Bulk</a><a href="../../guides/" aria-current="page">Guides</a><a href="../../help/">Help</a><a href="../../privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="doc">
+  <div class="wrap">
+    <span class="eyebrow"><a href="../">Guides</a></span>
+    <h1>How to rename or merge a label in Confluence Cloud</h1>
+    <p class="lead">Confluence Cloud has no way to rename, merge or delete a label. The request, <a href="https://jira.atlassian.com/browse/CONFCLOUD-7681">CONFCLOUD-7681</a>, has been open since 2007. Clicking a label only opens a search for the pages that have it. To rename a label, each page has to gain the new label and lose the old one, either by hand or with an app that does it for every page you can edit.</p>
+
+    <h2 id="built-in">With Confluence on its own</h2>
+    <p>First list the pages: click the label on any page (it opens Confluence search filtered to that label), or search <code>label = "old-label"</code>. Then, on each page:</p>
+    <ol>
+      <li>Open a page. Its labels show as chips at the bottom of the page, next to <b>Add a comment</b>. You don't need to edit the page.</li>
+      <li>Click the labels. The <b>Details</b> panel opens; under <b>Labels</b>, press <b>+</b> (<b>Add label</b>) to open <b>Edit labels</b>.</li>
+      <li>Type a label in <b>+ Add label</b>, or press <b>×</b> on a label to remove it. Changes apply straight away; close the dialog when you're done.</li>
+    </ol>
+    <p>Add the new label first, then remove the old one, so no page is left with neither. To merge two labels, do the same for each old label.</p>
+    <h3>Where it falls short</h3>
+    <ul>
+      <li><b>One page at a time.</b> The label's search page has no rename, merge or delete, and nothing that acts on all its pages.</li>
+      <li><b>Automation can't pick pages by label.</b> Confluence Automation has <b>Add label</b> and <b>Remove label</b> actions, and a template called “Replace a label on all pages when scheduled (recurring)”. But its page lookups can only filter by author and dates (up to 150 pages at a time), and its scheduled trigger can't run a search, so check what such a flow really covers before relying on it.</li>
+      <li><b>No undo.</b> If you rename the wrong label, you change every page back by hand.</li>
+    </ul>
+
+    <h2 id="with-the-app">Across every space with Query &amp; Bulk Actions</h2>
+    <ol>
+      <li>A Confluence admin installs <b>Query &amp; Bulk Actions</b>; anyone can then open it from the <b>Apps</b> menu.</li>
+      <li>Choose the action <b>Rename or merge a label (whole site)</b>. You don't need to run a search first.</li>
+      <li>Type the <b>old label</b> (several, separated by commas, to merge them) and the <b>new label</b>, then press <b>Find and preview</b>. The preview says how many pages, blog posts and files have it, in which spaces, and which already have the new label.</li>
+      <li>Confirm. Each item gets the new label, then loses the old one, as you. Pages you can't edit are refused and listed, and archived pages keep the old label (Confluence won't change them).</li>
+      <li>Up to 500 items a run; <b>Find the next ones</b> carries on. <b>Undo these changes</b> puts every label back as it was.</li>
+    </ol>
+    <figure style="margin:1.6em 0">
+      <img src="../img/qb-rename-label.webp" width="1164" height="320" loading="lazy" alt="The Rename or merge a label action: old label outdated, new label to-archive, and a preview of five pages in one space with a Rename button" style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)">
+      <figcaption class="caption">Renaming “outdated” to “to-archive”: the preview before anything changes. Made-up demo data.</figcaption>
+    </figure>
+    <div class="note">
+      <p><b>Disclosure:</b> Kitefold makes Query &amp; Bulk Actions, so we're not neutral. Changing labels by hand is free and fine for a few pages.</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/3669018913?hosting=cloud&amp;utm_source=kitefold.app&amp;utm_medium=referral&amp;utm_campaign=guide-rename-label">Get it on the Marketplace</a>
+      <a class="btn btn-ghost" href="../../query-bulk/#bulk">Read the help</a>
+      <span class="faint">Free for up to 10 users</span>
+    </div>
+
+    <h2 id="related">Related guides</h2>
+    <ul>
+      <li><a href="../bulk-add-labels-in-confluence/">How to add labels to many Confluence pages at once</a></li>
+      <li><a href="../confluence-cql-cheat-sheet/">Confluence CQL cheat sheet</a></li>
+      <li><a href="../confluence-cleanup-cql/">Confluence clean-up searches with CQL, and what CQL can’t find</a></li>
+    </ul>
+    <p class="faint">Checked against Confluence Cloud in November 2026, on our test site. Confluence changes often; if something here no longer matches what you see, email <a href="mailto:support@kitefold.app">support@kitefold.app</a> and we'll update it.</p>
+  </div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="../../task-report/">All-Spaces Task Report</a></p>
+      <p><a href="../../link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="../../query-bulk/">Query &amp; Bulk Actions</a></p>
+      <p><a href="../../guides/">Confluence guides</a></p>
+      <p><a href="../../guides/confluence-link-checker/">Free link checker</a></p>
+      <p><a href="../../help/">Help and FAQ</a></p>
+      <p><a href="../../support/">Support and service levels</a></p>
+      <p><a href="../../privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Support: <a href="mailto:support@kitefold.app">support@kitefold.app</a></p>
+      <p>General: <a href="mailto:hello@kitefold.app">hello@kitefold.app</a></p>
+      
+    </div>
+    <p class="legal">&copy; 2026 Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>
