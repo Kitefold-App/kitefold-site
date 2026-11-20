@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to export Confluence pages to Markdown (with images) | Kitefold</title>
+<meta name="description" content="Confluence Cloud has no Markdown export. Here&#x27;s what its own exports give you, how to turn an HTML space export into Markdown, and how to export the pages a search finds as Markdown files with their images.">
+<link rel="canonical" href="https://kitefold.app/guides/confluence-to-markdown/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../styles.css">
+<script src="../../menu.js"></script>
+<meta property="og:title" content="How to export Confluence pages to Markdown (with images) | Kitefold">
+<meta property="og:description" content="Confluence Cloud has no Markdown export. Here&#x27;s what its own exports give you, how to turn an HTML space export into Markdown, and how to export the pages a search finds as Markdown files with their images.">
+<meta property="og:url" content="https://kitefold.app/guides/confluence-to-markdown/">
+<meta property="og:type" content="article">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="../../">Home</a><a href="../../task-report/">Task Report</a><a href="../../link-health/">Link Health</a><a href="../../query-bulk/">Query &amp; Bulk</a><a href="../../guides/" aria-current="page">Guides</a><a href="../../help/">Help</a><a href="../../privacy/">Privacy</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="doc">
+  <div class="wrap">
+    <span class="eyebrow"><a href="../">Guides</a></span>
+    <h1>How to export Confluence pages to Markdown (with images)</h1>
+    <p class="lead">Confluence Cloud can't export to Markdown. A single page exports to Word or PDF, and a whole space to PDF, CSV, HTML or XML. The closest route without an app is a space's HTML export run through a converter such as pandoc, which leaves clean-up to do. To export just the pages you need, by label, space or any search, as Markdown files with their images, use an app.</p>
+
+    <h2 id="built-in">What Confluence exports on its own</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>What</th><th>Formats</th><th>Who can do it</th></tr></thead>
+        <tbody>
+          <tr><td>One page or blog post (<b>•••</b> → <b>Export</b>)</td><td>Word, PDF</td><td>Anyone who can view it</td></tr>
+          <tr><td>A space, or pages picked from it (<b>Space settings</b> → <b>General</b> → <b>Export space</b>)</td><td>PDF, CSV; HTML and XML under <b>Advanced options</b> (Atlassian is ending XML on 1 December 2026)</td><td>Space admins</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>None of these is Markdown. For Markdown, the HTML space export is the usual starting point, because HTML converts to Markdown reasonably well.</p>
+
+    <h2 id="html-export">From an HTML space export, with pandoc</h2>
+    <ol>
+      <li>In the space, open <b>•••</b> next to the space name and choose <b>Space settings</b>. In the menu on the left, expand <b>General</b> and choose <b>Export space</b>.</li>
+      <li>Under <b>File format</b>, open <b>Advanced options</b>, choose <b>HTML</b> and press <b>Next</b>.</li>
+      <li>Choose <b>Export each item, with attachments</b> for the whole space, or <b>Select what to export</b> to tick pages in the page tree (<b>Deselect All</b> clears it first; ticking a page doesn't tick its parent). Atlassian suggests 2,000 pages or fewer per export. Press <b>Export</b>, and when it reaches 100%, download the zip and unzip it.</li>
+      <li>Install <a href="https://pandoc.org/installing.html" rel="noopener">pandoc</a> (free), open a terminal in the space's folder inside the unzipped export (it's named after the space key) and convert each page. In PowerShell:
+        <pre style="white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:10px 0"><code style="background:none;padding:0">Get-ChildItem *.html | ForEach-Object { pandoc -f html -t gfm-raw_html --wrap=none $_.FullName -o ($_.BaseName + '.md') }</code></pre>
+        On macOS or Linux:
+        <pre style="white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:10px 0"><code style="background:none;padding:0">for f in *.html; do pandoc -f html -t gfm-raw_html --wrap=none "$f" -o "${f%.html}.md"; done</code></pre>
+        <code>gfm-raw_html</code> gives GitHub-style Markdown without the leftover HTML wrappers. Without it, every page keeps Confluence's <code>&lt;div&gt;</code> layout in the file.</li>
+    </ol>
+    <h3>Where it falls short</h3>
+    <ul>
+      <li><b>Space admins only,</b> and one space at a time. You pick pages by ticking them in the page tree, not by label or search.</li>
+      <li><b>Blog posts aren't exported.</b> Comments are left out unless you choose <b>Select what to export</b> and keep <b>Include comments</b> ticked.</li>
+      <li><b>Each file carries Confluence's page furniture:</b> a breadcrumb link, “Space : Title”, “Created by … on …” at the top and “Document generated by Confluence” at the bottom. There's no header with the page's labels or address.</li>
+      <li><b>Panels become plain text</b> (a panel's title becomes bold text), so you can't see where a warning or tip was. Nothing lists what changed.</li>
+      <li><b>Links to other pages go back to Confluence,</b> so the files still depend on it.</li>
+      <li><b>Images are named by attachment id,</b> such as <code>attachments/20316225/20283415.png</code>, not by their file names, so they need renaming if the Markdown goes anywhere else.</li>
+    </ul>
+    <p>For one or two short pages, copying the page and pasting it into a Markdown editor keeps headings, bold, italic, lists and links, but drops images, panels and most tables.</p>
+
+    <h2 id="with-the-app">By search, label or space with Query &amp; Bulk Actions</h2>
+    <ol>
+      <li>A Confluence admin installs <b>Query &amp; Bulk Actions</b>. Anyone on the site can then use it; they don't need to be a space admin.</li>
+      <li>Open the app from the <b>Apps</b> menu and find the pages with a search: a label (<code>label = "handbook"</code>), a space, pages under a parent page, pages nobody has changed in a year, or a saved search. Plain English works too.</li>
+      <li>Tick the results or press <b>Select all</b>, choose <b>Export to Markdown (download a zip)</b> and press <b>Preview</b>. It says how many pages and blog posts will be exported.</li>
+      <li>Press <b>Export</b>. The zip is saved to your computer: one folder per space, one <code>.md</code> file per page with a short header (title, space, address, labels, last change), the images in an <code>images</code> folder linked from the pages, and <code>export-report.md</code> listing anything that didn't convert.</li>
+    </ol>
+    <figure style="margin:1.6em 0">
+      <img src="../img/qb-markdown-export.webp" width="1058" height="419" loading="lazy" alt="The Query &amp; Bulk Actions bulk bar after exporting five pages to Markdown: Last run: Done 5, the saved zip&#x27;s name, and each page with its file path in the zip" style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)">
+      <figcaption class="caption">Five policy pages exported, each with its file in the zip. Made-up demo data.</figcaption>
+    </figure>
+    <ul>
+      <li><b>Links between exported pages</b> point to their <code>.md</code> files, also across space folders. Other links go to the page in Confluence.</li>
+      <li><b>Panels</b> become callouts (<code>&gt; [!NOTE]</code>, <code>&gt; [!WARNING]</code> and so on, which GitHub and Obsidian show as callouts), <b>code blocks</b> keep their language, <b>task lists</b> become <code>- [ ]</code>, and tables with merged cells stay as HTML tables so nothing is lost.</li>
+      <li><b>Nothing disappears silently.</b> A macro the exporter can't convert, such as a table of contents or another app's macro, stays in the file as a comment and is listed in the report.</li>
+      <li><b>Up to 500 pages a zip,</b> then <b>Export the next 500</b> carries on without repeating pages. Up to 200 MB of images go in each zip.</li>
+      <li><b>It runs in your browser, as you.</b> You only export pages you can open, and the pages go straight from Confluence to your computer. The app keeps no copy.</li>
+    </ul>
+    <div class="note">
+      <p><b>Disclosure:</b> Kitefold makes Query &amp; Bulk Actions, so we're not neutral. Confluence's HTML export and pandoc are free, and may be all you need for a one-off export of a whole space.</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/3669018913?hosting=cloud&amp;utm_source=kitefold.app&amp;utm_medium=referral&amp;utm_campaign=guide-markdown">Get it on the Marketplace</a>
+      <a class="btn btn-ghost" href="../../query-bulk/#markdown">Read the export help</a>
+      <span class="faint">Free for up to 10 users</span>
+    </div>
+
+    <h2 id="related">Related guides</h2>
+    <ul>
+      <li><a href="../confluence-cleanup-cql/">Confluence clean-up searches with CQL, and what CQL can’t find</a></li>
+      <li><a href="../orphan-pages-in-confluence/">How to find orphan pages in Confluence</a></li>
+      <li><a href="../unused-attachments-in-confluence/">How to find unused attachments in Confluence (and free up storage)</a></li>
+    </ul>
+    <p class="faint">Checked against Confluence Cloud in November 2026, with a real HTML export converted by pandoc 3. Sources: Atlassian's <a href="https://support.atlassian.com/confluence-cloud/docs/export-content-to-word-pdf-html-and-xml/" rel="noopener">Export a space's content as Word, PDF, or data files</a>. Confluence changes often; if something here no longer matches what you see, email <a href="mailto:support@kitefold.app">support@kitefold.app</a> and we'll update it.</p>
+  </div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 13l12 17z" fill="var(--accent)"/><path d="M16 2l12 11-12 17z" fill="var(--accent-ink)"/><path d="M4 13h24" stroke="var(--bg)" stroke-width="1.4"/></svg><span>Kitefold</span></a>
+      <p style="margin-top:10px">Small, careful apps for Confluence Cloud.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <p><a href="../../task-report/">All-Spaces Task Report</a></p>
+      <p><a href="../../link-health/">Link Health &amp; Cleanup</a></p>
+      <p><a href="../../query-bulk/">Query &amp; Bulk Actions</a></p>
+      <p><a href="../../guides/">Confluence guides</a></p>
+      <p><a href="../../guides/confluence-link-checker/">Free link checker</a></p>
+      <p><a href="../../help/">Help and FAQ</a></p>
+      <p><a href="../../support/">Support and service levels</a></p>
+      <p><a href="../../privacy/">Privacy policy</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Support: <a href="mailto:support@kitefold.app">support@kitefold.app</a></p>
+      <p>General: <a href="mailto:hello@kitefold.app">hello@kitefold.app</a></p>
+      
+    </div>
+    <p class="legal">&copy; 2026 Kitefold. Kitefold is a sole trader business in the United Kingdom. Atlassian and Confluence are trademarks of Atlassian. Kitefold is not affiliated with or endorsed by Atlassian.</p>
+  </div>
+</footer>
+</body>
+</html>
