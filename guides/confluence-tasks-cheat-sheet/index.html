@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Confluence tasks cheat sheet | Kitefold</title>
-<meta name="description" content="Every way to create, assign, date and finish a task in Confluence Cloud, where tasks show up, and every Task report macro setting, on one page.">
+<title>Confluence tasks cheat sheet: to-do lists, action items and the Task report macro | Kitefold</title>
+<meta name="description" content="Confluence tasks (action items, to-dos): how to create, assign, date and finish them, where they show up, and every Task report macro setting, on one page.">
 <link rel="canonical" href="https://kitefold.app/guides/confluence-tasks-cheat-sheet/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../styles.css">
 <script src="../../menu.js"></script>
-<meta property="og:title" content="Confluence tasks cheat sheet | Kitefold">
-<meta property="og:description" content="Every way to create, assign, date and finish a task in Confluence Cloud, where tasks show up, and every Task report macro setting, on one page.">
+<meta property="og:title" content="Confluence tasks cheat sheet: to-do lists, action items and the Task report macro | Kitefold">
+<meta property="og:description" content="Confluence tasks (action items, to-dos): how to create, assign, date and finish them, where they show up, and every Task report macro setting, on one page.">
 <meta property="og:url" content="https://kitefold.app/guides/confluence-tasks-cheat-sheet/">
 <meta property="og:type" content="article">
 <style media="print">header, footer, nav, .btns, .no-print { display: none !important; } a { color: inherit; text-decoration: none; } .doc .wrap { max-width: none; } h2 { break-after: avoid; } table { break-inside: avoid; }</style>
@@ -30,6 +30,13 @@
     <span class="eyebrow"><a href="../">Guides</a></span>
     <h1>Confluence tasks cheat sheet</h1>
     <p class="lead">Confluence tasks (also called action items) are checkboxes you can assign to someone and give a due date. Here's every way to create and manage them in Confluence Cloud, where they show up, and every setting of the built-in Task report macro, on one page you can print.</p>
+
+    <h2 id="quick">Quick answers</h2>
+          <p><b>Does Confluence have a to-do list?</b><br>Yes: tasks. A task is a checkbox on a page that you can assign and date, and Confluence's own name for it is an <b>action item</b>. Your personal list is under <b>Tasks</b> (profile picture, top right), and a <b>Task report</b> macro lists tasks for a team on a page. See <a href="#create">create a task</a> and <a href="#where">where tasks show up</a>.</p>
+      <p><b>How do I add a Task report macro?</b><br>Edit a page, type <code>/task report</code> and choose <b>Task report</b>. Every setting is in the <a href="#task-report">Task report macro settings</a> table.</p>
+      <p><b>How do I show the tasks of just the current page?</b><br>In the macro's <b>Space(s) and Page(s)</b> setting, enter that page instead of the space. It only lists tasks from the spaces and pages you enter.</p>
+      <p><b>Can Confluence remind me when a task is due?</b><br>Not on its own: nobody is notified when a due date arrives or passes (<a href="https://jira.atlassian.com/browse/CONFCLOUD-35150">CONFCLOUD-35150</a>). See <a href="../weekly-reminder-overdue-confluence-tasks/">how to send a weekly reminder</a>.</p>
+      <p><b>Can I see overdue tasks, or tasks from every space, in one list?</b><br>The built-in macro has no overdue filter and needs every space entered one by one (<a href="https://jira.atlassian.com/browse/CONFCLOUD-71390">CONFCLOUD-71390</a>). The guides on <a href="../overdue-tasks-in-confluence/">finding overdue tasks</a> and <a href="../all-confluence-tasks-across-spaces/">seeing tasks across spaces</a> cover what you can do, and <a href="../../task-report/">All-Spaces Task Report</a> does it in one report.</p>
 
     <h2 id="create">Create a task</h2>
     <table>
@@ -100,12 +107,12 @@
     </ul>
 
     <h2 id="all-spaces">Need it across all spaces?</h2>
-    <p>The Task report only covers the spaces you list, and has no overdue filter or counts. <b>All-Spaces Task Report</b> shows every task from every space you can see in one report, overdue first, with counts by space or person, and can post a weekly digest that @mentions everyone with overdue tasks.</p>
+    <p>The Task report only covers the spaces you list, and has no overdue filter or counts. <a href="../../task-report/"><b>All-Spaces Task Report</b></a> shows every task from every space you can see in one report, overdue first, with counts by space or person, and can post a weekly digest that @mentions everyone with overdue tasks.</p>
     <div class="note">
       <p><b>Disclosure:</b> Kitefold makes All-Spaces Task Report, so we're not neutral. Everything above this box works with Confluence on its own.</p>
     </div>
     <div class="btns">
-      <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/2319644115/all-spaces-task-report-overdue-tasks-reminders?hosting=cloud&amp;utm_source=kitefold.app&amp;utm_medium=referral&amp;utm_campaign=cheatsheet">Get it on the Marketplace</a>
+      <a class="btn btn-primary" href="https://marketplace.atlassian.com/apps/2319644115/all-spaces-task-report-for-confluence-overdue-reminders?hosting=cloud&amp;utm_source=kitefold.app&amp;utm_medium=referral&amp;utm_campaign=cheatsheet">Get it on the Marketplace</a>
       <a class="btn btn-ghost" href="../../task-report/">What it does</a>
       <span class="faint">Free for up to 10 users</span>
     </div>
